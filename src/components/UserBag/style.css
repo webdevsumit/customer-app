@@ -1,0 +1,42 @@
+.UserBag-total-div-container{
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
+    background-color: #F0F0F0;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-between;
+    align-items: flex-end;   
+    border-radius: 8px; 
+    margin-bottom: 10px;
+}
+
+.UserBag-total-div-container>p{
+    color: var(--user-primary);
+    margin: 10px;
+    font-weight: bold;
+}
+
+.UserBag-distance-options{
+    max-width: 33.6%;
+}
+
+.UserBag-distance-options>input{
+    max-width: 100%;
+    margin: 5px;
+    height: 45px;
+    border: 2px solid black;
+    border-radius: 7px;
+    padding: 10px;
+    font-size: 17px;
+    font-weight: bold;
+    color: var(--user-primary);
+}
+
+.UserBag-distance-options>input:focus{
+    outline: 2px solid black;
+}
+
+.UserBag-btn-div{
+    padding: 5px 10%;
+}

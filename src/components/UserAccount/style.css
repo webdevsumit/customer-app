@@ -1,0 +1,36 @@
+.UserAccount {
+  padding: 20px;
+}
+
+.UserAccount-input-div {
+  margin-top: 10px;
+  max-width: 100%;
+}
+
+.UserAccount-input-label {
+  font-weight: bold;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 3px;
+  color: var(--user-primary);
+}
+
+.UserAccount-full-name-input {
+  width: 100%;
+  /* height: 40px; */
+  font-size: 18px;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.UserAccount-user-color-input {
+  width: 100%;
+}
+
+.UserAccount-user-color-input-label-div {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}

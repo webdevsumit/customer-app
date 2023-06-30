@@ -1,0 +1,20 @@
+{
+    "messages": {
+        "image": "Selecione uma imagem correta.",
+        "size": "O tamanho deve ser menor que 500 KB",
+        "success": "Imagem salva com sucesso!",
+        "saving": "Salvando...",
+        "deleted": "Imagem excluída com sucesso!",
+        "deleting": "Excluindo...",
+        "loading": "carregando..."
+    },
+    "labels": {
+        "top": "Use apenas imagens quadradas para fazer upload.",
+        "addNew": "Adicionar primeira imagem"
+    },
+    "buttons": {
+        "delete": "Excluir",
+        "replace": "Substituir",
+        "add-New": "Adicionar nova"
+    }
+}

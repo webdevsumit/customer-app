@@ -1,0 +1,92 @@
+/* .Login{
+    background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%);
+} */
+
+.Login-main{
+    width: 100%;
+    min-height: 100vh;
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background: radial-gradient(ellipse at bottom, #07A9CC 0%, #0c0d13 100%);
+}
+
+.Login-container1{
+    width: 90%;
+    max-width: 400px;
+    min-height: 500px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Login-Login-button{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.Login-input-box-length{
+    min-width: 260px;
+}
+
+.Login-login-button{
+    margin: 0;
+    margin-top: 5px;
+}
+
+.Login-login-button>a, .Login-login-button2>a{
+    color: black;
+}
+
+.Login-login-button2{
+    margin: 0;
+}
+
+
+.Login-back-button{
+    text-align: left;
+    width: 65%;
+    text-decoration: underline;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: all ease 0.3s;
+}
+
+.Login-back-button:hover{
+    opacity: 1;
+}
+
+.Login-input-box-length::-webkit-outer-spin-button, .Login-input-box-length::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.Login-back-button>img{
+    position: relative;
+    top: 3px;
+    width: 14px;
+    margin-right: 2px;
+}
+
+
+@media only screen and (max-width: 700px){
+    /* .Login-container1{
+        
+    } */
+}
+
+@media only screen and (min-width: 700px) and (max-width: 1120px){
+    .Login-container1{
+        margin-top: 17vh;
+        margin-bottom: 20vh;
+    }
+}

@@ -1,0 +1,22 @@
+.ProductCardForStore{
+    background-color: var(--store-primary);
+    margin-bottom: 10px;
+    border-radius: 8px;
+    padding: 10px;
+    color: white;
+}
+
+.ProductCardForStore>hr{
+    margin: 4px 0px;
+}
+
+.ProductCardForStore-info{
+    display: flex;
+    justify-content: space-between;
+}
+
+.ProductCardForStore-btn-icons-img{
+    height: 20px;
+    margin-left: 15px;
+    cursor: pointer;
+}

@@ -1,0 +1,50 @@
+{
+    "messages": {
+        "uniqueId": "Hurray! This identifier is available.",
+        "uniqueId2": "Identifier '{{id}}' already exists.",
+        "storeName": {
+            "moreCharThanLimit": "It should not be more than 99 characters."
+        },
+        "description": {
+            "moreCharThanLimit": "It should not be more than 700 characters."
+        },
+        "logoSize": "Size of the logo should be less than 500 KB",
+        "required": {
+            "name": "Store Name is required.",
+            "logo": "Store logo is required.",
+            "desc": "Store Description is required.",
+            "id": "Store Identifier is required."
+        }
+    },
+    "input-labels": {
+        "identifier": "Store Identifier",
+        "storeName": "Store Name",
+        "logo": "Logo",
+        "description": "Store Description (max: 700 characters)",
+        "theme-color": "Store Theme Color"
+
+    },
+    "helper-text": {
+        "identifier": {
+            "line1": "",
+            "line2-1": "Store Identifier helps to create url for your store example: if your store name is",
+            "line2-2": "The Golive Store",
+            "line3": " so the Identifier could be one of them",
+            "line4": "the-golive-store",
+            "line5": "golive-store",
+            "line6": "golive-store-123",
+            "line7": "and then the url for your store will be",
+            "line8": "https://golive.store/the-golive-store",
+            "line9": "https://golive.store/golive-store",
+            "line10": "https://golive.store/the-golive-store",
+            "line11": "respectively."
+        },
+        "logo": "Please select an image of type png or jpeg. Size should be less than 500kb and It should be a aquare image otherwise it will be distorted.",
+        "theme-color": "This Color will be shown when user opens your store and It also will be shown to you, when you would switch to store mode."
+    },
+    "button-text": {
+        "logo": "Select Image",
+        "create": "CREATE"
+    },
+    "logo-preview-text": "Logo preview  will be shown here."
+}

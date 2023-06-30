@@ -1,0 +1,15 @@
+{
+    "links": {
+        "HOME": "INÍCIO",
+        "EXPLORE": "EXPLORAR",
+        "NOTIFICATIONS": "NOTIFICAÇÕES",
+        "BAG": "CARRINHO",
+        "ACCOUNT": "CONTA",
+        "SETTINGS": "CONFIGURAÇÕES",
+        "ORDERS": "PEDIDOS",
+        "STORE-MODE": "MODO LOJA",
+        "CREATE-STORE": "CRIAR LOJA",
+        "CUSTOMER-SERVICE": "ATENDIMENTO AO CLIENTE",
+        "SIGN-OUT": "SAIR"
+    }
+}

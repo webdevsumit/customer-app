@@ -1,0 +1,42 @@
+{
+    "notes": {
+        "productInBag": "Clear the pending order first and then continue with your bag items."
+    },
+    "totals": {
+        "subtotals": "SUBTOTAL",
+        "deliveryTotals": "DELIVERY COST",
+        "totals": "TOTAL"
+    },
+    "address": {
+        "head": "ENDEREÇO DE ENTREGA",
+        "cepOrZip": "Zipcode",
+        "houseNumber": "Flat No.",
+        "street": "Street",
+        "landmark": "Landmark",
+        "city": "City",
+        "state": "State",
+        "phone": "Phone No."
+    },
+    "submitBtn": "SAVE & CONTINUE",
+    "cancelBtn": "CANCEL",
+    "editBtn": "EDIT",
+    "calculating": "Cal...",
+    "palceholders": {
+        "cep_or_pincode": "eg. 464646",
+        "house_number": "eg. 247",
+        "street": "Street",
+        "landmark": "Nearby famous place.",
+        "city": "City",
+        "state": "State",
+        "phone": "Full length contact number"
+    },
+    "errors": {
+        "cep_or_pincode": "Zip or Pin code should have atleast 5 characters.",
+        "house_number": "Flat No. is required.",
+        "street": "Street is required.",
+        "landmark": "Landmark is required.",
+        "city": "City",
+        "state": "State is required.",
+        "phone": "Phone No. is required."
+    }
+}

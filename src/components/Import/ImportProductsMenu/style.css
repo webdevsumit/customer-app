@@ -1,0 +1,32 @@
+.ImportProductsMenu{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.ImportProductsMenu>a{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: black;
+    border: 3px solid black;
+    padding: 10px;
+    width: 100%;
+    max-width: 300px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-decoration: none;
+}
+.ImportProductsMenu>a>img{
+    height: 60px;
+}
+
+.ImportProductsMenu>a>h4{
+    margin-bottom: 5px;
+}
+

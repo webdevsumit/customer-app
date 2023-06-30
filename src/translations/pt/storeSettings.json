@@ -1,0 +1,112 @@
+{
+    "input-labels": {
+        "identifier": "Identificador da Loja",
+        "storeName": "Nome da Loja",
+        "logo": "Logotipo",
+        "description": "Descrição da Loja (máximo: 700 caracteres)",
+        "theme-color": "Cor do Tema da Loja",
+        "start-time": "Abre às ",
+        "end-time": "Fecha às "
+    },
+    "helper-text": {
+        "identifier": {
+            "line1": "Você pode mudar (Em breve...)",
+            "line2-1": "O Identificador da Loja ajuda a criar a URL da sua loja, por exemplo: se o nome da sua loja é",
+            "line2-2": "A Loja Golive",
+            "line3": "então o Identificador poderia ser um dos seguintes",
+            "line4": "a-loja-golive",
+            "line5": "golive-loja",
+            "line6": "golive-loja-123",
+            "line7": "e então a URL da sua loja será",
+            "line8": "https://golive.store/a-loja-golive",
+            "line9": "https://golive.store/golive-loja",
+            "line10": "https://golive.store/golive-loja-123",
+            "line11": "respectivamente."
+        },
+        "logo": "Por favor, selecione uma imagem do tipo png ou jpeg. O tamanho deve ser inferior a 400 KB e deve ser uma imagem quadrada, caso contrário, será distorcida.",
+        "theme-color": "Esta cor será exibida quando o usuário abrir sua loja e também será exibida para você quando você alternar para o modo da loja."
+    },
+    "messages": {
+        "uniqueId": "Uau! Este identificador está disponível.",
+        "uniqueId2": "O identificador '{{id}}' já existe.",
+        "storeName": {
+            "moreCharThanLimit": "Não deve ter mais de 99 caracteres."
+        },
+        "description": {
+            "moreCharThanLimit": "Não deve ter mais de 700 caracteres."
+        },
+        "logoSize": "O tamanho do logotipo deve ser inferior a 500 KB.",
+        "requiredFields": {
+            "storeName": "O Nome da Loja é obrigatório.",
+            "storeDesc": "A Descrição da Loja é obrigatória.",
+            "id": "O Identificador da Loja é obrigatório.",
+            "storeStartTime": "O Horário de Início da Loja é obrigatório.",
+            "storeEndTime": "O Horário de Encerramento da Loja é obrigatório.",
+            "house_number": "O número da casa no endereço {{position}} é obrigatório.",
+            "street": "A Rua no endereço {{position}} é obrigatória.",
+            "landmark": "O Ponto de Referência no endereço {{position}} é obrigatório.",
+            "cep_or_pincode": "O CEP/Código Postal/Pincode no endereço {{position}} é obrigatório.",
+            "city": "A Cidade no endereço {{position}} é obrigatória.",
+            "state": "O Estado no endereço {{position}} é obrigatório.",
+            "country": "O País no endereço {{position}} é obrigatório.",
+            "number": "Número no contato {{position}} é obrigatório.",
+            "type": "Tipo de número no contato {{position}} é obrigatório.",
+            
+            "contactNumbers": "Atleast one contact number is required.",
+            "cpf": "CPF is required.",
+            "name": "Owner name is required.",
+            "cnpj": "CNPJ is required.",
+            "companyName": "Company Name is required.",
+            "cpfOfRespPerson": "CPF of a responsible person is required.",
+            "nameOfRespPerson": "Name of a responsible person is required.",
+            "bank": "Bank is required.",
+            "bank_ag": "Bank AG is required.",
+            "bank_type": "Bank Type is required.",
+            "bank_cc": "Bank CC is required."
+        }
+    },
+    "button-text": {
+        "logo": "Selecionar Imagem",
+        "save": "Salvar"
+    },
+    "logo-preview-text": "A prévia do logotipo será mostrada aqui.",
+    "placeholder": {
+        "start-time": "ex. 10:00 AM",
+        "end-time": "ex. 8:00 PM"
+    },
+    "payment-head": "PYAMENT DETAILS FOR ONLINE PAYMENTS",
+    "payment": {
+        "account-type": "Account Type",
+        "account-type-select": {
+            "individual": "Individual",
+            "legal-entity": "Legal Entity"
+        },
+        "autoTrasfer": "Auto Transfer",
+        "autoTrasfer-select": {
+            "false": "Do Not Transfer",
+            "true": "Transfer"
+        },
+        "cpf": "CPF",
+        "cnpj": "CNPJ",
+        "cpf-placeholder": "CPF",
+        "cnpj-placeholder": "CNPJ",
+        "name": "Your Name",
+        "company-name": "Company Name",
+        "name-placeholder": "Your Name",
+        "company-name-placeholder": "Company Name",
+        "address-note": "Your first address and first phone number will be used as payments address and number.",
+        "nameOfRespPerson": "Company's Owner Name",
+        "cpfOfRespPerson": "Company's Owner CPF",
+        "nameOfRespPerson-placeholder": "Name",
+        "cpfOfRespPerson-placeholder": "CPF",
+        "responsible-person-note": "Above provide the name and cpf of the responsible person of the company.",
+        "bank": "bank",
+        "bank_ag": "bank_ag",
+        "bank_type": "bank_type",
+        "bank_cc": "bank_cc",
+        "bank-placeholder": "bank",
+        "bank_ag-placeholder": "bank_ag",
+        "bank_type-placeholder": "bank_type",
+        "bank_cc-placeholder": "bank_cc"
+    }
+}

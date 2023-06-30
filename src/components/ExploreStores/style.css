@@ -1,0 +1,16 @@
+.ExploreStores-Loading-more{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.ExploreStores-Loading-more>p{
+    text-align: center;
+}
+
+.ExploreStores-TotalresultNum{
+    margin-top: 6px;
+    margin-left: 6px;
+    color: var(--user-primary);
+}

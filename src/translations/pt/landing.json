@@ -1,0 +1,22 @@
+{
+    "hero":{
+        "welcome": "BEM-VINDO AO"
+    },
+    "button": {
+        "signup": "INICIAR"
+    },
+    "Landing-language-select": {
+        "option1": "INGLÊS",
+        "option2": "PORTUGUÊS"
+    },
+    "Landing-nav-login": {
+        "label": "Conecte-se"
+    },
+    "Landing-FancyTextMessage": {
+        "line1": "Crie sua própria loja e compartilhe-a com os clientes.",
+        "line2": "Adicione 1000 produtos em menos de 10 segundos.",
+        "line3": "Venda e receba dinheiro em sua conta em um dia.",
+        "line4": "Faça eventos ao vivo no Instagram, Facebook, etc.",
+        "line5": "Pague apenas se crescer :) e comece gratuitamente."
+    }
+}

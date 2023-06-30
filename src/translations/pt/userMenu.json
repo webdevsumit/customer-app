@@ -1,0 +1,14 @@
+{
+    "links": {
+        "account": "Conta",
+        "settings": "Configurações",
+        "previous-orders": "Pedidos Anteriores",
+        "admin": {
+            "switch": "Ir para",
+            "bold": "Administração da Loja"
+        },
+        "create-store": "Criar Loja",
+        "cs": "Atendimento ao Cliente",
+        "signout": "Sair"
+    }
+}

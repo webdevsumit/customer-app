@@ -1,0 +1,52 @@
+
+
+.ImportProducts-cannot_add_more_products-popup{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100% ;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.159);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ImportProducts-cannot_add_more_products-popup-div{
+    width: 80% ;
+    max-width: 300px;
+    min-height: 250px;
+    background-color: white;
+    border-radius: 8px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.ImportProducts-cannot_add_more_products-popup-div>h4{
+    margin: 10px;
+}
+
+.ImportProducts-submit-button1, .ImportProducts-buttons>a, .ImportProducts-cannot_add_more_products-popup-div>a{
+    background-color: var(--store-primary);
+    color: white;
+    outline: none;
+    padding: 10px 15px;
+    font-weight: bold;
+    font-size: 14px;
+    border: 2px solid var(--store-primary);
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    min-width: 125px; 
+    text-align: center;
+}
+
+.ImportProducts-buttons{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}

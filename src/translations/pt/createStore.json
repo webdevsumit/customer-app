@@ -1,0 +1,50 @@
+{
+    "messages": {
+        "uniqueId": "Que ótimo! este identificador está disponível para uso.",
+        "uniqueId2": "O identificador '{{id}}' já está em uso.",
+        "storeName": {
+            "moreCharThanLimit": "Não deve ter mais do que 99 caracteres."
+        },
+        "description": {
+            "moreCharThanLimit": "Não deveria ter mais do que 700 caracteres."
+        },
+        "logoSize": "O arquivo da logomarca não deve ser maior que 500 KB",
+        "required": {
+            "name": "O nome da loja é obrigatório.",
+            "logo": "A logomarca da loja é obrigatória.",
+            "desc": "A descrição da loja é obrigatória.",
+            "id": "O identificador da loja é obrigatório."
+        }
+    },
+    "input-labels": {
+        "identifier": "Identificador da Loja",
+        "storeName": "Nome da Loja",
+        "logo": "Logomarca",
+        "description": "Descrição da Loja (máximo: 700 caracteres)",
+        "theme-color": "Cor do tema da loja"
+
+    },
+    "helper-text": {
+        "identifier": {
+            "line1": "",
+            "line2-1": "O identificador da loja ajuda a criar a url, o link para sua loja. Por exemplo: Se o nome da sua loja é",
+            "line2-2": "Loja Golive",
+            "line3": " então seu identificador pode ser",
+            "line4": "loja-golive",
+            "line5": "golive-loja",
+            "line6": "loja-golive-123",
+            "line7": "e a url, o link da sua loja será",
+            "line8": "https://golive.store/loja-golive",
+            "line9": "https://golive.store/golive-loja",
+            "line10": "https://golive.store/loja-golive-123",
+            "line11": "respectivamente."
+        },
+        "logo": "Por favor use uma imagem .png ou .jpg. O tamanho do arquivo deve ser menor que 500kb e deve ser uma imagem quadrada ou então ela será exbida com distorção.",
+        "theme-color": "Essa cor será exibida quando o usuário abrir sua loja e também será exibida para você na área de gestã da sua loja."
+    },
+    "button-text": {
+        "logo": "Selecione a imagem",
+        "create": "CRIAR"
+    },
+    "logo-preview-text": "Seu logo  será exibido aqui."
+}

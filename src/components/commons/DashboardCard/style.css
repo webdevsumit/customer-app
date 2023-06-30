@@ -1,0 +1,47 @@
+.DashboardCard {
+  min-width: 150px;
+  min-height: 100px;
+  background-color: #d9d9d9;
+  border-radius: 12px;
+  padding: 10px;
+  flex: 1;
+}
+
+.DashboardCard-inline {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.DashboardCard > p {
+  text-align: center;
+}
+
+.DashboardCard-value {
+  font-size: 30px;
+  margin: 0;
+}
+
+.DashboardCard-value-currency{
+  font-size: 12px;
+}
+
+@media only screen and (min-width: 700px) {
+  
+.DashboardCard-inline {
+    margin: 10px;
+  }
+  
+  .DashboardCard > p {
+    margin: 0;
+    margin-top: 25px;
+  }
+  
+  .DashboardCard-img {
+    margin-left: 10px;
+  }
+
+  .DashboardCard-value-currency{
+    font-size: 30px;
+  }
+}

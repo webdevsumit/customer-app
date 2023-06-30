@@ -1,0 +1,84 @@
+.UserSidebar{
+    /* Below three lines are also related 
+    to the space behind the bar so don't forget 
+    to change in Auth Screen */
+    width: 20%;
+    min-width: 200px;
+    height: 100vh;
+    max-height: 90vh;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-evenly; */
+    flex-direction: column;
+    position: fixed;
+    /* Top value depends on top bar */
+    top: 75px;
+    left: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    transition: all ease .3s;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-right: 1px solid rgba(128, 128, 128, 0.533);
+    overflow-y: scroll;
+}
+
+.UserSidebar>a{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    transition: all ease .3s;
+    width: 90%;
+    max-width: 250px;
+    margin: 5px;
+    border-radius: 8px;
+    background-color: var(--user-primary) ;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    position: relative;
+}
+
+.UserSidebar-icon{
+    height: 35px;
+    margin-right: 10px;
+    /* background-color: var(--user-primary) ; */
+}
+
+.UserSidebar-custom-active-button{
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: 5%;
+    font-size: 18px;
+    background-color: rgb(255, 255, 255);
+    color: var(--user-primary);
+    border-radius: 50%;
+    transform: rotateZ(90deg);
+    width: 24px;
+    height: 24px;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.UserSidebar-active>.UserSidebar-custom-active-button{
+    opacity: 1;
+}
+
+.UserSidebar-pending{
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+@media only screen and (max-width: 800px) {
+    /* In case of changing max-with above don't forget to change for both ther bottom and top bars. */
+    .UserSidebar{
+        display: none;
+    }
+}

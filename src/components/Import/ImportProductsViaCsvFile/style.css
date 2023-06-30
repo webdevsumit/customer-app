@@ -1,0 +1,338 @@
+.ImportDataProdutos{
+    min-width: 90%;
+}
+
+.ImportDataProdutos-header{
+    min-width: 90%;
+    padding: 20px 30px;
+    background-color: #EDEDED;
+    border-radius: 20px;
+}
+
+.ImportDataProdutos-header>h3{
+    color: var(--store-primary);
+    font-size: 28px;
+}
+
+.ImportDataProdutos-container{
+    padding: 3%;
+}
+
+.ImportDataProdutos-footer{
+    display: flex;
+    width: 96%;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin: 2%;
+}
+
+.ImportDataProdutos-footer-button{
+    min-width: 130px;
+}
+
+.ImportDataProdutos-footer-button-warning{
+    background-color: #F0BC37!important;
+}
+
+#ImportDataProdutos-csvInput{
+    display: none;
+}
+
+#ImportDataProdutos-csvInputLabel{
+    cursor: pointer;
+    background-color: var(--store-primary);
+    /* padding: 30px 80px; */
+    margin-top: 10px;
+    display: block;
+    width: 180px;
+    min-width: 180px;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+}
+
+#ImportDataProdutos-csvInputLabel>img{
+    height: 60%;
+    color: white;
+}
+
+#ImportDataProdutos-csvInputLabel>b{
+    color: white;
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+.ImportDataProdutos-step2-button-div{
+    display: flex;
+    align-items: center;
+}
+
+.ImportDataProdutos-step2-button-div>h5{
+    color: var(--store-primary);
+    margin-left: 20px;
+}
+
+.ImportDataProdutos-error{
+    margin: 0;
+    color: red;
+}
+
+.ImportDataProdutos-local-text{
+    color: var(--store-primary);
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.ImportInfo-header-details{
+    margin-top: 10px;
+    min-width: 90%;
+    padding: 10px 30px;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ImportInfo-header-details>h3{
+    color: var(--store-primary);
+    font-size: 18px;
+    margin: 5px;
+    margin-right: 35px;
+}
+
+.ImportDataProdutos-error-list-item{
+    margin: 0;
+}
+
+.ImportDataProdutos-result-box{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.ImportDataProdutos-result-box-left{
+    flex: 3;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+
+.ImportDataProdutos-result-box-right{
+    flex: 2;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+
+.ImportDataProdutos-result-box-left-c1{
+    display: flex;
+    width: 100%;
+    height: min-content;
+}
+
+.ImportDataProdutos-result-box-left-c1-t1{
+    flex: 1;
+    color: var(--store-primary);
+    font-weight: bold;
+    font-size: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0;
+    margin-top: 10px;
+}
+
+.ImportDataProdutos-result-box-left-c1-t2{
+    background-color: var(--store-primary);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    min-width: 100px;
+    padding: 10px 20px;
+    font-size: 20px;
+    color: white;
+    border-radius: 10px;
+    margin: 0;
+    margin-top: 10px;
+}
+
+.btn-danger{
+    color: white;
+    background-color: red;
+}
+
+
+.ImportDataProdutos-finish-button{
+    min-width: 230px;
+    padding: 15px!important;
+    margin-bottom: 0!important;
+}
+
+
+.ImportDataProdutos-results-table{
+    width: 100%;
+    margin-top: 40px;
+}
+
+.ImportDataProdutos-results-table>thead>tr>td{
+    margin: 10px;
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    min-width: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.ImportDataProdutos-results-table>tbody>tr>td{
+    margin: 0 10px;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.ImportDataProdutos-results-table>tbody>tr>td:nth-child(1){
+    text-align: center;
+}
+
+
+.ImportProductsViaCsvFile-loader{
+    width: 100%;
+    height: 100vh;
+    z-index: 12;
+    background-color: rgba(0, 0, 0, 0.185);
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ImportProductsViaCsvFile-loader-inner{
+    width: 80%;
+    min-height: 200px;
+    background-color: white;
+    border-radius: 8px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding: 15px 20px;
+    max-width: 600px;
+    position: relative;
+}
+
+.text-primary{
+    color: var(--store-primary);
+}
+
+.ImportProductsViaCsvFile-loader-inner-status>h5{
+    /* color: var(--store-primary); */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.ImportProductsViaCsvFile-loader-inner-status-oscilator{
+    animation-name: oscilator;
+    animation-duration: .6s;
+    animation-iteration-count: infinite;
+    translate: all ease 0.1s;
+    animation-timing-function: linear;
+}
+
+.ImportProductsViaCsvFile-loader-inner-status-oscilator:nth-child(1){
+    animation-delay: .1s;
+}
+.ImportProductsViaCsvFile-loader-inner-status-oscilator:nth-child(2){
+    animation-delay: .2s;
+}
+.ImportProductsViaCsvFile-loader-inner-status-oscilator:nth-child(3){
+    animation-delay: .3s;
+}
+.ImportProductsViaCsvFile-loader-inner-status-oscilator:nth-child(4){
+    animation-delay: .4s;
+}
+.ImportProductsViaCsvFile-loader-inner-status-oscilator:nth-child(5){
+    animation-delay: .5s;
+}
+
+.ImportProductsViaCsvFile-loader-inner-close-btn{
+    position: absolute;
+    right: 15px;
+    top: -5px;
+    width: 20px;
+    height: 20px;
+    /* background-color: red;
+    color: white; */
+    color: red;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.ImportDataProdutos-back-button{
+    text-align: left;
+    width: 65%;
+    text-decoration: underline;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: all ease 0.3s;
+    margin: 0;
+}
+
+.ImportDataProdutos-back-button:hover{
+    opacity: 1;
+}
+
+.ImportDataProdutos-back-button>img{
+    position: relative;
+    top: 3px;
+    width: 14px;
+    margin-right: 2px;
+}
+
+.ImportDataProdutos-information>*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.ImportDataProdutos-information>h3{
+    color: var(--store-primary);
+}
+
+.ImportDataProdutos-information-list>li{
+    font-size: 14px;
+}
+
+@keyframes oscilator {
+    0%{
+        transform: translateY(0px);
+    }
+    25%{
+        transform: translateY(-2px);
+    }
+    50%{
+        transform: translateY(0px);
+    }
+    75%{
+        transform: translateY(2px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}

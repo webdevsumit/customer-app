@@ -1,0 +1,27 @@
+{
+    "input-labels": {
+        "lang": "Language",
+        "currency": "Currency",
+        "dateFormat": "Date Format"
+    },
+    "select-options": {
+        "empty": "--select--",
+        "lang": {
+            "en": "English",
+            "pt": "Portuguese"
+        },
+        "currency": {
+            "R$": "R$",
+            "INR": "INR",
+            "USD": "USD"
+        }
+    },
+    "button-text": {
+        "save": "SAVE"
+    },
+    "errors": {
+        "lang": "Language cannot be empty.",
+        "currency": "Currency cannot be empty.",
+        "dateFormat": "Date Format cannot be empty."
+    }
+}

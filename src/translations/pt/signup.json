@@ -1,0 +1,24 @@
+{
+    "button": {
+        "signup": "CADASTRO",
+        "back": "VOLTAR",
+        "varify-otp": "VERIFICAR OTP",
+        "Facebook": "COMEÇAR COM FACEBOOK",
+        "login": "Login",
+        "t-and-c": "Termos e Condições"
+    },
+    "Signup-container-input-placeholder": {
+        "email": "exemplo@exemplo.com",
+        "password": "senha",
+        "username": "nome de usuário",
+        "otp": "Digite o OTP de 6 dígitos.",
+        "select-country": "Selecionar país"
+    },
+    "Signup-login-text": "Já tem uma conta?",
+    "errors": {
+        "emptyFields": "Preencha todos os campos.",
+        "no-otpId": "Algo deu errado. Por favor, atualize a página e comece novamente.",
+        "otp-sent": "O OTP foi enviado para o seu e-mail. Por favor, verifique."
+    },
+    "country-note": "Você não pode alterar o país após o cadastro."
+}

@@ -1,0 +1,16 @@
+{
+    "links": {
+        "HOME": "INÍCIO",
+        "IMPORT": "IMPORTAR",
+        "NOTIFICATIONS": "NOTIFICAÇÕES",
+        "ORDERS": "PEDIDOS",
+        "BALANCE": "SALDO",
+        "STORE-SETTINGS": "CONFIGURAÇÕES DA LOJA",
+        "MANAGE-PRODUCTS": "GERENCIAR PRODUTOS",
+        "SETTINGS": "CONFIGURAÇÕES",
+        "SUBSCRIPTION": "ASSINATURA ({{type}})",
+        "USER-MODE": "MODO USUÁRIO",
+        "CUSTOMER-SERVICE": "ATENDIMENTO AO CLIENTE",
+        "SIGN-OUT": "SAIR"
+    }
+}

@@ -1,0 +1,45 @@
+
+.SLFContainer2-container2{
+    width: 90%;
+    max-width: 700px;
+    min-height: 500px;
+    background-color: white;
+    border-radius: 5px;
+    margin-left: 4px;background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%);
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.SLFContainer2-container2-logo{
+    margin: 20px;
+    min-width: 250px;
+}
+
+.SLFContainer2-container2-main-text{
+    color: white;
+    text-transform: uppercase;
+    font-family: monospace;
+    font-size: 18px;
+    text-align: center;
+}
+
+.SLFContainer2-container2-buller-points>li{
+    color: orange;
+    margin: 3px;
+}
+
+@media only screen and (max-width: 700px){
+    .SLFContainer2-container2{
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 700px) and (max-width: 1120px){
+    .SLFContainer2-container2{
+        margin-top: 5vh;
+        margin-bottom: 20vh;
+    }
+}

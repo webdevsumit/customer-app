@@ -1,0 +1,23 @@
+{
+    "limitNotce": {
+        "notice": "AVISO",
+        "p1-line1": "Seu limite para adicionar produtos foi",
+        "p1-hightlight1": "atingido",
+        "p1-line2": "Aumente o seu limite assinando o plano mais adequado para você.",
+        "buttonCheckPlan": "VER PLANOS",
+        "p2-line1": "Seu limite está quase" ,
+        "p2-hightlight1": "excedido",
+        "p2-line2": "Aumente o seu limite assinando o plano mais adequado para você.",
+        "close": "FECHAR",
+        "addressWarning": {
+            "notice": "AVISO",
+            "p1-line1": "Pelo menos um endereço da loja é necessário para adicionar produtos. Por favor, adicione o endereço primeiro..",
+            "buttonAddAddress": "ADICIONAR ENDEREÇO"
+        },
+        "tictagManagementWarn": {
+            "notice": "AVISO",
+            "p1-line1": "Sua loja é gerenciada pelo TicTag. Você pode adicionar produtos a partir do TicTag e não por aqui.",
+            "button": "ABRIR TICTAG"
+        }
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "links": {
+        "HOME": "HOME",
+        "IMPORT": "IMPORT",
+        "NOTIFICATIONS": "NOTIFICATIONS",
+        "ORDERS": "ORDERS",
+        "BALANCE": "BALANCE",
+        "STORE-SETTINGS": "STORE SETTINGS",
+        "MANAGE-PRODUCTS": "MANAGE PRODUCTS",
+        "SETTINGS": "SETTINGS",
+        "SUBSCRIPTION": "SUBSCRIPTION ({{type}})",
+        "USER-MODE": "USER MODE",
+        "CUSTOMER-SERVICE": "CUSTOMER SERVICE",
+        "SIGN-OUT": "SIGN OUT"
+    }
+}

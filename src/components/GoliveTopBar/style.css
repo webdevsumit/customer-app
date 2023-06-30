@@ -1,0 +1,78 @@
+.GoliveTopBar{
+    /* Below three lines are also related 
+    to the space behind the bar so don't forget 
+    to change in Auth Screen */
+    width: 100%;
+    height: 10vh;
+    /* Sidebar top is also depends on the below max height */
+    max-height: 80px;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 11;
+}
+
+.GoliveTopBar-logo{
+    height: 70%;
+    margin-left: 20px;
+}
+
+.GoliveTopBar-bigScreenNavigation{
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    transition: all ease .3s;
+}
+
+.GoliveTopBar-bigScreenNavigation>a{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 40%;
+    padding-left: 20px;
+    padding-right: 20px;
+    transition: all ease .3s;
+    /* flex: 1; */
+    text-decoration: none;
+}
+
+.GoliveTopBar-active{
+    border-bottom: 3px solid white;
+}
+
+.GoliveTopBar-pending{
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.GoliveTopBar-icon{
+    max-height: 24px;
+}
+
+.GoliveTopBar-icon-link{
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+    margin-left: 2px;
+}
+
+.GoliveTopBar-active>.GoliveTopBar-icon-link{
+    margin-bottom: -3px;
+}
+
+
+
+@media only screen and (max-width: 800px) {
+    /* In case of changing max-with above don't forget to change for both Bottom bars. */
+    .GoliveTopBar-bigScreenNavigation{
+        display: none;
+    }
+}

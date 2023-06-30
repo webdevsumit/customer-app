@@ -1,0 +1,112 @@
+{
+    "input-labels": {
+        "identifier": "Store Identifier",
+        "storeName": "Store Name",
+        "logo": "Logo",
+        "description": "Store Description (max: 700 characters)",
+        "theme-color": "Store Theme Color",
+        "start-time": "Store Start Time",
+        "end-time": "Store End Time"
+
+    },
+    "helper-text": {
+        "identifier": {
+            "line1": "You can change (Coming soon...)",
+            "line2-1": "Store Identifier helps to create url for your store example: if your store name is",
+            "line2-2": "The Golive Store",
+            "line3": " so the Identifier could be one of them",
+            "line4": "the-golive-store",
+            "line5": "golive-store",
+            "line6": "golive-store-123",
+            "line7": "and then the url for your store will be",
+            "line8": "https://golive.store/the-golive-store",
+            "line9": "https://golive.store/golive-store",
+            "line10": "https://golive.store/the-golive-store",
+            "line11": "respectively."
+        },
+        "logo": "Please select an image of type png or jpeg. Size should be less than 500kb and It should be a aquare image otherwise it will be distorted.",
+        "theme-color": "This Color will be shown when user opens your store and It also will be shown to you, when you would switch to store mode."
+    },
+    "messages": {
+        "uniqueId": "Hurray! This identifier is available.",
+        "uniqueId2": "Identifier '{{id}}' already exists.",
+        "storeName": {
+            "moreCharThanLimit": "It should not be more than 99 characters."
+        },
+        "description": {
+            "moreCharThanLimit": "It should not be more than 700 characters."
+        },
+        "logoSize": "Size of the logo should be less than 500 KB",
+        "requiredFields": {
+            "storeName": "Store Name is required.",
+            "storeDesc": "Store Description is required.",
+            "id": "Store Identifier is required.",
+            "storeStartTime": "Store Start Time is required.",
+            "storeEndTime": "Store End Time is required.",
+            "house_number": "House number in address {{position}} is required.",
+            "street": "Street in address {{position}} is required.",
+            "landmark": "Landmark in address {{position}} is required.",
+            "cep_or_pincode": "CEP/Zipcode/Pincode in address {{position}} is required.",
+            "city": "City in address {{position}} is required.",
+            "state": "State in address {{position}} is required.",
+            "country": "Country in address {{position}} is required.",
+            "number": "Number in Contact number {{position}} is required.",
+            "type": "Number type in Contact number {{position}} is required.",
+            "contactNumbers": "Atleast one contact number is required.",
+            "cpf": "CPF is required.",
+            "name": "Owner name is required.",
+            "cnpj": "CNPJ is required.",
+            "companyName": "Company Name is required.",
+            "cpfOfRespPerson": "CPF of a responsible person is required.",
+            "nameOfRespPerson": "Name of a responsible person is required.",
+            "bank": "Bank is required.",
+            "bank_ag": "Bank AG is required.",
+            "bank_type": "Bank Type is required.",
+            "bank_cc": "Bank CC is required."
+        }
+    },
+    "button-text": {
+        "logo": "Select Image",
+        "save": "Save"
+    },
+    "logo-preview-text": "Logo preview  will be shown here.",
+    "placeholder": {
+        "start-time": "ex. 10:00 AM",
+        "end-time": "ex. 8:00 PM"
+    },
+    "payment-head": "PYAMENT DETAILS FOR ONLINE PAYMENTS",
+    "payment": {
+        "account-type": "Account Type",
+        "account-type-select": {
+            "individual": "Individual",
+            "legal-entity": "Legal Entity"
+        },
+        "autoTrasfer": "Auto Transfer",
+        "autoTrasfer-select": {
+            "false": "Do Not Transfer",
+            "true": "Transfer"
+        },
+        "cpf": "CPF",
+        "cnpj": "CNPJ",
+        "cpf-placeholder": "CPF",
+        "cnpj-placeholder": "CNPJ",
+        "name": "Your Name",
+        "company-name": "Company Name",
+        "name-placeholder": "Your Name",
+        "company-name-placeholder": "Company Name",
+        "address-note": "Your first address and first phone number will be used as payments address and number.",
+        "nameOfRespPerson": "Company's Owner Name",
+        "cpfOfRespPerson": "Company's Owner CPF",
+        "nameOfRespPerson-placeholder": "Name",
+        "cpfOfRespPerson-placeholder": "CPF",
+        "responsible-person-note": "Above provide the name and cpf of the responsible person of the company.",
+        "bank": "bank",
+        "bank_ag": "bank_ag",
+        "bank_type": "bank_type",
+        "bank_cc": "bank_cc",
+        "bank-placeholder": "bank",
+        "bank_ag-placeholder": "bank_ag",
+        "bank_type-placeholder": "bank_type",
+        "bank_cc-placeholder": "bank_cc"
+    }
+}

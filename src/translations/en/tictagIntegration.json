@@ -1,0 +1,22 @@
+{
+    "notes": {
+        "p1": "All the settings of product management will be transfered to TicTag. You cannot manage store from Golive. You need to do that on TicTag.",
+        "p2": "You will not be able to add products directly from Golive. If you have products on Golive then they will not be listed anywhere on Golive and will be treated as deleted products."
+    },
+    "placeholders": {
+        "email": "Email on Tictag",
+        "password": "Password on Tictag",
+        "otp": "OTP",
+        "store": "Select Store"
+    },
+    "labels": {
+        "email": "Email registered on Tictag",
+        "password": "Password registered on Tictag",
+        "otp": "OTP is sent to email registered on TicTag"
+    },
+    "btns": {
+        "otp": "SEND OTP",
+        "submit": "CONFIRM",
+        "continue": "CONTINUE"
+    }
+}

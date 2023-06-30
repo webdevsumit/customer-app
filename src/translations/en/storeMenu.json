@@ -1,0 +1,14 @@
+{
+    "links": {
+        "storeSettings": "Store Settings",
+        "manageProducts": "Manage Products",
+        "settings": "Settings",
+        "subscription": "Subcription ({{type}})",
+        "userMode": {
+            "1": "Switch back to",
+            "2": "User Mode"
+        },
+        "cs": "Customer Service",
+        "signout": "Sign Out"
+    }
+}

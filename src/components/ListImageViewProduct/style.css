@@ -1,0 +1,191 @@
+.ListImageViewProduct{
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F0F0F0;
+    margin: 10px;
+    border-radius: 15px;
+    flex-direction: column;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.ListImageViewProduct-name{
+    width: 100%;
+    padding-left: 22px;
+    padding-right: 22px;
+    margin: 0;
+    margin-bottom: 3px;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 16px;
+    /* line-height: 15px; */
+    /* border-bottom: 1px solid black; */
+}
+
+.ListImageViewProduct-inner{
+    width: 100%;
+    /* max-width: 375px; */
+    /* padding: 25px 2px;
+    padding-top: 0; */
+    /* background-color: var(--store-primary); */
+    /* background-color: white; */
+    /* border-radius: 4px; */
+    /* position: relative; */
+}
+
+.ListImageViewProduct-divStyle{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background-size: contain;
+    /* width: 375px;
+    height: 375px; */
+    position: relative;
+    overflow: hidden;
+    background-color: #F0F0F0;
+}
+
+.ListImageViewProduct-divStyle-numImage-indicator{
+    position: absolute;
+    top: -10px;
+    right: 6px;
+    font-size: 14px;
+    background-color: rgba(0, 0, 0, 0.419);
+    color: white;
+    font-family: monospace;
+    padding: 5px;
+    border-radius: 12px;
+}
+
+.ListImageViewProduct-details{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 26px;
+    padding-right: 20px;
+    padding-bottom: 0;
+    /* border-top: 1px solid rgba(0, 0, 0, 0.353); */
+}
+
+.ListImageViewProduct-details-icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.ListImageViewProduct-details-icons>img{
+    width: 30px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.ListImageViewProduct-details-price-div{
+    display: flex;
+}
+
+.ListImageViewProduct-details-size-brand-div{
+    display: flex;
+}
+
+.ListImageViewProduct-details-price{
+    color: var(--user-primary);
+    margin: 0;
+    margin-right: 5px;
+    font-size: 16px;
+}
+
+.ListImageViewProduct-details-price-overline{
+    color: rgba(0, 0, 0, 0.511);
+    margin: 0;
+    text-decoration: line-through;
+    margin-right: 5px;
+}
+
+.ListImageViewProduct-details-size-brand-div>p{
+    margin: 0;
+    margin-right: 10px;
+    background-color: var(--user-primary);
+    color: white;
+    font-weight: bold;
+    padding: 4px;
+    border-radius: 5px;
+    width: 100px;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+
+.ListImageViewProduct-details-know-more-btn{
+    margin: 0;
+    font-weight: bold;
+    color: var(--user-primary);
+    font-size: 12px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.ListImageViewProduct-desc-outer{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.234);
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ListImageViewProduct-desc-outer-cardInCard{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.234);
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.ListImageViewProduct-desc-inner{
+    width: 75%;
+    height: 55vh;
+    background-color: white;
+    border-radius: 8px;
+    position: relative;
+    padding: 10px;
+    overflow-y: scroll;
+}
+
+.ListImageViewProduct-desc-inner-cardInCard{
+    width: 85%;
+    height: 55vh;
+    background-color: white;
+    border-radius: 8px;
+    position: relative;
+    padding: 10px;
+    overflow-y: scroll;
+}
+
+.ListImageViewProduct-desc-inner>h4, .ListImageViewProduct-desc-inner-cardInCard>h4{
+    margin: 0;
+}
+
+.ListImageViewProduct-desc-inner-close-button{
+    position: absolute;
+    right: 5px;
+    top: -15px;
+    font-weight: bold;
+    color: red;
+    cursor: pointer;
+
+}

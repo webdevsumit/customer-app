@@ -1,0 +1,24 @@
+{
+    "totol-results": "Total number of products: ",
+    "loading": "loading...",
+    "subtotal": "Subtotal",
+    "total": "Total",
+    "with-delivery": "DELIVER",
+    "without-delivery": "DO NOT DELIVER",
+    "calculating": "cal...",
+    "checkoutBtn": "CHECKOUT",
+    "checkingoutBtn": "CHECKING OUT...",
+    "card": {
+        "quantity": "Quantity:",
+        "availableQuantity": "Availble:"
+    },
+    "quantityChanged": "Quantity changed Successfully!",
+    "quantityChangedFailed": "Not able to change the quantity.",
+    "failedAPI": "Something went wrong.",
+    "emptyBagMessage": "The bag is empty.",
+    "selectPlaceholder": "Select",
+    "emptyZipcode": "Zipcode cannot be empty.",
+    "placeholder": {
+        "zipOrCep": "pin/zip code"
+    }
+}

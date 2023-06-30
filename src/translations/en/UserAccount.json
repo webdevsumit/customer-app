@@ -1,0 +1,24 @@
+{
+    "input-labels": {
+        "fullname": "Name",
+        "theme-color": "Theme Color"
+    },
+    "button-text": {
+        "save": "SAVE"
+    },
+    "messages": {
+        "fullname": "Maximum character limit is 500.",
+        "requiredFields": {
+            "fullName": "Full Name is required.",
+            "house_number": "House number in address {{position}} is required.",
+            "street": "Street in address {{position}} is required.",
+            "landmark": "Landmark in address {{position}} is required.",
+            "cep_or_pincode": "CEP/Zipcode/Pincode in address {{position}} is required.",
+            "city": "City in address {{position}} is required.",
+            "state": "State in address {{position}} is required.",
+            "country": "Country in address {{position}} is required.",
+            "number": "Number in Contact number {{position}} is required.",
+            "type": "Number type in Contact number {{position}} is required."
+        }
+    }
+}

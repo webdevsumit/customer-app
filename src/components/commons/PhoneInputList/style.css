@@ -1,0 +1,80 @@
+.PhoneInputList-input-label {
+  font-weight: bold;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 3px;
+  color: var(--store-primary);
+}
+
+.PhoneInputList-address {
+  max-width: 100%;
+  border: 1px solid gray;
+  padding: 5px;
+  position: relative;
+  margin-top: 5px;
+}
+
+.PhoneInputList-address-remove-btn {
+  cursor: pointer;
+  position: absolute;
+  right: 7px;
+  top: -10px;
+  font-weight: bold;
+  color: red;
+}
+
+.PhoneInputList-sub-input-label {
+  font-weight: bold;
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 3px;
+  color: var(--store-primary);
+}
+
+.PhoneInputList-number-input {
+  width: 100px;
+}
+
+.PhoneInputList-street-input,
+.PhoneInputList-landmark-input {
+  width: 100%;
+}
+
+.PhoneInputList-inline-inputs {
+  max-width: 100%;
+  overflow: hidden;
+  display: flex;
+}
+
+.PhoneInputList-inline-inputs1 {
+  margin-right: 3px;
+}
+
+.PhoneInputList-inline-inputs1 > input {
+  width: 100%;
+}
+
+.PhoneInputList-inline-inputs2 {
+  margin-left: 3px;
+}
+
+.PhoneInputList-inline-inputs2 > input {
+  width: 100%;
+}
+
+.PhoneInputList-contact-add-btn {
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: capitalize;
+  width: fit-content;
+  font-size: 14px;
+}
+
+.PhoneInputList-type-input{
+  font-size: 17px;
+  /* font-weight: bold; */
+  margin-top: 2px;
+}

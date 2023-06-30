@@ -1,0 +1,27 @@
+{
+    "input-labels": {
+        "lang": "Idioma",
+        "currency": "Moeda",
+        "dateFormat": "Formato da Data"
+    },
+    "select-options": {
+        "empty": "--SELECIONAR--",
+        "lang": {
+            "en": "Inglês",
+            "pt": "Português"
+        },
+        "currency": {
+            "R$": "R$",
+            "INR": "INR",
+            "USD": "USD"
+        }
+    },
+    "button-text": {
+        "save": "SALVAR"
+    },
+    "errors": {
+        "lang": "O idioma precisa ser escolhido.",
+        "currency": "A moeda precisa ser definida.",
+        "dateFormat": "O formato de data precisa ser definido."
+    }
+}

@@ -1,0 +1,22 @@
+
+
+.TictagIntegration-upper-note{
+    margin: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #dfdfdf;
+}
+
+.TictagIntegration-input-div{
+    margin: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #dfdfdf;
+}
+
+.TictagIntegration-input-div-label{
+    color: var(--store-primary);
+    margin: 0;
+    font-weight: bold;
+    
+}

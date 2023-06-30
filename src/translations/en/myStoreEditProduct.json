@@ -1,0 +1,48 @@
+{
+    "messages": {
+        "required": {
+            "name": "Name Field is required.",
+            "description": "Description Field is required.",
+            "status": "Status Field is required.",
+            "priceInCent": "Price Field is required.",
+            "promoPriceInCent": "Promotional Price Field is required.",
+            "size": "Size Field is required.",
+            "subCategory": "Category Field is required.",
+            "rankByStore": "Rank In Store Field is required.",
+            "quantity": "Quantity In Store Field is required."
+        },
+        "maxCharsName": "It should not be more than 99 characters.",
+        "maxCharsDesc": "It should not be more than 700 characters."
+    },
+    "success": "Saved Successfully!",
+    "labels": {
+        "id": "ID:",
+        "createdAt": "Created At:",
+        "name": "Name",
+        "description": "Description (max: 800 characters)",
+        "status": "Status:",
+        "price": "Price (cents):",
+        "promoPrice": "Promo. Price (cents):",
+        "applyPromo": "Apply promotional price (Price in Offer).",
+        "size": "Size:",
+        "brand": "Brand",
+        "category": "Category:",
+        "rank": "Product rank in store:",
+        "quantity": "Quantity:"
+    },
+    "selectOption": "--select--",
+    "notes": {
+        "price": "price and promotional price should be in cents.",
+        "rank": "Rank is use to rank product in the store.",
+        "sizeAndBrand": "Use well known sizes and brands to list your product in searches."
+    },
+    "submitButton": "SAVE",
+    "placeholders": {
+        "price": "eg. 10000",
+        "size": "eg. S, M, L, XL, etc.",
+        "brand": "Use known brand",
+        "category": "Use well known category",
+        "rankByStore": "use 1 for best product.",
+        "quantity": "eg. 1"
+    }
+}

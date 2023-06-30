@@ -1,0 +1,81 @@
+.AddressInputList-input-label {
+    font-weight: bold;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 3px;
+    color: var(--store-primary);
+  }
+
+  
+.AddressInputList-address{
+    max-width: 100%;
+    border: 1px solid gray;
+    padding: 5px;
+    position: relative;
+    margin-top: 5px;
+  }
+  
+  .AddressInputList-address-remove-btn{
+    cursor: pointer;
+    position: absolute;
+    right: 7px;
+    top: -10px;
+    font-weight: bold;
+    color: red;
+  }
+  
+  .AddressInputList-sub-input-label {
+    font-weight: bold;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 3px;
+    color: var(--store-primary);
+  }
+  
+  .AddressInputList-house_number-input{
+    width: 100px;
+  }
+  
+  .AddressInputList-street-input, .AddressInputList-landmark-input{
+    width: 100%;
+  }
+  
+  .AddressInputList-inline-inputs{
+    max-width: 100%;
+    overflow: hidden;
+    display: flex;
+  }
+  
+  .AddressInputList-inline-inputs1{
+    margin-right: 3px;
+  }
+  
+  .AddressInputList-inline-inputs1>input{
+    width: 100%;
+  }
+  
+  .AddressInputList-inline-inputs2{
+    margin-left: 3px;
+  }
+  
+  .AddressInputList-inline-inputs2>input{
+    width: 100%;
+  }
+  
+  .AddressInputList-address-add-btn{
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: capitalize;
+    width: fit-content;
+    font-size: 14px;
+  }
+
+  
+.AddressInputList-country-options-input{
+  font-size: 17px;
+  /* font-weight: bold; */
+  margin-top: 2px;
+}

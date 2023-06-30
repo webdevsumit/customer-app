@@ -1,0 +1,21 @@
+{
+    "input-labels": {
+        "addresses": "Endereço",
+        "flatNo": "Ap:",
+        "street": "Rua:",
+        "landmark": "Referência:",
+        "zip": "CEP:",
+        "city": "Cidade:",
+        "state": "Estado:",
+        "country": "País:"
+    },
+    "button": {
+        "add": "Adicionar outro"
+    },
+    "countries": {
+        "Brazil": "Brasil",
+        "India": "India",
+        "United-States": "Estados Unidos"
+    },
+    "select-text": "--SELECIONAR--"
+}

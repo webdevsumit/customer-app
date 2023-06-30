@@ -1,0 +1,17 @@
+{
+    "input-labels": {
+        "phoneNumber": "Número de telefone:",
+        "type": "Tipo:",
+        "whatsappNum": "É WhatsApp?"
+    },
+    "select-optinos": {
+        "empty": "--selecione--",
+        "Mobile": "Celular",
+        "Telephone": "Telefone",
+        "YES": "Sim",
+        "NO": "Não"
+    },
+    "button": {
+        "add": "Incluir"
+    }
+}

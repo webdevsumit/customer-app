@@ -1,0 +1,111 @@
+.Landing{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%);
+}
+
+.Landing-head {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  min-height: 100vh;
+  background: transparent;
+  /* position: absolute; */
+  /* top: 0; */
+  /* left: 0; */
+  color: white;
+  font-size: 20px;
+  flex-direction: column;
+  /* margin: 0; */
+  /* overflow-y: scroll; */
+  overflow-x: hidden;
+  /* padding-top: 12vh; */
+}
+
+.Landing-head > h4 {
+  /* background-color: #0c0d13; */
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  margin: 0;
+  font-family: monospace;
+}
+
+.Landing-head > h2 {
+  /* background-color: #0c0d13; */
+  /* padding: 10px; */
+  border-radius: 8px;
+  text-align: center;
+  margin: 0;
+  font-family: monospace;
+}
+
+.Landing-logo {
+  max-width: 300px;
+  width: 100%;
+}
+
+.Landing-button-div {
+  /* position: relative;
+  top: 100px; */
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.Landing-text-animation {
+  position: relative;
+  top: 0px;
+}
+
+@media only screen and (max-width: 700px) {
+  .Landing-text-animation {
+    transform: scale(0.7);
+    top: -15px;
+  }
+  .FancyTextMessage_Iam > p {
+    margin-top: 0;
+    margin-bottom: 0;
+    display: none;
+  }
+  .FancyTextMessage_Iam > .innerIam {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.Landing-nav {
+  max-width: 100%;
+  position: fixed;
+  right: 0;
+  top: 0;
+  left: 0;
+  z-index: 11;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.Landing-nav-login {
+  transform: scale(0.6) translateY(8px);
+}
+
+.Landing-nav-login-button{
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.Landing-nav-login-button>a{
+  color: white;
+  margin-right: 10px;
+  margin-top: 15px;
+  padding: 0;
+  font-size: 0.8rem;
+}
+

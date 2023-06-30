@@ -1,0 +1,20 @@
+{
+    "messages": {
+        "image": "Select corect image.",
+        "size": "Size should be less than 500 KB",
+        "success": "Image saved successfully!",
+        "saving": "Saving...",
+        "deleted": "Image deleted successfully!",
+        "deleting": "Deleting...",
+        "loading": "loading..."
+    },
+    "labels": {
+        "top": "Just use square images to upload.",
+        "addNew": "Add First Image"
+    },
+    "buttons": {
+        "delete": "Delete",
+        "replace": "Replace",
+        "add-New": "Add New"
+    }
+}

@@ -1,0 +1,130 @@
+.UserBagCard {
+  margin: 10px;
+  margin-left: 2%;
+  margin-right: 2%;
+  padding: 10px;
+  width: 96%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  position: relative;
+}
+
+.UserBagCard-popup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.185);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+}
+
+.UserBagCard-popup-inner {
+  min-height: 50px;
+  width: 400px;
+  max-width: 95%;
+  background-color: white;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.UserBagCard-popup-second-container > p {
+  margin: 0 10px;
+  color: var(--user-primary);
+  font-weight: bold;
+}
+
+.UserBagCard-popup-second-container {
+  display: flex;
+}
+
+.UserBagCard-popup-close-btn {
+  top: -16px;
+  right: 4px;
+}
+
+.UserBagCard-remove-btn {
+  top: -25px;
+  right: 0px;
+  font-weight: bold;
+  font-size: 24px;
+  border: 2px solid red;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.UserBagCard-remove-btn>span{
+  position: relative;
+  top: -3px;
+}
+
+.UserBagCard-popup-inner-submit-button1 {
+  background-color: var(--user-primary);
+  color: white!important;
+  outline: none;
+  padding: 2px 3px;
+  font-weight: bold;
+  font-size: 13px;
+  border: 2px solid var(--user-primary);
+  cursor: pointer;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.UserBagCard-img {
+  width: 50px;
+  height: 50px;
+}
+
+.UserBagCard-details-price-div {
+  display: flex;
+  flex-direction: column;
+  min-width: 70px;
+  justify-content: flex-end;
+  align-content: flex-end;
+  align-items: flex-end;
+}
+
+.UserBagCard-details-price {
+  color: var(--user-primary);
+  margin: 0;
+  margin-right: 5px;
+  font-size: 12px;
+}
+
+.UserBagCard-details-price-overline {
+  color: rgba(0, 0, 0, 0.511);
+  margin: 0;
+  text-decoration: line-through;
+  margin-right: 5px;
+}
+
+.UserBagCard-desc {
+  margin-left: 10px;
+  margin-right: 10px;
+  font-family: monospace;
+  flex: 1;
+}
+
+.UserBagCard-details-quantity-edit-icon {
+  width: 14px;
+  background-color: var(--user-primary);
+  margin-left: 5px;
+  position: relative;
+  top: 2px;
+  cursor: pointer;
+}

@@ -1,0 +1,48 @@
+.UserNotificationCard{
+    width: 96%;
+    display: flex;
+    min-height: 50px;
+    background-color: var(--user-primary);
+    margin: 5px 2%;
+    border-radius: 8px;
+    padding: 5px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.UserNotificationCard-text-div{
+    margin: 5px;
+    color: white;
+    flex: 1;
+}
+
+.UserNotificationCard-text{
+    color: white;
+    margin: 0;
+}
+
+.UserNotificationCard-text-date{
+    color: white;
+    margin: 0;
+    font-size: 12px;
+}
+
+.UserNotificationCard-read-icon{
+    /* flex: 1; */
+    margin-left: 5px;
+    border-left: 3px solid white;
+    height: 100%;
+    padding-left: 5px;
+
+}
+
+.UserNotificationCard-read-icon-mail{
+    height: 30px;
+    cursor: pointer;
+}
+
+.UserNotificationCard-read-icon-readmail{
+    height: 30px;
+    cursor: no-drop;
+    opacity: 0.6;
+}

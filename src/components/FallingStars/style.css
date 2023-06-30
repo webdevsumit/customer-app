@@ -1,0 +1,385 @@
+.FallingStarts-div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%);
+    overflow: hidden;
+  }
+
+.FallingStarts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    transform: rotate(-45deg);
+  }
+  
+  .FallingStart {
+    --FallingStart-color: white;
+    --FallingStart-tail-length: 6em;
+    --FallingStart-tail-height: 2px;
+    --FallingStart-width: calc(var(--FallingStart-tail-length) / 6);
+    --fall-duration: 9s;
+    --tail-fade-duration: var(--fall-duration);
+    position: absolute;
+    top: var(--top-offset);
+    left: 0;
+    width: var(--FallingStart-tail-length);
+    height: var(--FallingStart-tail-height);
+    color: var(--FallingStart-color);
+    background: linear-gradient(45deg, currentColor, transparent);
+    border-radius: 50%;
+    filter: drop-shadow(0 0 6px currentColor);
+    transform: translate3d(104em, 0, 0);
+    animation: fall var(--fall-duration) var(--fall-delay) linear infinite, tail-fade var(--tail-fade-duration) var(--fall-delay) ease-out infinite;
+  }
+  @media screen and (max-width: 750px) {
+    .FallingStart {
+      animation: fall var(--fall-duration) var(--fall-delay) linear infinite;
+    }
+  }
+  .FallingStart:nth-child(1) {
+    --FallingStart-tail-length: 7.35em;
+    --top-offset: 31.97vh;
+    --fall-duration: 8.998s;
+    --fall-delay: 1.464s;
+  }
+  .FallingStart:nth-child(2) {
+    --FallingStart-tail-length: 6.68em;
+    --top-offset: 78.98vh;
+    --fall-duration: 10.238s;
+    --fall-delay: 2.734s;
+  }
+  .FallingStart:nth-child(3) {
+    --FallingStart-tail-length: 7.2em;
+    --top-offset: 82.76vh;
+    --fall-duration: 7.708s;
+    --fall-delay: 8.547s;
+  }
+  .FallingStart:nth-child(4) {
+    --FallingStart-tail-length: 6.6em;
+    --top-offset: 77.21vh;
+    --fall-duration: 6.408s;
+    --fall-delay: 4.721s;
+  }
+  .FallingStart:nth-child(5) {
+    --FallingStart-tail-length: 7.43em;
+    --top-offset: 63.67vh;
+    --fall-duration: 8.924s;
+    --fall-delay: 3.278s;
+  }
+  .FallingStart:nth-child(6) {
+    --FallingStart-tail-length: 6em;
+    --top-offset: 96.72vh;
+    --fall-duration: 8.704s;
+    --fall-delay: 7.501s;
+  }
+  .FallingStart:nth-child(7) {
+    --FallingStart-tail-length: 6.6em;
+    --top-offset: 27.68vh;
+    --fall-duration: 8.178s;
+    --fall-delay: 3.892s;
+  }
+  .FallingStart:nth-child(8) {
+    --FallingStart-tail-length: 6.45em;
+    --top-offset: 97.2vh;
+    --fall-duration: 9.673s;
+    --fall-delay: 4.271s;
+  }
+  .FallingStart:nth-child(9) {
+    --FallingStart-tail-length: 6.21em;
+    --top-offset: 92.63vh;
+    --fall-duration: 6.883s;
+    --fall-delay: 2.43s;
+  }
+  .FallingStart:nth-child(10) {
+    --FallingStart-tail-length: 6.16em;
+    --top-offset: 90.2vh;
+    --fall-duration: 6.043s;
+    --fall-delay: 9.412s;
+  }
+  .FallingStart:nth-child(11) {
+    --FallingStart-tail-length: 5.39em;
+    --top-offset: 13.96vh;
+    --fall-duration: 11.643s;
+    --fall-delay: 1.422s;
+  }
+  .FallingStart:nth-child(12) {
+    --FallingStart-tail-length: 6.57em;
+    --top-offset: 24.99vh;
+    --fall-duration: 7.755s;
+    --fall-delay: 2.956s;
+  }
+  .FallingStart:nth-child(13) {
+    --FallingStart-tail-length: 7.43em;
+    --top-offset: 47.89vh;
+    --fall-duration: 10.96s;
+    --fall-delay: 2.085s;
+  }
+  .FallingStart:nth-child(14) {
+    --FallingStart-tail-length: 5.2em;
+    --top-offset: 95.85vh;
+    --fall-duration: 9.713s;
+    --fall-delay: 0.401s;
+  }
+  .FallingStart:nth-child(15) {
+    --FallingStart-tail-length: 5.82em;
+    --top-offset: 0.31vh;
+    --fall-duration: 6.405s;
+    --fall-delay: 1.787s;
+  }
+  .FallingStart:nth-child(16) {
+    --FallingStart-tail-length: 5.28em;
+    --top-offset: 5.96vh;
+    --fall-duration: 11.087s;
+    --fall-delay: 9.439s;
+  }
+  .FallingStart:nth-child(17) {
+    --FallingStart-tail-length: 7.14em;
+    --top-offset: 49.98vh;
+    --fall-duration: 9.941s;
+    --fall-delay: 5.84s;
+  }
+  .FallingStart:nth-child(18) {
+    --FallingStart-tail-length: 6.61em;
+    --top-offset: 19.03vh;
+    --fall-duration: 7.04s;
+    --fall-delay: 5.635s;
+  }
+  .FallingStart:nth-child(19) {
+    --FallingStart-tail-length: 7.2em;
+    --top-offset: 87.99vh;
+    --fall-duration: 11.482s;
+    --fall-delay: 5.241s;
+  }
+  .FallingStart:nth-child(20) {
+    --FallingStart-tail-length: 6.45em;
+    --top-offset: 32.91vh;
+    --fall-duration: 6.75s;
+    --fall-delay: 6.787s;
+  }
+  .FallingStart:nth-child(21) {
+    --FallingStart-tail-length: 6.03em;
+    --top-offset: 61.97vh;
+    --fall-duration: 6.004s;
+    --fall-delay: 9.366s;
+  }
+  .FallingStart:nth-child(22) {
+    --FallingStart-tail-length: 6.72em;
+    --top-offset: 85.56vh;
+    --fall-duration: 9.279s;
+    --fall-delay: 1.258s;
+  }
+  .FallingStart:nth-child(23) {
+    --FallingStart-tail-length: 6.29em;
+    --top-offset: 30.65vh;
+    --fall-duration: 7.168s;
+    --fall-delay: 8.372s;
+  }
+  .FallingStart:nth-child(24) {
+    --FallingStart-tail-length: 7.5em;
+    --top-offset: 7.77vh;
+    --fall-duration: 9.476s;
+    --fall-delay: 5.548s;
+  }
+  .FallingStart:nth-child(25) {
+    --FallingStart-tail-length: 6.11em;
+    --top-offset: 62.1vh;
+    --fall-duration: 6.645s;
+    --fall-delay: 6.972s;
+  }
+  .FallingStart:nth-child(26) {
+    --FallingStart-tail-length: 7.46em;
+    --top-offset: 87.07vh;
+    --fall-duration: 7.218s;
+    --fall-delay: 5.149s;
+  }
+  .FallingStart:nth-child(27) {
+    --FallingStart-tail-length: 6.32em;
+    --top-offset: 54.02vh;
+    --fall-duration: 10.82s;
+    --fall-delay: 9.748s;
+  }
+  .FallingStart:nth-child(28) {
+    --FallingStart-tail-length: 7.01em;
+    --top-offset: 43.91vh;
+    --fall-duration: 11.713s;
+    --fall-delay: 8.611s;
+  }
+  .FallingStart:nth-child(29) {
+    --FallingStart-tail-length: 6.21em;
+    --top-offset: 29.17vh;
+    --fall-duration: 10.009s;
+    --fall-delay: 9.88s;
+  }
+  .FallingStart:nth-child(30) {
+    --FallingStart-tail-length: 5.05em;
+    --top-offset: 61.44vh;
+    --fall-duration: 9.954s;
+    --fall-delay: 4.243s;
+  }
+  .FallingStart:nth-child(31) {
+    --FallingStart-tail-length: 5.57em;
+    --top-offset: 52.69vh;
+    --fall-duration: 10.16s;
+    --fall-delay: 8.057s;
+  }
+  .FallingStart:nth-child(32) {
+    --FallingStart-tail-length: 6.37em;
+    --top-offset: 84.15vh;
+    --fall-duration: 8.131s;
+    --fall-delay: 7.293s;
+  }
+  .FallingStart:nth-child(33) {
+    --FallingStart-tail-length: 6.65em;
+    --top-offset: 41.78vh;
+    --fall-duration: 11.493s;
+    --fall-delay: 8.679s;
+  }
+  .FallingStart:nth-child(34) {
+    --FallingStart-tail-length: 6.73em;
+    --top-offset: 21.08vh;
+    --fall-duration: 8.377s;
+    --fall-delay: 0.191s;
+  }
+  .FallingStart:nth-child(35) {
+    --FallingStart-tail-length: 6.08em;
+    --top-offset: 76.5vh;
+    --fall-duration: 10.605s;
+    --fall-delay: 0.497s;
+  }
+  .FallingStart:nth-child(36) {
+    --FallingStart-tail-length: 7.14em;
+    --top-offset: 75.95vh;
+    --fall-duration: 10.044s;
+    --fall-delay: 6.016s;
+  }
+  .FallingStart:nth-child(37) {
+    --FallingStart-tail-length: 5.77em;
+    --top-offset: 56.65vh;
+    --fall-duration: 10.042s;
+    --fall-delay: 8.668s;
+  }
+  .FallingStart:nth-child(38) {
+    --FallingStart-tail-length: 7.33em;
+    --top-offset: 81.74vh;
+    --fall-duration: 10.414s;
+    --fall-delay: 3.396s;
+  }
+  .FallingStart:nth-child(39) {
+    --FallingStart-tail-length: 5.44em;
+    --top-offset: 3.65vh;
+    --fall-duration: 11.495s;
+    --fall-delay: 4.093s;
+  }
+  .FallingStart:nth-child(40) {
+    --FallingStart-tail-length: 7.42em;
+    --top-offset: 92.47vh;
+    --fall-duration: 9.844s;
+    --fall-delay: 7.726s;
+  }
+  .FallingStart:nth-child(41) {
+    --FallingStart-tail-length: 6.05em;
+    --top-offset: 2.87vh;
+    --fall-duration: 9.182s;
+    --fall-delay: 8.235s;
+  }
+  .FallingStart:nth-child(42) {
+    --FallingStart-tail-length: 6.28em;
+    --top-offset: 69.75vh;
+    --fall-duration: 11.428s;
+    --fall-delay: 6.895s;
+  }
+  .FallingStart:nth-child(43) {
+    --FallingStart-tail-length: 5.46em;
+    --top-offset: 91.67vh;
+    --fall-duration: 11.296s;
+    --fall-delay: 3.696s;
+  }
+  .FallingStart:nth-child(44) {
+    --FallingStart-tail-length: 6.99em;
+    --top-offset: 64.84vh;
+    --fall-duration: 8.219s;
+    --fall-delay: 5.686s;
+  }
+  .FallingStart:nth-child(45) {
+    --FallingStart-tail-length: 5.29em;
+    --top-offset: 20.09vh;
+    --fall-duration: 9.443s;
+    --fall-delay: 0.392s;
+  }
+  .FallingStart:nth-child(46) {
+    --FallingStart-tail-length: 5.58em;
+    --top-offset: 3.9vh;
+    --fall-duration: 10.35s;
+    --fall-delay: 1.024s;
+  }
+  .FallingStart:nth-child(47) {
+    --FallingStart-tail-length: 5.93em;
+    --top-offset: 51.46vh;
+    --fall-duration: 8.27s;
+    --fall-delay: 0.829s;
+  }
+  .FallingStart:nth-child(48) {
+    --FallingStart-tail-length: 6.92em;
+    --top-offset: 6.32vh;
+    --fall-duration: 11.138s;
+    --fall-delay: 5.532s;
+  }
+  .FallingStart:nth-child(49) {
+    --FallingStart-tail-length: 6.67em;
+    --top-offset: 8.4vh;
+    --fall-duration: 6.741s;
+    --fall-delay: 7.812s;
+  }
+  .FallingStart:nth-child(50) {
+    --FallingStart-tail-length: 6em;
+    --top-offset: 71.67vh;
+    --fall-duration: 8.564s;
+    --fall-delay: 4.718s;
+  }
+  .FallingStart::before, .FallingStart::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: calc(var(--FallingStart-width) / -2);
+    width: var(--FallingStart-width);
+    height: 100%;
+    background: linear-gradient(45deg, transparent, currentColor, transparent);
+    border-radius: inherit;
+    animation: blink 2s linear infinite;
+  }
+  .FallingStart::before {
+    transform: rotate(45deg);
+  }
+  .FallingStart::after {
+    transform: rotate(-45deg);
+  }
+  
+  @keyframes fall {
+    to {
+      transform: translate3d(-30em, 0, 0);
+    }
+  }
+  @keyframes tail-fade {
+    0%, 50% {
+      width: var(--FallingStart-tail-length);
+      opacity: 1;
+    }
+    70%, 80% {
+      width: 0;
+      opacity: 0.4;
+    }
+    100% {
+      width: 0;
+      opacity: 0;
+    }
+  }
+  @keyframes blink {
+    50% {
+      opacity: 0.6;
+    }
+  }

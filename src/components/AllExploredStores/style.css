@@ -1,0 +1,10 @@
+.AllExploredStores-Loading-more{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.AllExploredStores-Loading-more>p{
+    text-align: center;
+}

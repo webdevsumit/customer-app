@@ -1,0 +1,123 @@
+{
+    "messages": {
+        "fileExtention": "Please select the file with .CSV extention.",
+        "invalidFile": "File is invalid.",
+        "rowLimit": "File should has atleast 2 rows.",
+        "columnLimit": "File should has atleast 4 columns.",
+        "requiredField": "Select the required fields.",
+        "emptyFeedBack": "Feedback Message cannot be empty."
+    },
+    "feedbackCard": {
+        "statusProcessingLabel": "STATUS: PROCESSING THE DATA.",
+        "statusProcessingPara": "While we are uploading your data, Please tell us what do you expect with this app and what is your experience until now. ",
+        "statusProcessedLabel": "STATUS: THE DATA IS PROCESSED.",
+        "statusProcessedPara": "Please tell us what do you expect with this app and what is your experience until now. "
+    },
+    "backButtonText": "BACK",
+    "nextButtonText": "NEXT STEP",
+    "feedSubmitText": "SUBMIT",
+    "step1": {
+        "head": "Important points to read before importing data.",
+        "p1-line1": "1. After selecting file you will see 11 fields to select. Here * means necessary.",
+        "bullerPoints": {
+            "line1": {
+                "bold": "ID*",
+                "p": "- Unique Id."
+            },
+            "line2": {
+                "bold": "NAME*",
+                "p": "- add small but detailed name."
+            },
+            "line3": {
+                "bold": "PRICE*",
+                "p": "- Price (in cents). Use just integers."
+            },
+            "line4": {
+                "bold": "SIZE*",
+                "p": "- Try to add standard sizes like S, M, L, etc."
+            },
+            "line5": {
+                "bold": "CATEGORY*",
+                "p": "- Try to add well known categories to get the in search results."
+            },
+            "line6": {
+                "bold": "DESCRIPTION",
+                "p": "- Best place to show other details (max. 800 words)."
+            },
+            "line7": {
+                "bold": "PROMOTIONAL PRICE",
+                "p": "- Price (in cents) that will be shown when you activate offers. Default is same as price."
+            },
+            "line8": {
+                "bold": "BRAND",
+                "p": "- Try to add well known brands to get in the search results."
+            },
+            "line9": {
+                "bold": "STATUS",
+                "p": "- Options: 'UPCOMING' and 'NEW'. Default is 'NEW'. 'UPCOMING' means It is not there but will be available soon."
+            }
+        },
+        "p2-line1": "2. After importing, click 'Manage Products' options in the 'Store Menu' to add images.",
+        "uploadButton": "UPLOAD CSV"
+    },
+    "step2": {
+        "rows": {
+            "row1": {
+                "label": "ID*",
+                "tooltip": "ID of the product"
+            },
+            "row2": {
+                "label": "NAME*",
+                "tooltip": "Name of the product"
+            },
+            "row3": {
+                "label": "PRICE*",
+                "tooltip": "PRICE of the product"
+            },
+            "row4": {
+                "label": "SIZE*",
+                "tooltip": "SIZE of the product"
+            },
+            "row5": {
+                "label": "CATEGORY*",
+                "tooltip": "CATEGORY of the product"
+            },
+            "row6": {
+                "label": "DESCRIPTION",
+                "tooltip": "DESCRIÇÃO of the product"
+            },
+            "row7": {
+                "label": "PROMO PRICE",
+                "tooltip": "PROMOTIONAL PRICE of the product"
+            },
+            "row8": {
+                "label": "BRAND",
+                "tooltip": "'BRAND of the product."
+            },
+            "row9": {
+                "label": "STATUS",
+                "tooltip": "STATUS of the product"
+            },
+            "row10": {
+                "label": "RANK",
+                "tooltip": "RANK of the product"
+            },
+            "row11": {
+                "label": "QUANTITY",
+                "tooltip": "QUANTITY of the product"
+            }
+        },
+        "emptyOption": "-----EMPTY-----",
+        "head": "Now you must indicate which column of your .CSV spreadsheet should be imported for each TicTag field. Hover to see more details of the field."
+    },
+    "step3": {
+        "successCountText": "Items imported successfully",
+        "failedCountText": "Items not imported",
+        "rowsSent": "otal rows sent to upload",
+        "rowsInFile": "Total rows in the file",
+        "tabelHead1": "ID",
+        "tabelHead2": "IT WAS NOT IMPORTED BECAUSE: ",
+        "submit": "ADD PHOTOS"
+    },
+    "selectPlaceholder": "SELECT"
+}

@@ -1,0 +1,15 @@
+{
+    "labels": {
+        "filter": "Filters",
+        "startDate": "Start Date:",
+        "endDate": "End Date:",
+        "category": "Category:",
+        "all": "ALL:",
+        "withoutImage": "Products without images",
+        "sortByType": "Sort By Type",
+        "sortBy": "Sort By",
+        "asce": "Ascending",
+        "desc": "Descending"
+    },
+    "submitButton": "FILTER"
+}

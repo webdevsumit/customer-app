@@ -1,0 +1,42 @@
+{
+    "notes": {
+        "productInBag": "Limpe o pedido pendente primeiro e continue com os itens do seu carrinho."
+    },
+    "totals": {
+        "subtotals": "SUBTOTAL",
+        "deliveryTotals": "CUSTO DE ENTREGA",
+        "totals": "TOTAL"
+    },
+    "address": {
+        "head": "ENDEREÇO DE ENTREGA",
+        "cepOrZip": "CEP",
+        "houseNumber": "Número do Apartamento",
+        "street": "Rua",
+        "landmark": "Referência",
+        "city": "Cidade",
+        "state": "Estado",
+        "phone": "Telefone"
+    },
+    "submitBtn": "SALVAR E CONTINUAR",
+    "cancelBtn": "CANCELAR",
+    "editBtn": "EDITAR",
+    "calculating": "Calculando...",
+    "palceholders": {
+        "cep_or_pincode": "ex. 464646",
+        "house_number": "ex. 247",
+        "street": "Rua",
+        "landmark": "Perto de um local famoso.",
+        "city": "Cidade",
+        "state": "Estado",
+        "phone": "Número de contato completo"
+    },
+    "errors": {
+        "cep_or_pincode": "O CEP deve ter pelo menos 8 caracteres.",
+        "house_number": "O número do apartamento é obrigatório.",
+        "street": "A rua é obrigatória.",
+        "landmark": "A referência é obrigatória.",
+        "city": "Cidade é obrigatória.",
+        "state": "O Estado é obrigatório.",
+        "phone": "O número de telefone é obrigatório."
+    }
+}

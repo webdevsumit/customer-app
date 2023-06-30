@@ -1,0 +1,40 @@
+.GlobalSettings {
+  margin: 20px 2%;
+}
+
+.GlobalSettings-inline-inputs {
+  max-width: 96%;
+  overflow: hidden;
+  display: flex;
+}
+
+.GlobalSettings-inline-inputs1 {
+  margin-right: 3px;
+}
+
+.GlobalSettings-inline-inputs1 > select {
+  width: 100%;
+}
+
+.GlobalSettings-inline-inputs2 {
+  margin-left: 3px;
+}
+
+.GlobalSettings-inline-inputs2 > select {
+  width: 100%;
+}
+
+.GlobalSettings-sub-input-label {
+  font-weight: bold;
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 3px;
+  color: var(--user-primary);
+}
+
+.GlobalSettings-type-input {
+  font-size: 17px;
+  margin-top: 2px;
+  /* font-weight: bold; */
+}

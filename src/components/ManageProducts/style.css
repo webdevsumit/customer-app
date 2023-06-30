@@ -1,0 +1,30 @@
+.ManageProducts{
+    position: relative;
+}
+
+.ManageProducts-filter-wrapper{
+    position: fixed;
+    top: 35px;
+    /* position: absolute;
+    top: 5px; */
+    right: 5px;
+    background-color: var(--store-primary);
+    padding: 2px;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 11;
+    width: fit-content;
+}
+
+.ManageProducts-filter-wrapper>img{
+    width: 30px;
+    margin-top: 2px;
+}
+.ManageProducts-container{
+    padding: 10px;
+}
+
+.ManageProducts-container>h4{
+    margin-top: 6px;
+    color: var(--store-primary);
+}

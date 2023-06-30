@@ -1,0 +1,14 @@
+{
+    "links": {
+        "storeSettings": "Configurações da Loja",
+        "manageProducts": "Gerenciar Produtos",
+        "settings": "Configurações",
+        "subscription": "Assinatura ({{type}})",
+        "userMode": {
+            "1": "Voltar para o",
+            "2": "Modo do Usuário"
+        },
+        "cs": "Atendimento ao Cliente",
+        "signout": "Sair"
+    }
+}

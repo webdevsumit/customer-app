@@ -1,0 +1,22 @@
+{
+    "hero":{
+        "welcome": "WELCOME TO"
+    },
+    "button": {
+        "signup": "Singup"
+    },
+    "Landing-language-select": {
+        "option1": "ENGLISH",
+        "option2": "PORTUGUESE"
+    },
+    "Landing-nav-login": {
+        "label": "Login"
+    },
+    "Landing-FancyTextMessage": {
+        "line1": "Create your own store & share with customers.",
+        "line2": "Add 1000 products in less than 10 seconds.",
+        "line3": "Sell and get money in your account in a day.",
+        "line4": "Do live events on Instagram, Facebook, etc.",
+        "line5": "Pay only if you grow :) & Start free of cost."
+    }
+}

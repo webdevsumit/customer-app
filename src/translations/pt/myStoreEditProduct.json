@@ -1,0 +1,48 @@
+{
+    "messages": {
+        "required": {
+            "name": "O campo de nome é obrigatório.",
+            "description": "O campo de descrição é obrigatório.",
+            "status": "O campo de status é obrigatório.",
+            "priceInCent": "O campo de preço é obrigatório.",
+            "promoPriceInCent": "O campo de preço promocional é obrigatório.",
+            "size": "O campo de tamanho é obrigatório.",
+            "subCategory": "O campo de categoria é obrigatório.",
+            "rankByStore": "O campo de classificação na loja é obrigatório.",
+            "quantity": "O campo de quantidade na loja é obrigatório."
+        },
+        "maxCharsName": "O nome não deve ter mais de 99 caracteres.",
+        "maxCharsDesc": "A descrição não deve ter mais de 700 caracteres."
+    },
+    "success": "Salvo com sucesso!",
+    "labels": {
+        "id": "ID:",
+        "createdAt": "Criado em:",
+        "name": "Nome",
+        "description": "Descrição (max: 800 caracteres)",
+        "status": "Status:",
+        "price": "Preço (centavos):",
+        "promoPrice": "Preço Promocional (centavos):",
+        "applyPromo": "Aplicar preço promocional (Preço na oferta).",
+        "size": "Tamanho:",
+        "brand": "Marca",
+        "category": "Categoria:",
+        "rank": "Classificação do produto na loja:",
+        "quantity": "Quantidade:"
+    },
+    "selectOption": "--selecione--",
+    "notes": {
+        "price": "Preço e preço promocional devem estar em centavos.",
+        "rank": "A classificação é usada para classificar produtos na loja.",
+        "sizeAndBrand": "Use tamanhos e marcas conhecidos para listar seu produto nas pesquisas."
+    },
+    "submitButton": "SALVAR",
+    "placeholders": {
+        "price": "ex. 10000",
+        "size": "ex. P, M, G, GG, etc.",
+        "brand": "Use marca conhecida",
+        "category": "Use categoria conhecida",
+        "rankByStore": "Use 1 para o melhor produto.",
+        "quantity": "ex. 1"
+    }
+}

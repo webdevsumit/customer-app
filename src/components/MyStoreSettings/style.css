@@ -1,0 +1,41 @@
+.MyStoreSettings {
+    margin: 20px 2%;
+  }
+  
+  .MyStoreSettings-inline-inputs {
+    max-width: 96%;
+    overflow: hidden;
+    display: flex;
+  }
+  
+  .MyStoreSettings-inline-inputs1 {
+    margin-right: 3px;
+  }
+  
+  .MyStoreSettings-inline-inputs1 > select {
+    width: 100%;
+  }
+  
+  .MyStoreSettings-inline-inputs2 {
+    margin-left: 3px;
+  }
+  
+  .MyStoreSettings-inline-inputs2 > select {
+    width: 100%;
+  }
+  
+  .MyStoreSettings-sub-input-label {
+    font-weight: bold;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 3px;
+    color: var(--store-primary);
+  }
+  
+  .MyStoreSettings-type-input {
+    font-size: 17px;
+    margin-top: 2px;
+    /* font-weight: bold; */
+  }
+  

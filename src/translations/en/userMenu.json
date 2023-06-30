@@ -1,0 +1,14 @@
+{
+    "links": {
+        "account": "Account",
+        "settings": "Settings",
+        "previous-orders": "Previous Orders",
+        "admin": {
+            "switch": "Switch to",
+            "bold": "Store Admin"
+        },
+        "create-store": "Create Store",
+        "cs": "Customer Service",
+        "signout": "Sign Out"
+    }
+}

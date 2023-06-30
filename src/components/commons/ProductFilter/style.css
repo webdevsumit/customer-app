@@ -1,0 +1,137 @@
+.ProductFilter {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.133);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ManageProducts>*{
+    /* font-family: Arial, Helvetica, sans-serif; */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.ProductFilter-opening-opacitor-animation {
+  animation-name: opacitor;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.ProductFilter-closing-opacitor-animation {
+  animation-name: opacitor-reverse;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.ProductFilter-inner {
+  width: 80%;
+  max-width: 600px;
+  min-height: 250px;
+  background-color: white;
+  border-radius: 8px;
+  position: relative;
+  padding: 10px;
+}
+
+.ProductFilter-inner-close-btn {
+  position: absolute;
+  right: 10px;
+  top: -10px;
+  font-weight: bold;
+  color: red;
+  cursor: pointer;
+}
+
+.ProductFilter-opening-animation {
+  transform: scale(0);
+  animation-name: scaler;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.ProductFilter-closing-animation {
+  transform: scale(0);
+  animation-name: scaler-reverse;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes scaler {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes scaler-reverse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes opacitor {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes opacitor-reverse {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.ProductFilter-button1 {
+  background-color: var(--store-primary);
+  color: white;
+  outline: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 18px;
+  border: 2px solid var(--store-primary);
+  cursor: pointer;
+  text-align: center;
+}
+
+.ProductFilter-main-heads{
+    color: var(--store-primary);
+    margin-bottom: 5px;
+}
+
+.ProductFilter-input-divs{
+    margin: 5px;
+    margin-left: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 300px;
+}
+
+.ProductFilter-input-divs>label{
+    margin-right: 10px;
+    
+}
+
+.ProductFilter-input-divs>input{
+    width: max-content;
+}

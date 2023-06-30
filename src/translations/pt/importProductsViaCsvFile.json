@@ -1,0 +1,124 @@
+{
+    "messages": {
+        "fileExtention": "Por favor escolha uma aquivo com extensão .csv",
+        "invalidFile": "Escolha um arquivo .csv válido.",
+        "rowLimit": "Por favor selecione um arquivo que tenha pelo menos um item.",
+        "columnLimit": "Por favor selecione um arquivo que tenha pelo menos quatro colunas.",
+        "requiredField": "Selecione os campos necessários.",
+        "emptyFeedBack": "Feedback Message cannot be empty."
+    },
+    "feedbackCard": {
+        "statusProcessingLabel": "STATUS: PROCESSANDO OS DADOS.",
+        "statusProcessingPara": "Enquanto estamos carregando seus dados, por favor nos diga o que você espera deste aplicativo e qual é sua experiência até agora.",
+        "statusProcessedLabel": "STATUS: OS DADOS FORAM PROCESSADOS.",
+        "statusProcessedPara": "Por favor nos diga o que você espera deste aplicativo e qual é sua experiência até agora."
+    },
+    "backButtonText": "VOLTAR",
+    "nextButtonText": "PRÓXIMA ETAPA",
+    "feedSubmitText": "ENVIAR",
+    "step1": {
+        "head": "Pontos importantes para ler antes de importar dados.",
+        "p1-line1": "1. Após selecionar o arquivo, você verá 11 campos para selecionar. Aqui * significa obrigatório.",
+        "bullerPoints": {
+            "line1": {
+                "bold": "ID*",
+                "p": "- ID único."
+            },
+            "line2": {
+                "bold": "NOME*",
+                "p": "- Adicione um nome pequeno, mas detalhado."
+            },
+            "line3": {
+                "bold": "PREÇO*",
+                "p": "- Preço (em centavos). Use apenas números inteiros."
+            },
+            "line4": {
+                "bold": "TAMANHO*",
+                "p": "- Tente adicionar tamanhos padrão como P, M, G, etc."
+            },
+            "line5": {
+                "bold": "CATEGORIA*",
+                "p": "- Tente adicionar categorias conhecidas para obter resultados na pesquisa."
+            },
+            "line6": {
+                "bold": "DESCRIÇÃO",
+                "p": "- Melhor lugar para mostrar outros detalhes (máximo de 800 palavras)."
+            },
+            "line7": {
+                "bold": "PREÇO PROMOCIONAL",
+                "p": "- Preço (em centavos) que será mostrado quando você ativar ofertas. O padrão é o mesmo preço."
+            },
+            "line8": {
+                "bold": "MARCA",
+                "p": "- Tente adicionar marcas conhecidas para aparecer nos resultados da pesquisa."
+            },
+            "line9": {
+                "bold": "STATUS",
+                "p": "- Opções: 'EM BREVE' e 'NOVO'. O padrão é 'NOVO'. 'EM BREVE' significa que não está ainda disponível, mas estará em breve."
+            }
+        },
+        "p2-line1": "2. Após importar, clique em 'Gerenciar Produtos' no menu 'Loja' para adicionar imagens.",
+        "uploadButton": "FAZER UPLOAD DO CSV"
+    },
+    "step2": {
+        "rows": {
+            "row1": {
+                "label": "ID*",
+                "tooltip": "ID do produto"
+            },
+            "row2": {
+                "label": "NOME*",
+                "tooltip": "Nome do produto"
+            },
+            "row3": {
+                "label": "PREÇO*",
+                "tooltip": "Preço do produto"
+            },
+            "row4": {
+                "label": "TAMANHO*",
+                "tooltip": "Tamanho do produto"
+            },
+            "row5": {
+                "label": "CATEGORIA*",
+                "tooltip": "Categoria do produto"
+            },
+            "row6": {
+                "label": "DESCRIÇÃO",
+                "tooltip": "Descrição do produto"
+            },
+            "row7": {
+                "label": "PREÇO PROMOCIONAL",
+                "tooltip": "Preço promocional do produto"
+            },
+            "row8": {
+                "label": "MARCA",
+                "tooltip": "Marca do produto"
+            },
+            "row9": {
+                "label": "STATUS",
+                "tooltip": "Status do produto"
+            },
+            "row10": {
+                "label": "RANKING",
+                "tooltip": "Classificação do produto"
+            },
+            "row11": {
+                "label": "QUANTIDADE",
+                "tooltip": "Quantidade do produto"
+            }
+        },
+        "emptyOption": "-----VAZIO-----",
+        "head": "Agora você deve indicar qual coluna da sua planilha .CSV deve ser importada para cada campo do TicTag. Passe o mouse sobre para ver mais detalhes do campo."
+    },
+    "step3": {
+        "successCountText": "Itens importados com sucesso",
+        "failedCountText": "Itens não importados",
+        "rowsSent": "Total de linhas enviadas para upload",
+        "rowsInFile": "Total de linhas no arquivo",
+        "tabelHead1": "ID",
+        "tabelHead2": "NÃO FOI IMPORTADO PORQUE: ",
+        "submit": "ADICIONAR FOTOS"
+    },
+    "selectPlaceholder": "SELECIONE"
+
+}

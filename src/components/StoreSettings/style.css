@@ -1,0 +1,155 @@
+.StoreSettings {
+  padding: 20px;
+}
+
+.StoreSettings-store-id-input-text {
+  display: flex;
+  align-items: center;
+}
+
+.StoreSettings-store-id-input-text > p {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.StoreSettings-store-id-input-text1 {
+  width: fit-content;
+  font-weight: bold;
+}
+
+.StoreSettings-question-mark {
+  background-color: green;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  margin-left: 5px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.StoreSettings-store-id-input-p {
+  display: flex;
+  max-width: 100%;
+  overflow: hidden;
+  background-color: rgb(226, 226, 226);
+  padding: 5px;
+  border-radius: 3px;
+}
+
+#StoreSettings-store-id-input {
+  margin-left: 2px;
+  width: 130px;
+}
+
+.StoreSettings-help-text {
+  background-color: rgb(249, 241, 214);
+  padding: 10px;
+  font-family: monospace;
+}
+
+.StoreSettings-input-div {
+  margin-top: 10px;
+  max-width: 100%;
+}
+
+.StoreSettings-input-label {
+  font-weight: bold;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 3px;
+  color: var(--store-primary);
+}
+
+#StoreSettings-store-name-input {
+  width: 100%;
+  /* height: 40px; */
+  font-size: 18px;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.StoreSettings-unique-id-message {
+  margin-top: 1px;
+  font-weight: 500;
+}
+
+#StoreSettings-store-logo-input {
+  display: none;
+}
+
+.Create-store-file-input-label {
+  border: 1px solid black;
+  padding: 10px;
+  margin: 0;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.Create-store-file-input-preview {
+  border: 2px dashed rgb(188, 188, 188);
+  padding: 5px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Create-store-file-input-preview > img {
+  border: 2px solid black;
+  width: 250px;
+  height: 250px;
+  max-width: 100%;
+}
+
+.StoreSettings-flex-inline {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+#StoreSettings-store-desc-input {
+  width: 100%;
+}
+
+.StoreSettings-store-color-input-label-div {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+#StoreSettings-store-color-input {
+  width: 100%;
+}
+
+.StoreSettings-storeTiming{
+  display: flex;
+}
+
+.StoreSettings-storeTiming>div{
+  flex: 1;
+  padding: 0 10px;
+}
+
+.StoreSettings-storeTiming>div>input{
+  width: 100%;
+  max-width: 120px;
+}
+
+.StoreSettings-payment-head{
+  color: var(--store-primary);
+}
+
+.StoreSettings-payment-address{
+  margin: 0;
+  opacity: 0.6;
+  font-style: italic;
+  margin-left: 10px;
+}

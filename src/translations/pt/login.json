@@ -1,0 +1,18 @@
+{
+    "button": {
+        "login": "LOGIN",
+        "Facebook": "CONTINUAR COM FACEBOOK",
+        "signup": "CADASTRAR",
+        "fortgot-password": "ESQUECEU A SENHA",
+        "t-and-c": "TERMOS E CONDIÇÕES"
+    },
+    "Login-container-input-placeholder": {
+        "email": "exemplo@email.com",
+        "username": "nome de usuário",
+        "password": "senha"
+    },
+    "Login-signup-text": "Não tem uma conta? ",
+    "errors": {
+        "emptyFields": "Preencha todos os campos."
+    }
+}

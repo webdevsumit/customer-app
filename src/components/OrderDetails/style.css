@@ -1,0 +1,87 @@
+.OrderDetails-total-div-container{
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
+    background-color: #F0F0F0;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-between;
+    align-items: flex-end;   
+    border-radius: 8px; 
+    margin-bottom: 10px;
+}
+
+.OrderDetails-total-div-container>p{
+    color: var(--user-primary);
+    margin: 10px;
+    font-weight: bold;
+}
+
+.OrderDetails-head{
+    margin: 15px;
+    color: var(--user-primary);
+}
+
+.OrderDetails-total-div-container-address{
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
+    background-color: #F0F0F0;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between;
+    align-items: flex-end;    */
+    border-radius: 8px; 
+    margin-bottom: 10px;
+}
+
+.OrderDetails-total-div-container-address>h4{
+    color: var(--user-primary);
+    margin: 10px;
+    font-weight: bold;
+}
+
+.OrderDetails-total-div-container-incompeteOrderMessage{
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
+    padding: 10px;
+    background-color: #F0F0F0;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between;
+    align-items: flex-end;    */
+    border-radius: 8px; 
+    margin-bottom: 10px;
+}
+
+.OrderDetails-total-div-container-incompeteOrderMessage>p{
+    padding: 0;
+    margin: 0;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 14px;
+}
+
+.OrderDetails-total-div-container-address>table>tbody>tr>td>p{
+    color: var(--user-primary);
+    margin: 4px 10px;
+}
+
+.OrderDetails-total-div-container-address>table>tbody>tr>td{
+    min-width: 100px;
+}
+
+.OrderDetails-extra-btn-inline{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 5px;
+}
+
+.OrderDetails-extra-btn-inline>p{
+    margin: 0;
+    padding: 10px;
+    flex: 1;
+}

@@ -1,0 +1,22 @@
+{
+    "notes": {
+        "p1": "Todas as configurações de gerenciamento de produtos serão transferidas para TicTag. Você não poderá gerenciar sua loja pelo Golive. Você precisa fazer isso no TicTag.",
+        "p2": "Você não poderá adicionar produtos diretamente pelo Golive. Se você tiver produtos no Golive, eles não serão listados em nenhum lugar no Golive e serão tratados como produtos excluídos."
+    },
+    "placeholders": {
+        "email": "Email no TicTag",
+        "password": "Senha no TicTag",
+        "otp": "OTP",
+        "store": "Selecione a Loja"
+    },
+    "labels": {
+        "email": "E-mail registrado no TicTag",
+        "password": "Senha registrada no TicTag",
+        "otp": "OTP foi enviado para o e-mail registrado no TicTag"
+    },
+    "btns": {
+        "otp": "ENVIAR OTP",
+        "submit": "CONFIRMAR",
+        "continue": "CONTINUAR"
+    }
+}

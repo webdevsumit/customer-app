@@ -1,0 +1,23 @@
+{
+    "limitNotce": {
+        "notice": "NOTICE",
+        "p1-line1": "Your limit to add products is already",
+        "p1-hightlight1": "exceeded",
+        "p1-line2": "Increase the limit by suscribing an appropriate plan.",
+        "buttonCheckPlan": "CHECK PLANS",
+        "p2-line1": "Your limit is about to" ,
+        "p2-hightlight1": "exceed",
+        "p2-line2": "Increase the limit by suscribing an appropriate plan.",
+        "close": "CLOSE",
+        "addressWarning": {
+            "notice": "NOTICE",
+            "p1-line1": "Atleast one address of the store is needed to add products. Please add the address first.",
+            "buttonAddAddress": "ADD ADDRESS"
+        },
+        "tictagManagementWarn": {
+            "notice": "NOTICE",
+            "p1-line1": "Your store is manage by TicTag. You can add products from TicTag and not from here.",
+            "button": "OPEN TICTAG"
+        }
+    }
+}

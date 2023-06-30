@@ -1,0 +1,41 @@
+.StoreViewForUserGrid-Loading-more{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.StoreViewForUserGrid-Loading-more>p{
+    text-align: center;
+}
+
+.StoreViewForUserGrid-TotalresultNum{
+    margin-top: 6px;
+    color: var(--user-primary);
+}
+
+.StoreViewForUserGrid-gridView{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.StoreViewForUserGrid-view-wrapper{
+    position: fixed;
+    top: 35px;
+    /* position: absolute;
+    top: 5px; */
+    right: 5px;
+    background-color: var(--user-primary);
+    padding: 2px;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 11;
+    width: fit-content;
+}
+
+.StoreViewForUserGrid-view-wrapper>img{
+    width: 20px;
+    margin-top: 2px;
+}

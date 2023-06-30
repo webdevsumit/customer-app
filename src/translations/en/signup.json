@@ -1,0 +1,24 @@
+{
+    "button": {
+        "signup": "SIGNUP",
+        "back": "BACK",
+        "varify-otp": "VERIFY OTP",
+        "Facebook": "START WITH FACEBOOK",
+        "login": "Login",
+        "t-and-c": "Terms & Conditions"
+    },
+    "Signup-container-input-placeholder": {
+        "email": "example@email.com",
+        "password": "password",
+        "username": "username",
+        "otp": "Enter 6 digit OTP.",
+        "select-country": "Select Country"
+    },
+    "Signup-login-text": "Already have an account?",
+    "errors": {
+        "emptyFields": "Fill all the fields.",
+        "no-otpId": "Something went wrong. Please refresh the page and start again.",
+        "otp-sent": "Otp is sent to your email. Please verify."
+    },
+    "country-note": "You cannot change country after signup."
+}

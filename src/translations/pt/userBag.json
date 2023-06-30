@@ -1,0 +1,24 @@
+{
+    "totol-results": "Número total de produtos: ",
+    "loading": "carregando...",
+    "subtotal": "Subtotal",
+    "total": "Total",
+    "with-delivery": "ENTREGAR",
+    "without-delivery": "NÃO ENTREGAR",
+    "calculating": "calculando...",
+    "checkoutBtn": "FINALIZAR COMPRA",
+    "checkingoutBtn": "FINALIZANDO...",
+    "card": {
+        "quantity": "Quantidade:",
+        "availableQuantity": "Disponível:"
+    },
+    "quantityChanged": "Quantidade alterada com sucesso!",
+    "quantityChangedFailed": "Não foi possível alterar a quantidade.",
+    "failedAPI": "Algo deu errado.",
+    "emptyBagMessage": "O carrinho está vazio.",
+    "selectPlaceholder": "Selecione",
+    "emptyZipcode": "O CEP não pode estar vazio.",
+    "placeholder": {
+        "zipOrCep": "CEP"
+    }
+}

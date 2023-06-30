@@ -1,0 +1,46 @@
+.StoreAuth-extra-space-for-top-bar{
+    /* Below three lines are also related 
+    to the space behind the bar so don't forget 
+    to change in Top Bars Screen */
+    width: 100%;
+    height: 10vh;
+    max-height: 80px;
+}
+
+.StoreAuth-extra-space-for-navigation-bar{
+    /* Below three lines are also related 
+    to the space behind the bar so don't forget 
+    to change in Bottm Nav Bars Screen */
+    width: 100%;
+    height: 8vh;
+    max-height: 60px;
+}
+
+
+.StoreAuth-main-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.StoreAuth-main-content-left-container{
+    flex: 1;
+}
+
+.StoreAuth-main-content-right-container{
+    flex: 1;
+}
+
+.StoreAuth-main-content-main-container{
+    flex: 1.5;
+}
+
+@media only screen and (max-width: 800px) {
+    .StoreAuth-main-content-left-container{
+        display: none;
+    }
+    
+    .StoreAuth-main-content-right-container{
+        display: none;
+    }
+}

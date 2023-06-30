@@ -1,0 +1,27 @@
+/* .LogoOnBlue {
+  background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%);
+} */
+
+.LogoOnBlue-head {
+  /* background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  /* background: transparent; */
+  /* position: absolute; */
+  /* top: 0; */
+  /* left: 0; */
+  color: white;
+  font-size: 20px;
+  flex-direction: column;
+  /* overflow-y: scroll; */
+  /* overflow-x: hidden; */
+  /* padding-top: 12vh; */
+}
+
+.LogoOnBlue-logo {
+    max-width: 300px;
+    width: 100%;
+  }

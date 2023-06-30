@@ -1,0 +1,18 @@
+.NormalInput{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.NormalInput-input{
+    outline: none;
+    border: none;
+    border-bottom: 2px solid rgb(177, 177, 177);
+    width: 100%;
+    transition: all ease .4s;
+    font-size: 16px;
+    padding: 5px;
+}
+
+.NormalInput-input:focus{
+    border-bottom: 2px solid black;
+}

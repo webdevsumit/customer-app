@@ -1,0 +1,38 @@
+{
+   "orderId": "Order Id:",
+   "orderNo": "Order No:" ,
+   "subtotal": "Subtotal" ,
+   "DeliveryCost": "Delivery Cost" ,
+   "total": "Total" ,
+   "status": "Status",
+   "status-txt": {
+      "paid": "PAID",
+      "pending": "PENDING"
+   },
+   "delivery_type": "Delivery Type",
+   "delivery_type-txt": {
+      "ENTREGA": "WITH DELIVERY",
+      "else": "WITHOUT DELIVERY"
+   },
+   "delivery-status": "Delivery Status",
+   "delivery-status-txt": {
+      "pending": "PENDING",
+      "delivered": "DELIVERED"
+   },
+   "address": {
+      "pick-head": "Pick Address",
+      "drop-head": "Delivery Address",
+      "country": "Country",
+      "state": "State",
+      "city": "City",
+      "zip": "ZipCode",
+      "landmark": "Landmark",
+      "street": "Street",
+      "h_no": "House No.",
+      "contact_no": "Phone No."
+   },
+   "incompeteOrderMessage": "The order is created and the quantity of the products is reduced but the order is not completed because the payment is not done by the user. From here you contact the customer and ask to complete the order or you can cancel the order.",
+   "cancel": "Cancel",
+   "call": "Call ",
+   "setDeliveredBtn": "SET ORDER DELIVERED"
+}

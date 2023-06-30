@@ -1,0 +1,17 @@
+.TicTagStoreManagementMessage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.TicTagStoreManagementMessage>h2{
+    margin: 5px;
+}
+
+.TicTagStoreManagementMessage>a{
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}

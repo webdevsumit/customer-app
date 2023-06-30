@@ -1,0 +1,120 @@
+/* .Signup{
+    background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%);
+} */
+
+.Signup-main{
+    width: 100%;
+    min-height: 100vh;
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background: radial-gradient(ellipse at bottom, #07A9CC 0%, #0c0d13 100%);
+}
+
+.Signup-container1{
+    width: 90%;
+    max-width: 400px;
+    min-height: 500px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Signup-Signup-button{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.Signup-input-box-length{
+    min-width: 260px;
+}
+
+.Signup-login-button{
+    margin: 0;
+    margin-top: 5px;
+}
+
+.Signup-login-button>a, .Signup-login-button2>a{
+    color: black;
+}
+
+.Signup-login-button2{
+    margin: 0;
+}
+
+
+.Signup-back-button{
+    text-align: left;
+    width: 65%;
+    text-decoration: underline;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: all ease 0.3s;
+}
+
+.Signup-back-button:hover{
+    opacity: 1;
+}
+
+.Signup-input-box-length::-webkit-outer-spin-button, .Signup-input-box-length::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.Signup-back-button>img{
+    position: relative;
+    top: 3px;
+    width: 14px;
+    margin-right: 2px;
+}
+
+
+/* .Signup-country-select-div{
+    width: 77%;
+    position: relative;
+} */
+
+.Signup-country-select-div>select{
+    width: 100%;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.287);
+    transition: all ease .3s;
+    cursor: pointer;
+}
+
+.Signup-country-select-div>select:focus{
+    border-bottom: 2px solid black;
+}
+
+.Signup-country-select-div>p{
+    margin: 0;
+    margin-left: 4px;
+    font-size: 13px;
+    font-style: italic;
+    position: relative;
+    top: -3px;
+    opacity: .6;
+}
+
+@media only screen and (max-width: 700px){
+    /* .Signup-container1{
+        
+    } */
+}
+
+@media only screen and (min-width: 700px) and (max-width: 1120px){
+    .Signup-container1{
+        margin-top: 17vh;
+        margin-bottom: 20vh;
+    }
+}

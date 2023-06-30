@@ -1,0 +1,15 @@
+{
+    "links": {
+        "HOME": "HOME",
+        "EXPLORE": "EXPLORE",
+        "NOTIFICATIONS": "NOTIFICATIONS",
+        "BAG": "BAG",
+        "ACCOUNT": "ACCOUNT",
+        "SETTINGS": "SETTINGS",
+        "ORDERS": "ORDERS",
+        "STORE-MODE": "STORE MODE",
+        "CREATE-STORE": "CREATE STORE",
+        "CUSTOMER-SERVICE": "CUSTOMER SERVICE",
+        "SIGN-OUT": "SIGN OUT"
+    }
+}
