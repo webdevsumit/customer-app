@@ -79,7 +79,6 @@ function Login() {
 
 					<h5 className='Login-login-button'>{t("Login-signup-text")} <Link to={`/${storeId}/signup`}>{t("button.signup")}</Link></h5>
 					<h5 className='Login-login-button2'><Link to={`/${storeId}/forgot-password`}>{t("button.fortgot-password")}</Link></h5>
-					<h5 className='Login-login-button2'><Link to={`/${storeId}/termsAndConditions`}>{t("button.t-and-c")}</Link></h5>
 				</div>
 			</div>
 		</div>

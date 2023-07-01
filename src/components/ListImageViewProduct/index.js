@@ -3,67 +3,50 @@ import { toast } from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { Slide } from 'react-slideshow-image';
 import { currencyConverter } from '../../actions/commons';
+import 'react-slideshow-image/dist/styles.css';
 import { addToBagProductByIdAPI, likeProductByIdAPI } from '../../apis/common';
-import { addToBagProductOnTicTagByIdAPI, likeProductOnTicTagByIdAPI } from '../../apis/tictag';
 import './style.css';
 
 function ListImageViewProduct({
     cardMargin = '10px',
     hasCardInCard = false,
     product,
-    isCurrentStoreManagedByTicTag=false,
-    currentStoreInfoId='',
-    currentUserProfileId='',
 }) {
 
     const language = !!localStorage.getItem("lng") ? localStorage.getItem("lng") : "en";
     const [t, ] = useTranslation('common');
     const [productObj, setProductObj] = useState(product);
     const [openDescription, setOpenDescription] = useState(false);
-    const [images,] = useState((!!product && !!product.images && product.images.length) > 0 ? product.images : [{id:1, image: "/assets/pngs/noPhoto.png"}]);
+    const [images,] = useState((!!product && !!product.images && product.images.length > 0) ? product.images : [{id:1, image: "/assets/pngs/noPhoto.png"}]);
     // Defining image width and height...
     var windowInnerWidth = window.innerWidth-55;
     var windowInnerHeight = window.innerHeight;
     var imageSize = windowInnerWidth < windowInnerHeight ? windowInnerWidth : windowInnerHeight - 300;
     let currentStoreCurrency = localStorage.getItem('currentStoreCurrency');
-    if(!currentStoreCurrency) currentStoreCurrency = 'R$';
+    if(!currentStoreCurrency) currentStoreCurrency = 'Rs';
     let currentStoreDateFormat = localStorage.getItem('currentStoreDateFormat');
     if(!!currentStoreDateFormat) currentStoreDateFormat =  'DD/MM/YYYY';
+    let showBrandOnApp = localStorage.getItem('showBrandOnApp') === "show";
+    let showSizeOnApp = localStorage.getItem('showSizeOnApp') === "show";
 
     const likeUnlike =  async () => {
         setProductObj({...productObj, likedByUser: !productObj.likedByUser })
-        if(isCurrentStoreManagedByTicTag){
-            await likeProductOnTicTagByIdAPI(productObj.id, currentStoreInfoId, currentUserProfileId).then(res=>{
-                if(res.data.status === "success"){
-                    setProductObj({...productObj, likedByUser: res.data.liked })
-                }
-            }).catch(err=>toast.error(err.message));
-        }else{
-            await likeProductByIdAPI(productObj.id).then(res=>{
-                if(res.data.status === "success"){
-                    setProductObj({...productObj, likedByUser: res.data.liked })
-                }
-            }).catch(err=>toast.error(err.message));
-        }
+        await likeProductByIdAPI(productObj.id).then(res=>{
+            if(res.data.status === "success"){
+                setProductObj({...productObj, likedByUser: res.data.liked })
+            }
+        }).catch(err=>toast.error(err.message));
     } 
 
     const addAndRemoveFromBag =  async () => {
         setProductObj({...productObj, addedToBagByUser: !productObj.addedToBagByUser })
-        if(isCurrentStoreManagedByTicTag){
-            await addToBagProductOnTicTagByIdAPI(productObj.id, currentStoreInfoId, currentUserProfileId).then(res=>{
-                if(res.data.status === "success"){
-                    setProductObj({...productObj, addedToBagByUser: res.data.added });
-                    toast.success(res.data.message[language]);
-                }
-            }).catch(err=>toast.error(err.message));
-        }else{
-            await addToBagProductByIdAPI(productObj.id).then(res=>{
-                if(res.data.status === "success"){
-                    setProductObj({...productObj, addedToBagByUser: res.data.added });
-                    toast.success(res.data.message[language]);
-                }
-            }).catch(err=>toast.error(err.message));
-        }
+        await addToBagProductByIdAPI(productObj.id).then(res=>{
+            if(res.data.status === "success"){
+                setProductObj({...productObj, addedToBagByUser: res.data.added });
+                toast.success(res.data.message[language]);
+            }
+        }).catch(err=>toast.error(err.message));
+        
     } 
 
     const [isClosing, setIsClosing] = useState(false);
@@ -105,16 +88,16 @@ function ListImageViewProduct({
             <div className='ListImageViewProduct-details' >
                 <div>
                     <div className='ListImageViewProduct-details-size-brand-div'>
-                        <p>{productObj.brand?.brand}</p>
-                        <p>{productObj.size?.size}</p>
+                        {showBrandOnApp && <p>{productObj.brand?.brand}</p>}
+                        {showSizeOnApp && <p>{productObj.size?.size}</p>}
                     </div>
                     <div className='ListImageViewProduct-details-price-div'>
                         {productObj.is_promotional_price_applied?<>
-                            <h5 className='ListImageViewProduct-details-price-overline'>{currentStoreCurrency}: {currencyConverter(productObj.price_in_cent/100, currentStoreCurrency)}</h5>
-                            <h5 className='ListImageViewProduct-details-price'>{currentStoreCurrency}: {currencyConverter(productObj.promotional_price_in_cent/100, currentStoreCurrency)}</h5>
+                            <h5 className='ListImageViewProduct-details-price-overline'>{currentStoreCurrency}: {currencyConverter(productObj.price_in_paisa/100, currentStoreCurrency)}</h5>
+                            <h5 className='ListImageViewProduct-details-price'>{currentStoreCurrency}: {currencyConverter(productObj.promo_price_in_paisa/100, currentStoreCurrency)}</h5>
                         </>:
                         <>
-                            <h5 className='ListImageViewProduct-details-price'>{currentStoreCurrency}: {currencyConverter(productObj.price_in_cent/100, currentStoreCurrency)}</h5>
+                            <h5 className='ListImageViewProduct-details-price'>{currentStoreCurrency}: {currencyConverter(productObj.price_in_paisa/100, currentStoreCurrency)}</h5>
                         </>}
                     </div>
                     <p className='ListImageViewProduct-details-know-more-btn' onClick={()=>setOpenDescription(true)}>{t("knowMoreLabel")}</p>

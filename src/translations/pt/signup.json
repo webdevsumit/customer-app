@@ -5,7 +5,8 @@
         "varify-otp": "VERIFICAR OTP",
         "Facebook": "COMEÇAR COM FACEBOOK",
         "login": "Login",
-        "t-and-c": "Termos e Condições"
+        "t-and-c": "Termos e Condições",
+        "privacy-policy": "Privacy Policy"
     },
     "Signup-container-input-placeholder": {
         "email": "exemplo@exemplo.com",

@@ -110,6 +110,7 @@ function Signup() {
 
 					<h5 className='Signup-login-button'>{t('Signup-login-text')} <Link to={`/${storeId}/login`}>{t('button.login')}</Link></h5>
 					<h5 className='Signup-login-button2'><Link to={`/${storeId}/termsAndConditions`}>{t('button.t-and-c')}</Link></h5>
+					<h5 className='Signup-login-button2'><Link to={`/${storeId}/privacyPolicy`}>{t('button.privacy-policy')}</Link></h5>
 				</div>
 			</div>
 		</div>

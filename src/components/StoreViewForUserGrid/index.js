@@ -1,27 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
-import { Link, Outlet, redirect, useLoaderData } from 'react-router-dom';
+import { Link, Outlet, useLoaderData } from 'react-router-dom';
 import { bottomScrollGapInPixels } from '../../actions/variables';
-import { getProductsForStoreViewByIdAPI, getStoreDetailsByIdAPI } from '../../apis/common';
-import { getProductsForTictagStoreViewByIdAPI } from '../../apis/tictag';
+import { getProductsForStoreViewByIdAPI } from '../../apis/common';
 import GridImageViewProduct from '../GridImageViewProduct';
-import { setCurrentStoreInfoId, setCurrentUserProfileId, setIsCurrentStoreManagedByTicTag } from '../../redux/navbar';
 import './style.css';
 
 export const loader = async ({ params }) => {
-    let data = null;
-    await getStoreDetailsByIdAPI(params.storeId).then(res=>{
-        data = res.data.data;
-    }).catch(err => toast.error(err.message));
-    if(!!data){
-        localStorage.setItem('currentStoreCurrency', data.currency);
-        localStorage.setItem('currentStoreDateFormat', data.dateFormat);
-        localStorage.setItem('isIntegratedAndManagedByTictag', data.isIntegratedAndManagedByTictag);
-        return { "storeDetails": data, 'storeId': params.storeId };
-    }
-    return redirect("/explore/stores");
+    return { 'storeId': params.storeId };
 }
 
 var globelCaughtAll = false;
@@ -29,14 +16,8 @@ var globelPendingCall = false;
 var globalPageNum = 1;
 
 function StoreViewForUserGrid() {
-    const { storeDetails, storeId } = useLoaderData();
+    const { storeId } = useLoaderData();
     const [t, ] = useTranslation('exploreStores');
-    const dispatch = useDispatch()
-    dispatch(setIsCurrentStoreManagedByTicTag(storeDetails.isIntegratedAndManagedByTictag));
-    if(storeDetails.isIntegratedAndManagedByTictag){
-        dispatch(setCurrentStoreInfoId(storeDetails.storeInfoIdOnTicTag));
-        dispatch(setCurrentUserProfileId(storeDetails.userProfileId));
-    }
 
 	const [products, setProducts] = useState([]);
 	const [page, setPage] = useState(globalPageNum);
@@ -56,17 +37,6 @@ function StoreViewForUserGrid() {
 		setPendingCall(false);
 	}
 
-	const fetchProductsFromTictag = async () => {
-		setPendingCall(true);
-		await getProductsForTictagStoreViewByIdAPI(storeDetails.id, globalPageNum, "GRID", storeDetails.storeInfoIdOnTicTag, storeDetails.userProfileId).then(res => {
-			if (res.data.status === 'success') {
-				setProducts(renderedProducts => [...renderedProducts, ...res.data.products]);
-				setCaughtAll(res.data.caughtAll);
-				setTotalProducts(res.data.products_count);
-			}
-		}).catch(err => toast.error(err.message));
-		setPendingCall(false);
-	}
 	
 	const isBottom = (el) => {
         // value of the difference is also positive becuase of extra div that we have under navbar
@@ -101,11 +71,7 @@ function StoreViewForUserGrid() {
 
 	useEffect(() => {
 		globalPageNum = page;
-		if(storeDetails.isIntegratedAndManagedByTictag){
-            fetchProductsFromTictag();
-        }else{
-            fetchProducts();
-        }
+        fetchProducts();
         // eslint-disable-next-line
     }, [page])
 

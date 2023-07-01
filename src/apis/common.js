@@ -5,27 +5,10 @@ import axios from "axios";
 const baseUrl = 'https://apis.getcustomer.live/v1/';
 
 
-export async function testAPI() {
-    return await new Promise(async (onResolve, onReject) => {
-        await axios.get(
-            `${baseUrl}account/`,
-            {
-                headers: {
-                    'Content-Type': "application/json",
-                    'Accept': "application/json",
-                    // 'Authorization': `Token ${localStorage.getItem("token")}`
-                }
-            }
-        )
-            .then(res => onResolve(res))
-            .catch(err => onReject(err));
-    });
-}
-
-export async function sendOtpOnMailApi(payloads) {
+export async function sendOtpOnMailApi(payloads, storeId) {
     return await new Promise(async (onResolve, onReject) => {
         await axios.post(
-            `${baseUrl}account/sendOtpOnMail/`,
+            `${baseUrl}customer_app/${storeId}/sendOtpOnMail/`,
             payloads,
             {
                 headers: {
@@ -40,10 +23,10 @@ export async function sendOtpOnMailApi(payloads) {
     });
 }
 
-export async function resetPasswordApi(payloads) {
+export async function resetPasswordApi(payloads, storeId) {
     return await new Promise(async (onResolve, onReject) => {
         await axios.post(
-            `${baseUrl}account/resetPassword/`,
+            `${baseUrl}customer_app/${storeId}/resetPassword/`,
             payloads,
             {
                 headers: {
@@ -61,7 +44,7 @@ export async function resetPasswordApi(payloads) {
 export async function signOutdApi(payloads) {
     return await new Promise(async (onResolve, onReject) => {
         await axios.post(
-            `${baseUrl}account/signOut/`,
+            `${baseUrl}customer_app/${localStorage.getItem("storeId")}/signOut/`,
             payloads,
             {
                 headers: {
@@ -76,28 +59,10 @@ export async function signOutdApi(payloads) {
     });
 }
 
-export async function sendSignupOtpOnMailApi(payloads) {
-    return await new Promise(async (onResolve, onReject) => {
-        await axios.post(
-            `${baseUrl}account/sendSignupOtpOnMail/`,
-            payloads,
-            {
-                headers: {
-                    'Content-Type': "application/json",
-                    'Accept': "application/json",
-                    // 'Authorization': `Token ${localStorage.getItem("token")}`
-                }
-            }
-        )
-            .then(res => onResolve(res))
-            .catch(err => onReject(err));
-    });
-}
-
 export async function signupApi(payloads, storeId) {
     return await new Promise(async (onResolve, onReject) => {
         await axios.post(
-            `${baseUrl}customer_data/${storeId}/signup/`,
+            `${baseUrl}customer_app/${storeId}/signup/`,
             payloads,
             {
                 headers: {
@@ -115,7 +80,7 @@ export async function signupApi(payloads, storeId) {
 export async function loginApi(payloads, storeId) {
     return await new Promise(async (onResolve, onReject) => {
         await axios.post(
-            `${baseUrl}customer_data/${storeId}/login/`,
+            `${baseUrl}customer_app/${storeId}/login/`,
             payloads,
             {
                 headers: {
@@ -133,7 +98,7 @@ export async function loginApi(payloads, storeId) {
 export async function checkAndSetUserAPI() {
     return await new Promise(async (onResolve, onReject) => {
         await axios.get(
-            `${baseUrl}customer_data/${localStorage.getItem("storeId")}/checkAuth/`,
+            `${baseUrl}customer_app/${localStorage.getItem("storeId")}/checkAuth/`,
             {
                 headers: {
                     'Content-Type': "application/json",
@@ -146,6 +111,58 @@ export async function checkAndSetUserAPI() {
             .catch(err => onReject(err));
     });
 }
+
+
+export async function getProductsForStoreViewByIdAPI(storeId, page, viewType) {
+    return await new Promise(async (onResolve, onReject) => {
+        await axios.get(
+            `${baseUrl}customer_app/getProductsForStoreViewById/${storeId}/?page=${page}&recordsPerPage=20&viewType=${viewType}`,
+            {
+                headers: {
+                    'Content-Type': "application/json",
+                    'Accept': "application/json",
+                    'Authorization': `Token ${localStorage.getItem("token")}`
+                }
+            }
+        )
+            .then(res => {
+                if(res.data.status === "success") onResolve(res);
+                else{
+                    const language = !!localStorage.getItem("lng") ? localStorage.getItem("lng") : "en";
+                    let err = {...res.data, message: res.data.error[language]};
+                    onReject(err);
+                }
+            })
+            .catch(err => onReject(err));
+    });
+}
+
+
+export async function addToBagProductByIdAPI(productId) {
+    return await new Promise(async (onResolve, onReject) => {
+        await axios.get(
+            `${baseUrl}customer_app/${localStorage.getItem("storeId")}/addToBagProductById/${productId}/`,
+            {
+                headers: {
+                    'Content-Type': "application/json",
+                    'Accept': "application/json",
+                    'Authorization': `Token ${localStorage.getItem("token")}`
+                }
+            }
+        )
+            .then(res => {
+                if(res.data.status === "success") onResolve(res);
+                else{
+                    const language = !!localStorage.getItem("lng") ? localStorage.getItem("lng") : "en";
+                    let err = {...res.data, message: res.data.error[language]};
+                    onReject(err);
+                }
+            })
+            .catch(err => onReject(err));
+    });
+}
+
+// Here we are
 
 export async function getNumberOfExploredStoresAPI() {
     return await new Promise(async (onResolve, onReject) => {
@@ -650,29 +667,6 @@ export async function getProductDetailsByIdAPI(productId) {
     });
 }
 
-export async function getProductsForStoreViewByIdAPI(storeId, page, viewType) {
-    return await new Promise(async (onResolve, onReject) => {
-        await axios.get(
-            `${baseUrl}account/getProductsForStoreViewById/${storeId}?page=${page}&recordsPerPage=20&viewType=${viewType}`,
-            {
-                headers: {
-                    'Content-Type': "application/json",
-                    'Accept': "application/json",
-                    'Authorization': `Token ${localStorage.getItem("token")}`
-                }
-            }
-        )
-            .then(res => {
-                if(res.data.status === "success") onResolve(res);
-                else{
-                    const language = !!localStorage.getItem("lng") ? localStorage.getItem("lng") : "en";
-                    let err = {...res.data, message: res.data.error[language]};
-                    onReject(err);
-                }
-            })
-            .catch(err => onReject(err));
-    });
-}
 
 export async function getUserLikedProductsAPI( page ) {
     return await new Promise(async (onResolve, onReject) => {
@@ -702,30 +696,6 @@ export async function likeProductByIdAPI(productId) {
     return await new Promise(async (onResolve, onReject) => {
         await axios.get(
             `${baseUrl}account/likeProductById/${productId}/`,
-            {
-                headers: {
-                    'Content-Type': "application/json",
-                    'Accept': "application/json",
-                    'Authorization': `Token ${localStorage.getItem("token")}`
-                }
-            }
-        )
-            .then(res => {
-                if(res.data.status === "success") onResolve(res);
-                else{
-                    const language = !!localStorage.getItem("lng") ? localStorage.getItem("lng") : "en";
-                    let err = {...res.data, message: res.data.error[language]};
-                    onReject(err);
-                }
-            })
-            .catch(err => onReject(err));
-    });
-}
-
-export async function addToBagProductByIdAPI(productId) {
-    return await new Promise(async (onResolve, onReject) => {
-        await axios.get(
-            `${baseUrl}account/addToBagProductById/${productId}/`,
             {
                 headers: {
                     'Content-Type': "application/json",

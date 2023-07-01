@@ -134,7 +134,7 @@
 
 /* Handle */
 .global-popup-inner::-webkit-scrollbar-thumb {
-  background: var(--store-primary);
+  background: var(--user-primary);
   border-radius: 10px;
 }
 
@@ -157,7 +157,7 @@
 
 .global-opening-animation {
   transform: scale(0);
-  animation-name: scaler;
+  animation-name: global-scaler;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
 }

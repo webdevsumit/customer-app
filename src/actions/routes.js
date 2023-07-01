@@ -89,7 +89,7 @@ export const router = createBrowserRouter([
                 loader: authLoader,
                 children: [
                     {
-                        path: "/:storeId/home",
+                        path: "/:storeId/list",
                         element: <StoreViewForUser />,
                         errorElement: <Error404Page />,
                         loader: StoreViewForUserLoader,
@@ -177,6 +177,14 @@ export const router = createBrowserRouter([
             {
                 path: "/:storeId/customer-service",
                 element: <h6>Customer Care</h6>,
+            },
+            {
+                path: "/:storeId/termsAndConditions",
+                element: <h6>Terms And Conditions</h6>,
+            },
+            {
+                path: "/:storeId/privacyPolicy",
+                element: <h6>Privacy Policy</h6>,
             },
             {
                 path: "/:storeId/signup",

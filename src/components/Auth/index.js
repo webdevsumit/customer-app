@@ -3,7 +3,8 @@ import {
     redirect,
     Outlet, 
     useLocation,
-    useLoaderData
+    useLoaderData,
+    useNavigate
 } from 'react-router-dom';
 import { checkAndSetUserAPI } from '../../apis/common';
 import LogoOnBlue from './../LogoOnBlue';
@@ -22,9 +23,11 @@ export async function loader({ params }) {
             localStorage.setItem("products_in_bag_count", res.data.products_in_bag_count);
             localStorage.setItem("store_logo", res.data.store_logo);
             localStorage.setItem("user_theme_color", res.data.store_theme_color);
-            localStorage.setItem("lng", res.data.language);
-            localStorage.setItem('currentStoreCurrency', res.data.currency);
-            localStorage.setItem('currentStoreDateFormat', res.data.dateFormat);
+            localStorage.setItem("lng", res.data.store_language);
+            localStorage.setItem('currentStoreCurrency', res.data.store_currency_sign);
+            localStorage.setItem('currentStoreDateFormat', res.data.store_dateFormat);
+            localStorage.setItem('showBrandOnApp', res.data.showBrandOnApp);
+            localStorage.setItem('showSizeOnApp', res.data.showSizeOnApp);
             isAuthenticated = true;
         }
     }).catch(err => toast.error(err.message));
@@ -36,6 +39,7 @@ export async function loader({ params }) {
 function Auth() {
     const { storeId } = useLoaderData();
     let location = useLocation();
+    let navigation = useNavigate();
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -50,10 +54,10 @@ function Auth() {
         // eslint-disable-next-line
     }, [])
 
-    if (isLoading) return (<LogoOnBlue bgColor="var(--user-primary)" />);
+    if (isLoading) return (<LogoOnBlue />);
     
     if(location.pathname === `/${storeId}` || location.pathname === `/${storeId}/`)
-        return redirect(`/${storeId}/home`);
+        return navigation(`/${storeId}/list`);
 
     return (
         <div>
