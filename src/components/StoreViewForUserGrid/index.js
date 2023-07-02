@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { Link, Outlet, useLoaderData } from 'react-router-dom';
+import { Link, Outlet, useLoaderData, useNavigate } from 'react-router-dom';
 import { bottomScrollGapInPixels } from '../../actions/variables';
-import { getProductsForStoreViewByIdAPI } from '../../apis/common';
+import { getProductsForStoreViewByIdAPI, getProductsForStoreViewByIdAndSearchAPI } from '../../apis/common';
 import GridImageViewProduct from '../GridImageViewProduct';
 import './style.css';
+import { useSelector } from 'react-redux';
 
 export const loader = async ({ params }) => {
     return { 'storeId': params.storeId };
@@ -15,9 +16,10 @@ var globelCaughtAll = false;
 var globelPendingCall = false;
 var globalPageNum = 1;
 
-function StoreViewForUserGrid() {
+function StoreViewForUserGrid({ fromSearch=false }) {
     const { storeId } = useLoaderData();
     const [t, ] = useTranslation('exploreStores');
+    const navigate = useNavigate();
 
 	const [products, setProducts] = useState([]);
 	const [page, setPage] = useState(globalPageNum);
@@ -25,9 +27,14 @@ function StoreViewForUserGrid() {
 	const [totalProducts, setTotalProducts] = useState(0);
 	const [pendingCall, setPendingCall] = useState(globelPendingCall);
 
+    let { searchedText } = useSelector(state=>state.navbar);
+    if(!searchedText) searchedText = localStorage.getItem("searchedText");
+    if(!searchedText) navigate(`/${storeId}/search`);
+
+    const productsAPIToCall = fromSearch ? getProductsForStoreViewByIdAndSearchAPI : getProductsForStoreViewByIdAPI;
 	const fetchProducts = async () => {
 		setPendingCall(true);
-		await getProductsForStoreViewByIdAPI(storeId, globalPageNum, 'GRID').then(res => {
+		await productsAPIToCall(storeId, globalPageNum, 'GRID', {searchedText}).then(res => {
 			if (res.data.status === 'success') {
 				setProducts(renderedProducts => [...renderedProducts, ...res.data.products]);
 				setCaughtAll(res.data.caughtAll);
@@ -78,8 +85,11 @@ function StoreViewForUserGrid() {
     return (
         <div className='StoreViewForUserGrid'>
             <div>
-                <h4 className='StoreViewForUserGrid-TotalresultNum'>{t("totol-results")} {totalProducts}</h4>
-				<Link to={`/${storeId}/list`} className='StoreViewForUserGrid-view-wrapper' >
+                <h4 className='StoreViewForUserGrid-TotalresultNum'>
+                    {t("totol-results")} {totalProducts}
+                    {fromSearch && <p className='StoreViewForUser-searchedTextP'>Q: <i>{searchedText}</i></p>}
+                </h4>
+				<Link to={`/${storeId}${fromSearch ? "/search" : ""}/list`} className='StoreViewForUserGrid-view-wrapper' >
 					<img src='/assets/icons/svgs/listWhite.svg' alt='Filter' />
 				</Link>
             </div>

@@ -118,13 +118,13 @@ export const router = createBrowserRouter([
                             },
                             {
                                 path: "/:storeId/search/list",
-                                element: <StoreViewForUser />,
+                                element: <StoreViewForUser fromSearch={true} />,
                                 errorElement: <Error404Page />,
                                 loader: StoreViewForUserLoader,
                             },
                             {
                                 path: "/:storeId/search/grid",
-                                element: <StoreViewForUserGrid />,
+                                element: <StoreViewForUserGrid fromSearch={true} />,
                                 loader: StoreViewForUserLoader,
                                 children: [
                                     {

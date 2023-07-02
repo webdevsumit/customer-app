@@ -16,6 +16,7 @@ function Search() {
     const onSubmit = (e) => {
         e.preventDefault();
         if(!!searchedText){
+            localStorage.setItem("searchedText", searchedText);
             naviegate(`/${storeId}/search/list`)
         }else toast.error("Search box is empty.")
     }

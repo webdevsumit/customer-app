@@ -113,10 +113,35 @@ export async function checkAndSetUserAPI() {
 }
 
 
-export async function getProductsForStoreViewByIdAPI(storeId, page, viewType) {
+export async function getProductsForStoreViewByIdAPI(storeId, page, viewType, payloads={}) {
     return await new Promise(async (onResolve, onReject) => {
         await axios.get(
             `${baseUrl}customer_app/getProductsForStoreViewById/${storeId}/?page=${page}&recordsPerPage=20&viewType=${viewType}`,
+            {
+                headers: {
+                    'Content-Type': "application/json",
+                    'Accept': "application/json",
+                    'Authorization': `Token ${localStorage.getItem("token")}`
+                }
+            }
+        )
+            .then(res => {
+                if(res.data.status === "success") onResolve(res);
+                else{
+                    const language = !!localStorage.getItem("lng") ? localStorage.getItem("lng") : "en";
+                    let err = {...res.data, message: res.data.error[language]};
+                    onReject(err);
+                }
+            })
+            .catch(err => onReject(err));
+    });
+}
+
+export async function getProductsForStoreViewByIdAndSearchAPI(storeId, page, viewType, payloads) {
+    return await new Promise(async (onResolve, onReject) => {
+        await axios.post(
+            `${baseUrl}customer_app/getProductsForStoreViewByIdAndSearch/${storeId}/?page=${page}&recordsPerPage=20&viewType=${viewType}`,
+            payloads,
             {
                 headers: {
                     'Content-Type': "application/json",

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import { bottomScrollGapInPixels } from '../../actions/variables';
-import { getProductsForStoreViewByIdAPI } from '../../apis/common';
+import { getProductsForStoreViewByIdAPI, getProductsForStoreViewByIdAndSearchAPI } from '../../apis/common';
 import ListImageViewProduct from '../ListImageViewProduct';
 import './style.css';
+import { useSelector } from 'react-redux';
 
 export const loader = async ({ params }) => {
     return { 'storeId': params.storeId };
@@ -15,9 +16,10 @@ var globelCaughtAll = false;
 var globelPendingCall = false;
 var globalPageNum = 1;
 
-function StoreViewForUser() {
+function StoreViewForUser({ fromSearch=false }) {
     const { storeId } = useLoaderData();
     const [t, ] = useTranslation('exploreStores');
+    const navigate = useNavigate();
 
 	const [products, setProducts] = useState([]);
 	const [page, setPage] = useState(globalPageNum);
@@ -25,9 +27,14 @@ function StoreViewForUser() {
 	const [totalProducts, setTotalProducts] = useState(0);
 	const [pendingCall, setPendingCall] = useState(globelPendingCall);
 
+    let { searchedText } = useSelector(state=>state.navbar);
+    if(!searchedText) searchedText = localStorage.getItem("searchedText");
+    if(!searchedText) navigate(`/${storeId}/search`);
+
+    const productsAPIToCall = fromSearch ? getProductsForStoreViewByIdAndSearchAPI : getProductsForStoreViewByIdAPI;
 	const fetchProducts = async () => {
 		setPendingCall(true);
-		await getProductsForStoreViewByIdAPI(storeId, globalPageNum, "LIST").then(res => {
+		await productsAPIToCall(storeId, globalPageNum, "LIST", {searchedText}).then(res => {
             setProducts(renderedProducts => [...renderedProducts, ...res.data.products]);
             setCaughtAll(res.data.caughtAll);
             setTotalProducts(res.data.products_count);
@@ -72,8 +79,11 @@ function StoreViewForUser() {
     return (
         <div className='StoreViewForUser'>
             <div>
-                <h4 className='StoreViewForUser-TotalresultNum'>{t("totol-results")} {totalProducts}</h4>
-				<Link to={`/${storeId}/grid`} className='StoreViewForUser-view-wrapper' >
+                <h4 className='StoreViewForUser-TotalresultNum'>
+                    {t("totol-results")} {totalProducts}
+                    {fromSearch && <p className='StoreViewForUser-searchedTextP'>Q: <i>{searchedText}</i></p>}
+                </h4>
+				<Link to={`/${storeId}${fromSearch ? "/search" : ""}/grid`} className='StoreViewForUser-view-wrapper' >
 					<img src='/assets/icons/svgs/gridWhite.svg' alt='Filter' />
 				</Link>
             </div>

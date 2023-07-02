@@ -38,4 +38,19 @@
 .StoreViewForUser-view-wrapper>img{
     width: 20px;
     margin-top: 2px;
+    padding: 0;
+}
+
+.StoreViewForUser-searchedTextP{
+    margin: 0px 10px;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    font-weight: 300;
+}
+
+.StoreViewForUser-searchedTextP>i{
+    margin: 0;
+    padding: 0;
+    font-weight: 300;
 }
