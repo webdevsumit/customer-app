@@ -7,10 +7,10 @@ import {
     useNavigate
 } from 'react-router-dom';
 import { checkAndSetUserAPI } from '../../apis/common';
-import LogoOnBlue from './../LogoOnBlue';
+import FlashScreen from '../FlashScreen';
 import UserNavbar from '../UserNavbar';
 import './style.css';
-import GoliveTopBar from '../GoliveTopBar';
+import TopBar from '../TopBar';
 import UserSidebar from '../UserSidebar';
 import { toast } from 'react-hot-toast';
 
@@ -54,7 +54,7 @@ function Auth() {
         // eslint-disable-next-line
     }, [])
 
-    if (isLoading) return (<LogoOnBlue />);
+    if (isLoading) return (<FlashScreen />);
     
     if(location.pathname === `/${storeId}` || location.pathname === `/${storeId}/`)
         return navigation(`/${storeId}/list`);
@@ -62,7 +62,7 @@ function Auth() {
     return (
         <div>
             <header className='Auth-extra-space-for-top-bar'>
-                <GoliveTopBar />
+                <TopBar />
             </header>
             <main className='Auth-main-content'>
                 <div className='Auth-main-content-left-container'>

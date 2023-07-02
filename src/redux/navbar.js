@@ -4,7 +4,7 @@ const initialState= {
   isLoanding: false,
   currentStoreInfoId: '',
   currentUserProfileId: '',
-  isCurrentStoreManagedByTicTag: false
+  searchedText: ""
 }
 
 export const navbarSlice = createSlice({
@@ -21,13 +21,13 @@ export const navbarSlice = createSlice({
     setCurrentUserProfileId: (state, action) => {
       state.currentUserProfileId = action.payload
     },
-    setIsCurrentStoreManagedByTicTag: (state, action) => {
-      state.isCurrentStoreManagedByTicTag = action.payload
+    setSearchedText: (state, action) => {
+      state.searchedText = action.payload
     },
 
   },
 })
 
-export const { setIsLoading, setCurrentStoreInfoId, setCurrentUserProfileId, setIsCurrentStoreManagedByTicTag } = navbarSlice.actions;
+export const { setIsLoading, setCurrentStoreInfoId, setCurrentUserProfileId, setSearchedText } = navbarSlice.actions;
 
 export default navbarSlice.reducer;

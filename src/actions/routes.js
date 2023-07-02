@@ -45,8 +45,8 @@ import UserAccount from "../components/UserAccount";
 import GlobalSettings from "../components/GlobalSettings";
 import PreviousOrders from "../components/PreviousOrders";
 import OrderDetails from "../components/OrderDetails";
+import Search from "../components/Search";
 // import GlobalLoader from './../components/commons/GlobalLoader'
-// import AllExploredStores from "../components/AllExploredStores";
 // import StoreAuth from "../components/StoreAuth";
 // import Explore from "../components/Explore";
 // import ExploreStores from "../components/ExploreStores";
@@ -103,6 +103,36 @@ export const router = createBrowserRouter([
                                 path: "/:storeId/grid/:productId",
                                 element: <StoreViewForUserGridProduct />,
                                 loader: StoreViewForUserGridProductLoader,
+                            },
+                        ]
+                    },
+                    {
+                        path: "/:storeId/search",
+                        element: <Outlet />,
+                        errorElement: <Error404Page />,
+                        children: [
+                            {
+                                path: "/:storeId/search",
+                                element: <Search />,
+                                errorElement: <Error404Page />,
+                            },
+                            {
+                                path: "/:storeId/search/list",
+                                element: <StoreViewForUser />,
+                                errorElement: <Error404Page />,
+                                loader: StoreViewForUserLoader,
+                            },
+                            {
+                                path: "/:storeId/search/grid",
+                                element: <StoreViewForUserGrid />,
+                                loader: StoreViewForUserLoader,
+                                children: [
+                                    {
+                                        path: "/:storeId/search/grid/:productId",
+                                        element: <StoreViewForUserGridProduct />,
+                                        loader: StoreViewForUserGridProductLoader,
+                                    },
+                                ]
                             },
                         ]
                     },
