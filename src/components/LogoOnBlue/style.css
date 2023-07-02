@@ -24,4 +24,5 @@
 .LogoOnBlue-logo {
     max-width: 300px;
     width: 100%;
+    /* mix-blend-mode: multiply; */
   }

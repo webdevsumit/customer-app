@@ -19,6 +19,7 @@
 .GoliveTopBar-logo{
     height: 70%;
     margin-left: 20px;
+    /* mix-blend-mode: multiply; */
 }
 
 .GoliveTopBar-bigScreenNavigation{

@@ -162,6 +162,30 @@ export async function addToBagProductByIdAPI(productId) {
     });
 }
 
+export async function getProductDetailsByIdAPI(productId) {
+    return await new Promise(async (onResolve, onReject) => {
+        await axios.get(
+            `${baseUrl}customer_app/${localStorage.getItem("storeId")}/getProductDetailsById/${productId}/`,
+            {
+                headers: {
+                    'Content-Type': "application/json",
+                    'Accept': "application/json",
+                    'Authorization': `Token ${localStorage.getItem("token")}`
+                }
+            }
+        )
+            .then(res => {
+                if(res.data.status === "success") onResolve(res);
+                else{
+                    const language = !!localStorage.getItem("lng") ? localStorage.getItem("lng") : "en";
+                    let err = {...res.data, message: res.data.error[language]};
+                    onReject(err);
+                }
+            })
+            .catch(err => onReject(err));
+    });
+}
+
 // Here we are
 
 export async function getNumberOfExploredStoresAPI() {
@@ -623,30 +647,6 @@ export async function getStoreDetailsByIdAPI(storeId) {
     return await new Promise(async (onResolve, onReject) => {
         await axios.get(
             `${baseUrl}account/getStoreDetailsById/${storeId}/`,
-            {
-                headers: {
-                    'Content-Type': "application/json",
-                    'Accept': "application/json",
-                    'Authorization': `Token ${localStorage.getItem("token")}`
-                }
-            }
-        )
-            .then(res => {
-                if(res.data.status === "success") onResolve(res);
-                else{
-                    const language = !!localStorage.getItem("lng") ? localStorage.getItem("lng") : "en";
-                    let err = {...res.data, message: res.data.error[language]};
-                    onReject(err);
-                }
-            })
-            .catch(err => onReject(err));
-    });
-}
-
-export async function getProductDetailsByIdAPI(productId) {
-    return await new Promise(async (onResolve, onReject) => {
-        await axios.get(
-            `${baseUrl}account/getProductDetailsById/${productId}/`,
             {
                 headers: {
                     'Content-Type': "application/json",

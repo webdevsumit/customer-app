@@ -79,7 +79,7 @@ function StoreViewForUserGrid() {
         <div className='StoreViewForUserGrid'>
             <div>
                 <h4 className='StoreViewForUserGrid-TotalresultNum'>{t("totol-results")} {totalProducts}</h4>
-				<Link to={`/${storeId}`} className='StoreViewForUserGrid-view-wrapper' >
+				<Link to={`/${storeId}/list`} className='StoreViewForUserGrid-view-wrapper' >
 					<img src='/assets/icons/svgs/listWhite.svg' alt='Filter' />
 				</Link>
             </div>

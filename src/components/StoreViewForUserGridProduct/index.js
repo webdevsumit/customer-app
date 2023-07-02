@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
-import { useSelector } from 'react-redux';
 import { useLoaderData, useLocation, useNavigate } from 'react-router-dom';
 import { getProductDetailsByIdAPI } from '../../apis/common';
-import { getProductDetailsFromTictagByIdAPI } from '../../apis/tictag';
 import ListImageViewProduct from '../ListImageViewProduct';
 import './style.css'
 
@@ -14,7 +12,6 @@ export const loader = async ({ params }) => {
 
 function StoreViewForUserGridProduct() {
 
-    const { isCurrentStoreManagedByTicTag, currentUserProfileId, currentStoreInfoId } = useSelector(state=>state.navbar);
     const [isClosing, setIsClosing] = useState(false);
     const { productId } = useLoaderData();
     const [product, setProducts] = useState(null);
@@ -29,15 +26,9 @@ function StoreViewForUserGridProduct() {
     }
 
     const fetchProduct = async () => {
-        if(isCurrentStoreManagedByTicTag){
-            await getProductDetailsFromTictagByIdAPI(productId, currentStoreInfoId, currentUserProfileId).then(res=>{
-                setProducts(res.data.product);
-            }).catch(err => {toast.error(err.message); history(prevLink);});
-        }else{
-            await getProductDetailsByIdAPI(productId).then(res=>{
-                setProducts(res.data.product);
-            }).catch(err => {toast.error(err.message); history(prevLink);});
-        }
+        await getProductDetailsByIdAPI(productId).then(res=>{
+            setProducts(res.data.product);
+        }).catch(err => {toast.error(err.message); history(prevLink);});
     }
 
     useEffect(()=>{
@@ -54,9 +45,6 @@ function StoreViewForUserGridProduct() {
                         product={product} 
                         cardMargin='0px' 
                         hasCardInCard={true} 
-                        isCurrentStoreManagedByTicTag={isCurrentStoreManagedByTicTag}
-                        currentUserProfileId={currentUserProfileId}
-                        currentStoreInfoId={currentStoreInfoId}
                     />}
                 </div>
             </div>
