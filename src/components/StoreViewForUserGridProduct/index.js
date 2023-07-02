@@ -37,22 +37,14 @@ function StoreViewForUserGridProduct() {
         // eslint-disable-next-line
     }, []);
 
+    const loaderLines = ["100px", "200px", "300px", "100px", "300px", "100px", "200px", "300px", "100px", "300px"]
     return (
         <div className={'StoreViewForUserGridProduct ' + (isClosing ? "global-closing-opacitor-animation" : "global-opening-opacitor-animation")}>
             <div className={'StoreViewForUserGridProduct-inner ' + (isClosing ? "global-closing-animation" : "global-opening-animation")} >
                 <p className='StoreViewForUserGridProduct-inner-close-button' onClick={onClosing} >X</p>
                 {!product ?
                     <div className='StoreViewForUserGridProduct-inner-loading' >
-                        <div className='global-sentence-loader StoreViewForUserGridProduct-inner-loading-load' style={{width: "100px"}}></div>
-                        <div className='global-sentence-loader StoreViewForUserGridProduct-inner-loading-load' style={{width: "200px"}}></div>
-                        <div className='global-sentence-loader StoreViewForUserGridProduct-inner-loading-load' style={{width: "300px"}}></div>
-                        <div className='global-sentence-loader StoreViewForUserGridProduct-inner-loading-load' style={{width: "100px"}}></div>
-                        <div className='global-sentence-loader StoreViewForUserGridProduct-inner-loading-load' style={{width: "300px"}}></div>
-                        <div className='global-sentence-loader StoreViewForUserGridProduct-inner-loading-load' style={{width: "100px"}}></div>
-                        <div className='global-sentence-loader StoreViewForUserGridProduct-inner-loading-load' style={{width: "200px"}}></div>
-                        <div className='global-sentence-loader StoreViewForUserGridProduct-inner-loading-load' style={{width: "300px"}}></div>
-                        <div className='global-sentence-loader StoreViewForUserGridProduct-inner-loading-load' style={{width: "100px"}}></div>
-                        <div className='global-sentence-loader StoreViewForUserGridProduct-inner-loading-load' style={{width: "300px"}}></div>
+                        {loaderLines.map(tempWidth=><div className='global-sentence-loader StoreViewForUserGridProduct-inner-loading-load' style={{width: tempWidth}}></div>)}
                     </div>
                     :
                     <div>
