@@ -7,7 +7,7 @@ import './style.css'
 
 
 export const loader = async ({ params }) => {
-    return {'productId': params.productId };
+    return { 'productId': params.productId };
 }
 
 function StoreViewForUserGridProduct() {
@@ -16,7 +16,8 @@ function StoreViewForUserGridProduct() {
     const { productId } = useLoaderData();
     const [product, setProducts] = useState(null);
     const location = useLocation();
-    let prevLink = location.pathname.split(`${productId}`)[0]
+    let prevLink = location.pathname.toLowerCase().split(`/grid`)[0]+"/grid"
+    console.log("Prev link: ", prevLink);
     const history = useNavigate();
     const onClosing = () => {
         setIsClosing(true);
@@ -26,27 +27,41 @@ function StoreViewForUserGridProduct() {
     }
 
     const fetchProduct = async () => {
-        await getProductDetailsByIdAPI(productId).then(res=>{
+        await getProductDetailsByIdAPI(productId).then(res => {
             setProducts(res.data.product);
-        }).catch(err => {toast.error(err.message); history(prevLink);});
+        }).catch(err => { toast.error(err.message); history(prevLink); });
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         fetchProduct();
         // eslint-disable-next-line
-    },[]);
+    }, []);
 
     return (
         <div className={'StoreViewForUserGridProduct ' + (isClosing ? "global-closing-opacitor-animation" : "global-opening-opacitor-animation")}>
             <div className={'StoreViewForUserGridProduct-inner ' + (isClosing ? "global-closing-animation" : "global-opening-animation")} >
-            <p className='StoreViewForUserGridProduct-inner-close-button' onClick={onClosing} >X</p>
-                <div>
-                    {!!product && <ListImageViewProduct 
-                        product={product} 
-                        cardMargin='0px' 
-                        hasCardInCard={true} 
-                    />}
-                </div>
+                <p className='StoreViewForUserGridProduct-inner-close-button' onClick={onClosing} >X</p>
+                {!product ?
+                    <div className='StoreViewForUserGridProduct-inner-loading' >
+                        <div className='global-sentence-loader StoreViewForUserGridProduct-inner-loading-load' style={{width: "100px"}}></div>
+                        <div className='global-sentence-loader StoreViewForUserGridProduct-inner-loading-load' style={{width: "200px"}}></div>
+                        <div className='global-sentence-loader StoreViewForUserGridProduct-inner-loading-load' style={{width: "300px"}}></div>
+                        <div className='global-sentence-loader StoreViewForUserGridProduct-inner-loading-load' style={{width: "100px"}}></div>
+                        <div className='global-sentence-loader StoreViewForUserGridProduct-inner-loading-load' style={{width: "300px"}}></div>
+                        <div className='global-sentence-loader StoreViewForUserGridProduct-inner-loading-load' style={{width: "100px"}}></div>
+                        <div className='global-sentence-loader StoreViewForUserGridProduct-inner-loading-load' style={{width: "200px"}}></div>
+                        <div className='global-sentence-loader StoreViewForUserGridProduct-inner-loading-load' style={{width: "300px"}}></div>
+                        <div className='global-sentence-loader StoreViewForUserGridProduct-inner-loading-load' style={{width: "100px"}}></div>
+                        <div className='global-sentence-loader StoreViewForUserGridProduct-inner-loading-load' style={{width: "300px"}}></div>
+                    </div>
+                    :
+                    <div>
+                        {!!product && <ListImageViewProduct
+                            product={product}
+                            cardMargin='0px'
+                            hasCardInCard={true}
+                        />}
+                    </div>}
             </div>
         </div>
     )
