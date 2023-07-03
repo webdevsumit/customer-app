@@ -211,6 +211,40 @@ export async function getProductDetailsByIdAPI(productId) {
     });
 }
 
+export async function getUserNotificationsAPI({page=1}) {
+    return await new Promise(async (onResolve, onReject) => {
+        await axios.get(
+            `${baseUrl}customer_app/${localStorage.getItem("storeId")}/getUserNotifications/?page=${page}&recordsPerPage=10`,
+            {
+                headers: {
+                    'Content-Type': "application/json",
+                    'Accept': "application/json",
+                    'Authorization': `Token ${localStorage.getItem("token")}`
+                }
+            }
+        )
+            .then(res => onResolve(res))
+            .catch(err => onReject(err));
+    });
+}
+
+export async function markNotificationsAsReadAPI(notificationId) {
+    return await new Promise(async (onResolve, onReject) => {
+        await axios.get(
+            `${baseUrl}customer_app/${localStorage.getItem("storeId")}/markNotificationsAsRead/${notificationId}/`,
+            {
+                headers: {
+                    'Content-Type': "application/json",
+                    'Accept': "application/json",
+                    'Authorization': `Token ${localStorage.getItem("token")}`
+                }
+            }
+        )
+            .then(res => onResolve(res))
+            .catch(err => onReject(err));
+    });
+}
+
 // Here we are
 
 export async function getNumberOfExploredStoresAPI() {
@@ -813,23 +847,6 @@ export async function removeStoreFronFavByIdAPI(storeId) {
     });
 }
 
-export async function getUserNotificationsAPI({page=1}) {
-    return await new Promise(async (onResolve, onReject) => {
-        await axios.get(
-            `${baseUrl}account/getUserNotifications?page=${page}&recordsPerPage=10`,
-            {
-                headers: {
-                    'Content-Type': "application/json",
-                    'Accept': "application/json",
-                    'Authorization': `Token ${localStorage.getItem("token")}`
-                }
-            }
-        )
-            .then(res => onResolve(res))
-            .catch(err => onReject(err));
-    });
-}
-
 export async function getStoreNotificationsAPI({page=1}) {
     return await new Promise(async (onResolve, onReject) => {
         await axios.get(
@@ -868,23 +885,6 @@ export async function getStoresPreviousOrdersAPI({page=1}) {
     return await new Promise(async (onResolve, onReject) => {
         await axios.get(
             `${baseUrl}account/getStoresPreviousOrders?page=${page}&recordsPerPage=10`,
-            {
-                headers: {
-                    'Content-Type': "application/json",
-                    'Accept': "application/json",
-                    'Authorization': `Token ${localStorage.getItem("token")}`
-                }
-            }
-        )
-            .then(res => onResolve(res))
-            .catch(err => onReject(err));
-    });
-}
-
-export async function markNotificationsAsReadAPI(notificationId) {
-    return await new Promise(async (onResolve, onReject) => {
-        await axios.get(
-            `${baseUrl}account/markNotificationsAsRead/${notificationId}/`,
             {
                 headers: {
                     'Content-Type': "application/json",
