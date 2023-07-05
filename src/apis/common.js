@@ -245,6 +245,83 @@ export async function markNotificationsAsReadAPI(notificationId) {
     });
 }
 
+export async function getProductsInUsersBagAPI({page=1}) {
+    return await new Promise(async (onResolve, onReject) => {
+        await axios.get(
+            `${baseUrl}customer_app/${localStorage.getItem("storeId")}/getProductsInUsersBag/?page=${page}&recordsPerPage=10`,
+            {
+                headers: {
+                    'Content-Type': "application/json",
+                    'Accept': "application/json",
+                    'Authorization': `Token ${localStorage.getItem("token")}`
+                }
+            }
+        )
+            .then(res => onResolve(res))
+            .catch(err => onReject(err));
+    });
+}
+
+export async function setQuantityByProductsInUsersBagIdAPI(id, quantity) {
+    return await new Promise(async (onResolve, onReject) => {
+        await axios.post(
+            `${baseUrl}customer_app/${localStorage.getItem("storeId")}/setQuantityByProductsInUsersBagId/${id}/`,
+            {"quantity": quantity},
+            {
+                headers: {
+                    'Content-Type': "application/json",
+                    'Accept': "application/json",
+                    'Authorization': `Token ${localStorage.getItem("token")}`
+                }
+            }
+        )
+            .then(res => onResolve(res))
+            .catch(err => onReject(err));
+    });
+}
+
+export async function removeProductFromBagProductByIdAPI(productId) {
+    return await new Promise(async (onResolve, onReject) => {
+        await axios.get(
+            `${baseUrl}customer_app/${localStorage.getItem("storeId")}/removeProductFromBagProductById/${productId}/`,
+            {
+                headers: {
+                    'Content-Type': "application/json",
+                    'Accept': "application/json",
+                    'Authorization': `Token ${localStorage.getItem("token")}`
+                }
+            }
+        )
+            .then(res => {
+                if(res.data.status === "success") onResolve(res);
+                else{
+                    const language = !!localStorage.getItem("lng") ? localStorage.getItem("lng") : "en";
+                    let err = {...res.data, message: res.data.error[language]};
+                    onReject(err);
+                }
+            })
+            .catch(err => onReject(err));
+    });
+}
+
+export async function userBagCheckoutAPI(payloads) {
+    return await new Promise(async (onResolve, onReject) => {
+        await axios.post(
+            `${baseUrl}customer_app/${localStorage.getItem("storeId")}/userBagCheckout/`,
+            payloads,
+            {
+                headers: {
+                    'Content-Type': "application/json",
+                    'Accept': "application/json",
+                    'Authorization': `Token ${localStorage.getItem("token")}`
+                }
+            }
+        )
+            .then(res => onResolve(res))
+            .catch(err => onReject(err));
+    });
+}
+
 // Here we are
 
 export async function getNumberOfExploredStoresAPI() {
@@ -775,30 +852,6 @@ export async function likeProductByIdAPI(productId) {
     });
 }
 
-export async function removeProductFromBagProductByIdAPI(productId) {
-    return await new Promise(async (onResolve, onReject) => {
-        await axios.get(
-            `${baseUrl}account/removeProductFromBagProductById/${productId}/`,
-            {
-                headers: {
-                    'Content-Type': "application/json",
-                    'Accept': "application/json",
-                    'Authorization': `Token ${localStorage.getItem("token")}`
-                }
-            }
-        )
-            .then(res => {
-                if(res.data.status === "success") onResolve(res);
-                else{
-                    const language = !!localStorage.getItem("lng") ? localStorage.getItem("lng") : "en";
-                    let err = {...res.data, message: res.data.error[language]};
-                    onReject(err);
-                }
-            })
-            .catch(err => onReject(err));
-    });
-}
-
 export async function addressAndPayScreenCheckAPI(productId) {
     return await new Promise(async (onResolve, onReject) => {
         await axios.get(
@@ -898,59 +951,6 @@ export async function getStoresPreviousOrdersAPI({page=1}) {
     });
 }
 
-
-export async function getProductsInUsersBagAPI({page=1}) {
-    return await new Promise(async (onResolve, onReject) => {
-        await axios.get(
-            `${baseUrl}account/getProductsInUsersBag?page=${page}&recordsPerPage=10`,
-            {
-                headers: {
-                    'Content-Type': "application/json",
-                    'Accept': "application/json",
-                    'Authorization': `Token ${localStorage.getItem("token")}`
-                }
-            }
-        )
-            .then(res => onResolve(res))
-            .catch(err => onReject(err));
-    });
-}
-
-export async function setQuantityByProductsInUsersBagIdAPI(id, quantity) {
-    return await new Promise(async (onResolve, onReject) => {
-        await axios.post(
-            `${baseUrl}account/setQuantityByProductsInUsersBagId/${id}/`,
-            {"quantity": quantity},
-            {
-                headers: {
-                    'Content-Type': "application/json",
-                    'Accept': "application/json",
-                    'Authorization': `Token ${localStorage.getItem("token")}`
-                }
-            }
-        )
-            .then(res => onResolve(res))
-            .catch(err => onReject(err));
-    });
-}
-
-export async function userBagCheckoutAPI(payloads) {
-    return await new Promise(async (onResolve, onReject) => {
-        await axios.post(
-            `${baseUrl}account/userBagCheckout/`,
-            payloads,
-            {
-                headers: {
-                    'Content-Type': "application/json",
-                    'Accept': "application/json",
-                    'Authorization': `Token ${localStorage.getItem("token")}`
-                }
-            }
-        )
-            .then(res => onResolve(res))
-            .catch(err => onReject(err));
-    });
-}
 
 export async function saveAddressAndContinueOrderAPI(payloads) {
     return await new Promise(async (onResolve, onReject) => {

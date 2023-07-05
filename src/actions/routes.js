@@ -7,7 +7,6 @@ import { loader as authLoader } from "../components/Auth";
 import { loader as SignOutLoader } from "../components/SignOut";
 import { loader as StoreViewForUserLoader } from "../components/StoreViewForUser";
 import { loader as StoreViewForUserGridProductLoader } from "../components/StoreViewForUserGridProduct";
-import { loader as UserBagLoader } from "../components/UserBag";
 import { loader as SetAddressAndPayLoader } from "../components/SetAddressAndPay";
 import { loader as UserAccountLoader } from "../components/UserAccount";
 import { loader as GlobalSettingsLoader } from "../components/GlobalSettings";
@@ -147,15 +146,14 @@ export const router = createBrowserRouter([
                             {
                                 path: "/:storeId/bag",
                                 element: <UserBag />,
-                                loader: UserBagLoader,
                             },
                             {
-                                path: "/:storeId/bag/addressAndPay",
+                                path: "/:storeId/bag/:orderId/addressAndPay",
                                 element: <SetAddressAndPay />,
                                 loader: SetAddressAndPayLoader,
                             },
                             {
-                                path: "/:storeId/bag/IndiaPayment",
+                                path: "/:storeId/bag/:orderId/IndiaPayment",
                                 element: <IndiaPayment />,
                                 // loader: SetAddressAndPayLoader,
                             },

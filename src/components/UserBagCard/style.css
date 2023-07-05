@@ -128,3 +128,9 @@
   top: 2px;
   cursor: pointer;
 }
+
+.UserBagCard-details-quantity{
+  border: 1px solid black;
+  padding: 0px 4px;
+  border-radius: 2px;
+}
