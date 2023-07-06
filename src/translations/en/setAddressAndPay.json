@@ -8,7 +8,7 @@
         "totals": "TOTAL"
     },
     "address": {
-        "head": "ENDEREÇO DE ENTREGA",
+        "head": "DELIVERY ADDRESS",
         "cepOrZip": "Zipcode",
         "houseNumber": "Flat No.",
         "street": "Street",

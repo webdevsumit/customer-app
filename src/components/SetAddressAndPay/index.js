@@ -3,89 +3,86 @@ import { toast } from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { redirect, useLoaderData, useNavigate } from 'react-router-dom';
 import { currencyConverter } from '../../actions/commons';
-import { addressAndPayScreenCheckAPI, cancelTheOrderAPI, editTheOrderAPI, getDelieveryCostByZipCodeForOrdersAPI, saveAddressAndContinueOrderAPI } from '../../apis/common';
+import { addressAndPayScreenCheckAPI, cancelTheOrderAPI, editTheOrderAPI, saveAddressAndContinueOrderAPI } from '../../apis/common';
 import NormalInput from '../commons/NormalInput';
 import './style.css'
 
 const language = !!localStorage.getItem("lng") ? localStorage.getItem("lng") : "en";
 
-export const loader = async () => {
-    let hasProductsInBag = false;
-    let hasOrders = false;
-    let hasOrdersWithDelivery = false;
-    let country = 'Brazil';
+export const loader = async ({ params }) => {
+    let hasOrder = false;
+    let defaultAddress = null;
     let totalOfSubtotals = 0;
-	let totalOfDeliveryCosts = 0;
-	let totalOfTotals = 0;
-	let defaultAddressByProfile = null;
-    await addressAndPayScreenCheckAPI().then(res => {
-        hasProductsInBag = res.data.hasProductsInBag;
-        hasOrders = res.data.hasOrders;
-        hasOrdersWithDelivery = res.data.hasOrdersWithDelivery;
-        country = res.data.country;
+    await addressAndPayScreenCheckAPI(params.orderId).then(res => {
+        hasOrder = true;
+        defaultAddress = res.data.defaultAddress;
         totalOfSubtotals = res.data.totalOfSubtotals;
-        totalOfDeliveryCosts = res.data.totalOfDeliveryCosts;
-        totalOfTotals = res.data.totalOfTotals;
-        defaultAddressByProfile = res.data.defaultAddressByProfile;
     }).catch(err => toast.error(err.message));
 
-    let pathName = 'BrazilPayment';
-    if(country==='Brazil') pathName = 'BrazilPayment';
-    if(country==='India') pathName = 'IndiaPayment';
-    if(country==='United States') pathName = 'USPayment';
+    if (!defaultAddress)
+        defaultAddress = {
+            phone: "",
+            house_number: "",
+            street: "",
+            landmark: "",
+            pincode: "",
+            city: "",
+            state: "",
+            country: "",
+        }
 
-    if (!hasOrders) return redirect('/bag');
-    let fullPath = `/bag/${pathName}`
-    if (!hasOrdersWithDelivery) return redirect(fullPath);
+    let pathName = 'IndiaPayment';
+    let oldPath = `/${params.storeId}/bag/`;
+    if (!hasOrder) return redirect(oldPath);
+    let fullPathToRedirect = `/${params.storeId}/bag/${params.orderId}/${pathName}`
     return { 
-        "hasProductsInBag": hasProductsInBag,
+		"defaultAddress": defaultAddress,
+		"fullPathToRedirect": fullPathToRedirect,
+		"oldPath": oldPath,
 		"totalOfSubtotals": totalOfSubtotals,
-		"totalOfDeliveryCosts": totalOfDeliveryCosts,
-		"totalOfTotals": totalOfTotals,
-		"country": country,
-		"defaultAddressByProfile": defaultAddressByProfile,
-		"fullPathToRedirect": fullPath,
+		"orderId": params.orderId,
      }
 }
 
 function SetAddressAndPay() {
 
-    const { hasProductsInBag, fullPathToRedirect, totalOfSubtotals, totalOfDeliveryCosts, totalOfTotals, defaultAddressByProfile } = useLoaderData();
+    const { fullPathToRedirect, defaultAddress, totalOfSubtotals, oldPath, orderId } = useLoaderData();
     const [t, ] = useTranslation('setAddressAndPay');
-    const history = useNavigate();
+    const navigate = useNavigate();
+
     let currentStoreCurrency = localStorage.getItem('currentStoreCurrency');
-    if (!currentStoreCurrency) currentStoreCurrency = 'R$';
+    if (!currentStoreCurrency) currentStoreCurrency = 'Rs';
 
-    const [address, setAddress] = useState(defaultAddressByProfile);
-    const [deliveryCost, setDeliveryCost] = useState(totalOfDeliveryCosts);
-    const [totalCost, setTotalCost] = useState(totalOfTotals);
-    const [calculatingDeliveryCost, setCalculatingDeliveryCost] = useState(false)
+    const [address, setAddress] = useState(defaultAddress);
+    const [deliveryCost, setDeliveryCost] = useState(0);
+    const [totalCost, setTotalCost] = useState(totalOfSubtotals);
+    const [calculatingDeliveryCost, ] = useState(false)
 
-    const calcultaeDCost = async (zipOrCep) => {
-		await getDelieveryCostByZipCodeForOrdersAPI({ zipOrCep }).then(res => {
-			if (res.data.status === "success") {
-				let dCost = res.data.cost;
-				setDeliveryCost(dCost);
-				setTotalCost(totalOfSubtotals + dCost);
-				setCalculatingDeliveryCost(false);
-			} else toast.error(res.data.error[language]);
-		}).catch(err => toast.error(err.message));
-	}
+    // const calcultaeDCost = async (zipOrCep) => {
+	// 	await getDelieveryCostByZipCodeForOrdersAPI({ zipOrCep }).then(res => {
+	// 		if (res.data.status === "success") {
+	// 			let dCost = res.data.cost;
+	// 			setDeliveryCost(dCost);
+	// 			setTotalCost(totalOfSubtotals + dCost);
+	// 			setCalculatingDeliveryCost(false);
+	// 		} else toast.error(res.data.error[language]);
+	// 	}).catch(err => toast.error(err.message));
+	// }
 
 	const onZipOrCepChange = (e) => {
 		let val = e.target.value;
-		setCalculatingDeliveryCost(true);
-		setAddress(prevAdd=>{return {...prevAdd, cep_or_pincode: val}})
-		if (val.length >= 5) {
-			calcultaeDCost(val);
-		} else {
-			setTotalCost(totalOfSubtotals);
-			setDeliveryCost(0);
-		}
+		// setCalculatingDeliveryCost(true);
+		setAddress(prevAdd=>{return {...prevAdd, pincode: val}})
+		// if (val.length >= 5) {
+		// 	calcultaeDCost(val);
+		// } else {
+        setTotalCost(totalOfSubtotals);
+        setDeliveryCost(0);
+		// }
 	}
 
     const onSaveAndContinue = async () => {
-        if(!address.cep_or_pincode || address.cep_or_pincode.length<5){
+        if(!address.pincode || address.pincode.length<5){
             toast.error(t("errors.cep_or_pincode"));
             return;
         }
@@ -114,9 +111,9 @@ function SetAddressAndPay() {
             return;
         }
 
-        await saveAddressAndContinueOrderAPI(address).then(res=>{
+        await saveAddressAndContinueOrderAPI(address, orderId).then(res=>{
             if(res.data.status === "success"){
-                history(fullPathToRedirect);
+                navigate(fullPathToRedirect);
             }else{
                 toast.error(res.data.error[language]);
             }
@@ -126,7 +123,7 @@ function SetAddressAndPay() {
     const onCancel = async () => {
         await cancelTheOrderAPI().then(res=>{
             if(res.data.status === "success"){
-                history(`/bag`);
+                navigate(oldPath);
             }else{
                 toast.error(res.data.error[language]);
             }
@@ -134,9 +131,9 @@ function SetAddressAndPay() {
     }
 
     const onEdit = async () => {
-        await editTheOrderAPI().then(res=>{
+        await editTheOrderAPI(orderId).then(res=>{
             if(res.data.status === "success"){
-                history(`/bag`);
+                navigate(oldPath);
             }else{
                 toast.error(res.data.error[language]);
             }
@@ -145,7 +142,7 @@ function SetAddressAndPay() {
 
     return (
         <div className='SetAddressAndPay'>
-            {hasProductsInBag && <p className='SetAddressAndPay-top-note'>{t("notes.productInBag")}</p>}
+             {/* <p className='SetAddressAndPay-top-note'>{t("notes.productInBag")}</p> */}
             
             <div className='SetAddressAndPay-totals-div'>
                 <p><span>{t("totals.subtotals")}</span><span>{currentStoreCurrency}: {currencyConverter(totalOfSubtotals/100, currentStoreCurrency)}</span></p>
@@ -172,7 +169,7 @@ function SetAddressAndPay() {
                     <div>
                         <h6 className='SetAddressAndPay-inaddress-label'>{t("address.cepOrZip")}</h6>
                         <NormalInput 
-                            value={address.cep_or_pincode}
+                            value={address.pincode}
                             onChange={onZipOrCepChange}
                             placeholder={t("palceholders.cep_or_pincode")}
                         />

@@ -322,6 +322,84 @@ export async function userBagCheckoutAPI(payloads) {
     });
 }
 
+export async function addressAndPayScreenCheckAPI(id) {
+    return await new Promise(async (onResolve, onReject) => {
+        await axios.get(
+            `${baseUrl}customer_app/${localStorage.getItem("storeId")}/addressAndPayScreenCheck/${id}/`,
+            {
+                headers: {
+                    'Content-Type': "application/json",
+                    'Accept': "application/json",
+                    'Authorization': `Token ${localStorage.getItem("token")}`
+                }
+            }
+        )
+            .then(res => {
+                if(res.data.status === "success") onResolve(res);
+                else{
+                    const language = !!localStorage.getItem("lng") ? localStorage.getItem("lng") : "en";
+                    let err = {...res.data, message: res.data.error[language]};
+                    onReject(err);
+                }
+            })
+            .catch(err => onReject(err));
+    });
+}
+
+
+export async function editTheOrderAPI(id) {
+    return await new Promise(async (onResolve, onReject) => {
+        await axios.get(
+            `${baseUrl}customer_app/${localStorage.getItem("storeId")}/editTheOrder/${id}/`,
+            {
+                headers: {
+                    'Content-Type': "application/json",
+                    'Accept': "application/json",
+                    'Authorization': `Token ${localStorage.getItem("token")}`
+                }
+            }
+        )
+            .then(res => onResolve(res))
+            .catch(err => onReject(err));
+    });
+}
+
+export async function cancelTheOrderAPI(id) {
+    return await new Promise(async (onResolve, onReject) => {
+        await axios.get(
+            `${baseUrl}customer_app/${localStorage.getItem("storeId")}/cancelTheOrder/${id}/`,
+            {
+                headers: {
+                    'Content-Type': "application/json",
+                    'Accept': "application/json",
+                    'Authorization': `Token ${localStorage.getItem("token")}`
+                }
+            }
+        )
+            .then(res => onResolve(res))
+            .catch(err => onReject(err));
+    });
+}
+
+
+export async function saveAddressAndContinueOrderAPI(payloads, id) {
+    return await new Promise(async (onResolve, onReject) => {
+        await axios.post(
+            `${baseUrl}customer_app/${localStorage.getItem("storeId")}/saveAddressAndContinueOrder/${id}/`,
+            payloads,
+            {
+                headers: {
+                    'Content-Type': "application/json",
+                    'Accept': "application/json",
+                    'Authorization': `Token ${localStorage.getItem("token")}`
+                }
+            }
+        )
+            .then(res => onResolve(res))
+            .catch(err => onReject(err));
+    });
+}
+
 // Here we are
 
 export async function getNumberOfExploredStoresAPI() {
@@ -852,30 +930,6 @@ export async function likeProductByIdAPI(productId) {
     });
 }
 
-export async function addressAndPayScreenCheckAPI(productId) {
-    return await new Promise(async (onResolve, onReject) => {
-        await axios.get(
-            `${baseUrl}account/addressAndPayScreenCheck/`,
-            {
-                headers: {
-                    'Content-Type': "application/json",
-                    'Accept': "application/json",
-                    'Authorization': `Token ${localStorage.getItem("token")}`
-                }
-            }
-        )
-            .then(res => {
-                if(res.data.status === "success") onResolve(res);
-                else{
-                    const language = !!localStorage.getItem("lng") ? localStorage.getItem("lng") : "en";
-                    let err = {...res.data, message: res.data.error[language]};
-                    onReject(err);
-                }
-            })
-            .catch(err => onReject(err));
-    });
-}
-
 export async function removeStoreFronFavByIdAPI(storeId) {
     return await new Promise(async (onResolve, onReject) => {
         await axios.get(
@@ -938,59 +992,6 @@ export async function getStoresPreviousOrdersAPI({page=1}) {
     return await new Promise(async (onResolve, onReject) => {
         await axios.get(
             `${baseUrl}account/getStoresPreviousOrders?page=${page}&recordsPerPage=10`,
-            {
-                headers: {
-                    'Content-Type': "application/json",
-                    'Accept': "application/json",
-                    'Authorization': `Token ${localStorage.getItem("token")}`
-                }
-            }
-        )
-            .then(res => onResolve(res))
-            .catch(err => onReject(err));
-    });
-}
-
-
-export async function saveAddressAndContinueOrderAPI(payloads) {
-    return await new Promise(async (onResolve, onReject) => {
-        await axios.post(
-            `${baseUrl}account/saveAddressAndContinueOrder/`,
-            payloads,
-            {
-                headers: {
-                    'Content-Type': "application/json",
-                    'Accept': "application/json",
-                    'Authorization': `Token ${localStorage.getItem("token")}`
-                }
-            }
-        )
-            .then(res => onResolve(res))
-            .catch(err => onReject(err));
-    });
-}
-
-export async function cancelTheOrderAPI() {
-    return await new Promise(async (onResolve, onReject) => {
-        await axios.get(
-            `${baseUrl}account/cancelTheOrder/`,
-            {
-                headers: {
-                    'Content-Type': "application/json",
-                    'Accept': "application/json",
-                    'Authorization': `Token ${localStorage.getItem("token")}`
-                }
-            }
-        )
-            .then(res => onResolve(res))
-            .catch(err => onReject(err));
-    });
-}
-
-export async function editTheOrderAPI() {
-    return await new Promise(async (onResolve, onReject) => {
-        await axios.get(
-            `${baseUrl}account/editTheOrder/`,
             {
                 headers: {
                     'Content-Type': "application/json",
