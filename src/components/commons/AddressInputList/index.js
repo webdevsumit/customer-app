@@ -19,13 +19,14 @@ function AddressInputList({
 	const addAddressBox = () => {
 		setAddresses([...addresses, {
             'id': null,
-			'cep_or_pincode': '',
+			'pincode': '',
 			'house_number': '',
 			'street': '',
 			'landmark': '',
 			'city': '',
 			'state': '',
-			'country': addresses[0].country,
+			'country': addresses.length > 0 ? addresses[0].country : "India",
+            'phone': '',
 			// 'latitude': '',
 			// 'longtude': '',
 		}])
@@ -47,23 +48,37 @@ function AddressInputList({
                     house_number,
                     street,
                     landmark,
-                    cep_or_pincode,
+                    pincode,
                     city,
                     state,
-                    country
+                    country,
+                    phone,
                 }, i) =>
                     <div key={i} className='AddressInputList-address'>
                         {addresses.length>1 && <p onClick={() => removeAddressBox(i)} className='AddressInputList-address-remove-btn'>X</p>}
-                        <div>
-                            <label className='AddressInputList-sub-input-label' style={{color:primaryColor}}>
-                                {t("input-labels.flatNo")}
-                            </label><br />
-                            <input
-                                className='AddressInputList-house_number-input'
-                                name='house_number'
-                                value={house_number}
-                                onChange={e => onAddressChange(i, e)}
-                            />
+                        <div className='AddressInputList-inline-inputs'>
+                            <div className='AddressInputList-inline-inputs1'>
+                                <label className='AddressInputList-sub-input-label' style={{color:primaryColor}}>
+                                    {t("input-labels.flatNo")}
+                                </label><br />
+                                <input
+                                    className='AddressInputList-house_number-input'
+                                    name='house_number'
+                                    value={house_number}
+                                    onChange={e => onAddressChange(i, e)}
+                                />
+                            </div>
+                            <div className='AddressInputList-inline-inputs2'>
+                                <label className='AddressInputList-sub-input-label' style={{color:primaryColor}}>
+                                    {t("input-labels.phone")}
+                                </label><br />
+                                <input
+                                    className='AddressInputList-house_number-input'
+                                    name='phone'
+                                    value={phone}
+                                    onChange={e => onAddressChange(i, e)}
+                                />
+                            </div>
                         </div>
                         <div>
                             <label className='AddressInputList-sub-input-label' style={{color:primaryColor}}>
@@ -93,9 +108,9 @@ function AddressInputList({
                                     {t("input-labels.zip")}
                                 </label><br />
                                 <input
-                                    className='AddressInputList-cep_or_pincode-input'
-                                    name='cep_or_pincode'
-                                    value={cep_or_pincode}
+                                    className='AddressInputList-pincode-input'
+                                    name='pincode'
+                                    value={pincode}
                                     onChange={e => onAddressChange(i, e)}
                                 />
                             </div>

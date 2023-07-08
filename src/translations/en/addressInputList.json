@@ -7,7 +7,8 @@
         "zip": "CEP/Zipcode/Pincode:",
         "city": "City:",
         "state": "State:",
-        "country": "Country:"
+        "country": "Country:",
+        "phone": "Phone Number:"
     },
     "button": {
         "add": "add+"

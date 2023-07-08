@@ -1,7 +1,8 @@
 {
     "input-labels": {
         "fullname": "Name",
-        "theme-color": "Theme Color"
+        "theme-color": "Theme Color",
+        "email": "Email (To Reset Password)"
     },
     "button-text": {
         "save": "SAVE"
@@ -10,6 +11,7 @@
         "fullname": "Maximum character limit is 500.",
         "requiredFields": {
             "fullName": "Full Name is required.",
+            "email": "Email is required.",
             "house_number": "House number in address {{position}} is required.",
             "street": "Street in address {{position}} is required.",
             "landmark": "Landmark in address {{position}} is required.",
@@ -18,7 +20,8 @@
             "state": "State in address {{position}} is required.",
             "country": "Country in address {{position}} is required.",
             "number": "Number in Contact number {{position}} is required.",
-            "type": "Number type in Contact number {{position}} is required."
+            "type": "Number type in Contact number {{position}} is required.",
+            "phone": "Phone number on {{position}} address is required."
         }
     }
 }

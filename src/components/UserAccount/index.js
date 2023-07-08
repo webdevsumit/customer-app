@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { redirect, useLoaderData } from 'react-router-dom';
 import { getUserAccountDetailsAPI, updateUserAccountSettingsApi } from '../../apis/common';
 import AddressInputList from '../commons/AddressInputList';
-import PhoneInputList from '../commons/PhoneInputList';
+// import PhoneInputList from '../commons/PhoneInputList';
 import './style.css';
 
 const language = !!localStorage.getItem("lng") ? localStorage.getItem("lng") : "en";
@@ -24,28 +24,29 @@ function UserAccount() {
 
 	const [t, ] = useTranslation('UserAccount');
 	const { data } = useLoaderData();
-	const [fullName, setFullName] = useState(data.fullName);
-	const [contactNumbers, setContactNumbers] = useState(data.whatapp_contacts)
+	const [fullName, setFullName] = useState(data.fullname);
+	const [email, setEmail] = useState(data.email)
+	// const [contactNumbers, setContactNumbers] = useState(data.whatapp_contacts)
 	const [addresses, setAddresses] = useState(data.addresses);
-	const [userThemeColor, setUserThemeColor] = useState(data.user_theme_color);
+	// const [userThemeColor, setUserThemeColor] = useState(data.user_theme_color);
 
-	const onThemeColorChange = (selectedColor) => {
-		var r = document.querySelector(':root');
-		r.style.setProperty('--user-primary', selectedColor);
-		setUserThemeColor(selectedColor);
-	}
+	// const onThemeColorChange = (selectedColor) => {
+	// 	var r = document.querySelector(':root');
+	// 	r.style.setProperty('--user-primary', selectedColor);
+	// 	setUserThemeColor(selectedColor);
+	// }
 
-	useEffect(() => {
-		// onThemeColorChange('#fb9f6a');
-		return (() => {
-			let storeThemeColor = localStorage.getItem('user_theme_color');
-			if (!!storeThemeColor && storeThemeColor !== 'null' && storeThemeColor !== 'undefined') {
-				onThemeColorChange(storeThemeColor);
-			} else {
-				onThemeColorChange('#068dac');
-			}
-		})
-	}, [])
+	// useEffect(() => {
+	// 	// onThemeColorChange('#fb9f6a');
+	// 	return (() => {
+	// 		let storeThemeColor = localStorage.getItem('user_theme_color');
+	// 		if (!!storeThemeColor && storeThemeColor !== 'null' && storeThemeColor !== 'undefined') {
+	// 			onThemeColorChange(storeThemeColor);
+	// 		} else {
+	// 			onThemeColorChange('#068dac');
+	// 		}
+	// 	})
+	// }, [])
 
 	const onSubmit = async () => {
 
@@ -55,17 +56,27 @@ function UserAccount() {
 			hasErrors = true;
 		}
 
+		if(!email){
+			toast.error(t("messages.requiredFields.email"));
+			hasErrors = true;
+		}
+
 		addresses.forEach(({
 			house_number,
 			street,
 			landmark,
-			cep_or_pincode,
+			pincode,
 			city,
 			state,
-			country
+			country,
+			phone
 		}, index)=>{
 			if(!house_number && !hasErrors){
 				toast.error(t("messages.requiredFields.house_number", {"position": index+1}));
+				hasErrors = true;
+			}
+			if(!phone && !hasErrors){
+				toast.error(t("messages.requiredFields.phone", {"position": index+1}));
 				hasErrors = true;
 			}
 			if(!street && !hasErrors){
@@ -76,8 +87,8 @@ function UserAccount() {
 				toast.error(t("messages.requiredFields.landmark", {"position": index+1}));
 				hasErrors = true;
 			}
-			if(!cep_or_pincode && !hasErrors){
-				toast.error(t("messages.requiredFields.cep_or_pincode", {"position": index+1}));
+			if(!pincode && !hasErrors){
+				toast.error(t("messages.requiredFields.pincode", {"position": index+1}));
 				hasErrors = true;
 			}
 			if(!city && !hasErrors){
@@ -94,29 +105,30 @@ function UserAccount() {
 			}
 		})
 
-		contactNumbers.forEach(({number, type}, index)=>{
-			if(!number && !hasErrors){
-				toast.error(t("messages.requiredFields.number", {"position": index+1}));
-				hasErrors = true;
-			}
-			if(!type && !hasErrors){
-				toast.error(t("messages.requiredFields.type", {"position": index+1}));
-				hasErrors = true;
-			}
-		})
+		// contactNumbers.forEach(({number, type}, index)=>{
+		// 	if(!number && !hasErrors){
+		// 		toast.error(t("messages.requiredFields.number", {"position": index+1}));
+		// 		hasErrors = true;
+		// 	}
+		// 	if(!type && !hasErrors){
+		// 		toast.error(t("messages.requiredFields.type", {"position": index+1}));
+		// 		hasErrors = true;
+		// 	}
+		// })
 
 		if(!hasErrors){
 			var formData = new FormData();
 			formData.append('fullName', fullName);
-			formData.append('themeColor', userThemeColor);
+			formData.append('email', email);
+			// formData.append('themeColor', userThemeColor);
 			formData.append('addresses', JSON.stringify(addresses));
-			formData.append('contactNumbers', JSON.stringify(contactNumbers));
+			// formData.append('contactNumbers', JSON.stringify(contactNumbers));
 
 			await updateUserAccountSettingsApi(formData).then(res=>{
 				if(res.data.status === 'success'){
 					if(language==='pt') toast.error(res.data.message.pt);
 					else toast.success(res.data.message.en);
-					localStorage.setItem('user_theme_color', userThemeColor);
+					// localStorage.setItem('user_theme_color', userThemeColor);
 				}
 				else{
 					if(language==='pt') toast.error(res.data.error.pt);
@@ -147,6 +159,22 @@ function UserAccount() {
 			</div>
 			<hr />
 			<div className='UserAccount-input-div'>
+				<label className='UserAccount-input-label' htmlFor='UserAccount-email-input'>
+					{t("input-labels.email")}
+				</label> <br />
+				<input
+					id='UserAccount-email-input'
+					className='UserAccount-full-name-input'
+					value={email}
+					onChange={e => {
+						if (e.target.value.length < 500) {
+							setEmail(e.target.value);
+						}
+					}}
+				/>
+			</div>
+			<hr />
+			{/* <div className='UserAccount-input-div'>
 				<div className='UserAccount-user-color-input-label-div'>
 					<label className='UserAccount-input-label' htmlFor='UserAccount-user-color-input'>
 						{t("input-labels.theme-color")}
@@ -159,7 +187,7 @@ function UserAccount() {
 					value={userThemeColor}
 					onChange={e => onThemeColorChange(e.target.value)}
 				/>
-			</div>
+			</div> */}
 			<hr />
 			<div className='UserAccount-input-div'>
 				<AddressInputList
@@ -169,14 +197,14 @@ function UserAccount() {
 				/>
 			</div>
 			<hr />
-			<div className='UserAccount-input-div'>
+			{/* <div className='UserAccount-input-div'>
 				<PhoneInputList
 					phoneNumbers={contactNumbers}
 					setPhoneNumbers={setContactNumbers}
 					primaryColor='var(--user-primary)'
 				/>
 			</div>
-			<hr />
+			<hr /> */}
 			<div className='UserAccount-input-div'>
 				<button
 					className='user-submit-button1 w-100'

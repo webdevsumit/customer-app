@@ -9,11 +9,11 @@ import { loader as StoreViewForUserLoader } from "../components/StoreViewForUser
 import { loader as StoreViewForUserGridProductLoader } from "../components/StoreViewForUserGridProduct";
 import { loader as SetAddressAndPayLoader } from "../components/SetAddressAndPay";
 import { loader as UserAccountLoader } from "../components/UserAccount";
-import { loader as GlobalSettingsLoader } from "../components/GlobalSettings";
 import { loader as SignupLoader } from "./../pages/Signup";
 import { loader as LoginLoader } from "./../pages/Login";
 import { loader as LandingLoader } from "./../pages/Landing";
 import { loader as OrderDetailsLoader } from "../components/OrderDetails";
+// import { loader as GlobalSettingsLoader } from "../components/GlobalSettings";
 // import { loader as AllExploredStoresLoader } from "../components/AllExploredStores";
 // import { loader as StoreAuthLoader } from "../components/StoreAuth";
 // import { loader as CreateStoreLoader } from "../components/CreateStore";
@@ -41,10 +41,10 @@ import UserBag from "../components/UserBag";
 import SetAddressAndPay from "../components/SetAddressAndPay";
 import IndiaPayment from "../components/paymentPages/IndiaPayment";
 import UserAccount from "../components/UserAccount";
-import GlobalSettings from "../components/GlobalSettings";
 import PreviousOrders from "../components/PreviousOrders";
 import OrderDetails from "../components/OrderDetails";
 import Search from "../components/Search";
+// import GlobalSettings from "../components/GlobalSettings";
 // import GlobalLoader from './../components/commons/GlobalLoader'
 // import StoreAuth from "../components/StoreAuth";
 // import Explore from "../components/Explore";
@@ -172,11 +172,11 @@ export const router = createBrowserRouter([
                                 element: <UserAccount />,
                                 loader: UserAccountLoader,
                             },
-                            {
-                                path: "/:storeId/menu/general-settings",
-                                element: <GlobalSettings />,
-                                loader: GlobalSettingsLoader,
-                            },
+                            // {
+                            //     path: "/:storeId/menu/general-settings",
+                            //     element: <GlobalSettings />,
+                            //     loader: GlobalSettingsLoader,
+                            // },
                             {
                                 path: "/:storeId/menu/previous-orders",
                                 element: <Outlet />,
@@ -192,6 +192,10 @@ export const router = createBrowserRouter([
                                     },
                                 ]
                             },
+                            {
+                                path: "/:storeId/menu/customer-service",
+                                element: <h6>Customer Care</h6>,
+                            },
                         ]
                     },
                 ]
@@ -201,10 +205,6 @@ export const router = createBrowserRouter([
                 element: <Landing />,
                 loader: LandingLoader,
                 errorElement: <Error404Page />,
-            },
-            {
-                path: "/:storeId/customer-service",
-                element: <h6>Customer Care</h6>,
             },
             {
                 path: "/:storeId/termsAndConditions",

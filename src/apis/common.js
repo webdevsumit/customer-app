@@ -400,6 +400,58 @@ export async function saveAddressAndContinueOrderAPI(payloads, id) {
     });
 }
 
+export async function getUserAccountDetailsAPI() {
+    return await new Promise(async (onResolve, onReject) => {
+        await axios.get(
+            `${baseUrl}customer_app/${localStorage.getItem("storeId")}/getUserAccountDetails/`,
+            {
+                headers: {
+                    'Content-Type': "application/json",
+                    'Accept': "application/json",
+                    'Authorization': `Token ${localStorage.getItem("token")}`
+                }
+            }
+        )
+            .then(res => onResolve(res))
+            .catch(err => onReject(err));
+    });
+}
+
+export async function updateUserAccountSettingsApi(payloads) {
+    return await new Promise(async (onResolve, onReject) => {
+        await axios.post(
+            `${baseUrl}customer_app/${localStorage.getItem("storeId")}/updateUserAccountSettings/`,
+            payloads,
+            {
+                headers: {
+                    'Content-Type': "multipart/form-data",
+                    'Accept': "application/json",
+                    'Authorization': `Token ${localStorage.getItem("token")}`
+                }
+            }
+        )
+            .then(res => onResolve(res))
+            .catch(err => onReject(err));
+    });
+}
+
+export async function getUsersPreviousOrdersAPI({page=1}) {
+    return await new Promise(async (onResolve, onReject) => {
+        await axios.get(
+            `${baseUrl}customer_app/${localStorage.getItem("storeId")}/getUsersPreviousOrders/?page=${page}&recordsPerPage=10`,
+            {
+                headers: {
+                    'Content-Type': "application/json",
+                    'Accept': "application/json",
+                    'Authorization': `Token ${localStorage.getItem("token")}`
+                }
+            }
+        )
+            .then(res => onResolve(res))
+            .catch(err => onReject(err));
+    });
+}
+
 // Here we are
 
 export async function getNumberOfExploredStoresAPI() {
@@ -547,24 +599,6 @@ export async function updateStoreSettingsApi(payloads) {
     return await new Promise(async (onResolve, onReject) => {
         await axios.post(
             `${baseUrl}account/updateStoreSettings/`,
-            payloads,
-            {
-                headers: {
-                    'Content-Type': "multipart/form-data",
-                    'Accept': "application/json",
-                    'Authorization': `Token ${localStorage.getItem("token")}`
-                }
-            }
-        )
-            .then(res => onResolve(res))
-            .catch(err => onReject(err));
-    });
-}
-
-export async function updateUserAccountSettingsApi(payloads) {
-    return await new Promise(async (onResolve, onReject) => {
-        await axios.post(
-            `${baseUrl}account/updateUserAccountSettings/`,
             payloads,
             {
                 headers: {
@@ -971,23 +1005,6 @@ export async function getStoreNotificationsAPI({page=1}) {
     });
 }
 
-export async function getUsersPreviousOrdersAPI({page=1}) {
-    return await new Promise(async (onResolve, onReject) => {
-        await axios.get(
-            `${baseUrl}account/getUsersPreviousOrders?page=${page}&recordsPerPage=10`,
-            {
-                headers: {
-                    'Content-Type': "application/json",
-                    'Accept': "application/json",
-                    'Authorization': `Token ${localStorage.getItem("token")}`
-                }
-            }
-        )
-            .then(res => onResolve(res))
-            .catch(err => onReject(err));
-    });
-}
-
 export async function getStoresPreviousOrdersAPI({page=1}) {
     return await new Promise(async (onResolve, onReject) => {
         await axios.get(
@@ -1010,24 +1027,6 @@ export async function saveTicTagInfoAPI(payloads) {
         await axios.post(
             `${baseUrl}account/saveTicTagInfo/`,
             payloads,
-            {
-                headers: {
-                    'Content-Type': "application/json",
-                    'Accept': "application/json",
-                    'Authorization': `Token ${localStorage.getItem("token")}`
-                }
-            }
-        )
-            .then(res => onResolve(res))
-            .catch(err => onReject(err));
-    });
-}
-
-
-export async function getUserAccountDetailsAPI() {
-    return await new Promise(async (onResolve, onReject) => {
-        await axios.get(
-            `${baseUrl}account/getUserAccountDetails/`,
             {
                 headers: {
                     'Content-Type': "application/json",

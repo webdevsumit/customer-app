@@ -7,6 +7,7 @@ const storeId = localStorage.getItem("storeId");
 
 export async function loader() {
     localStorage.clear();
+    localStorage.setItem("storeId", storeId);
     return redirect(`/${storeId}/landing`);
 }
 
