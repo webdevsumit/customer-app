@@ -24,9 +24,9 @@ function PreviousOrders() {
 		setPendingCall(true);
 		await getUsersPreviousOrdersAPI(globalPageNum).then(res => {
 			if (res.data.status === 'success') {
-				setOrders(renderedOrders => [...renderedOrders, ...res.data.orders]);
+				setOrders(renderedOrders => [...renderedOrders, ...res.data.my_orders]);
 				setCaughtAll(res.data.caughtAll);
-				setTotalOrders(res.data.orders_count);
+				setTotalOrders(res.data.my_orders_count);
 			}
 		}).catch(err => toast.error(err.message));
 		setPendingCall(false);

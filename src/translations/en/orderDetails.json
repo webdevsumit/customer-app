@@ -29,7 +29,8 @@
       "landmark": "Landmark",
       "street": "Street",
       "h_no": "House No.",
-      "contact_no": "Phone No."
+      "contact_no": "Phone No.",
+      "supplier_contact_details": "Supplier's Contact"
    },
    "incompeteOrderMessage": "The order is created and the quantity of the products is reduced but the order is not completed because the payment is not done by the user. From here you contact the customer and ask to complete the order or you can cancel the order.",
    "cancel": "Cancel",

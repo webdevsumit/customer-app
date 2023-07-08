@@ -1,6 +1,7 @@
 {
     "input-labels": {
         "fullname": "Name",
+        "username": "Username",
         "theme-color": "Theme Color",
         "email": "Email (To Reset Password)"
     },

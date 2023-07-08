@@ -7,7 +7,7 @@ import { currencyConverter } from '../../actions/commons';
 import './style.css'
 
 let currentStoreCurrency = localStorage.getItem('currentStoreCurrency');
-if(!currentStoreCurrency) currentStoreCurrency = 'R$';
+if(!currentStoreCurrency) currentStoreCurrency = 'Rs';
 let currentStoreDateFormat = localStorage.getItem('currentStoreDateFormat');
 if(!!currentStoreDateFormat) currentStoreDateFormat =  'DD/MM/YYYY';
 // const language = !!localStorage.getItem("lng") ? localStorage.getItem("lng") : "en";
@@ -32,15 +32,15 @@ function PreviousOrdersCard({order, onStore=false}) {
                 <div className='PreviousOrdersCard-amount-div'>
                     <div className='PreviousOrdersCard-amount-inner-div'>
                         {t("subtotal")}
-                        <h5 className='PreviousOrdersCard-text-date'>{currentStoreCurrency}: {currencyConverter(orderObj.subtotal_in_cent/100, currentStoreCurrency)}</h5>
+                        <h5 className='PreviousOrdersCard-text-date'>{currentStoreCurrency}: {currencyConverter(orderObj.subtotal_in_paisa/100, currentStoreCurrency)}</h5>
                     </div>
                     <div className='PreviousOrdersCard-amount-inner-div'>
                         {t("deliveryCharge")}
-                        <h5 className='PreviousOrdersCard-text-date'>{currentStoreCurrency}: {currencyConverter(orderObj.delievery_charges/100, currentStoreCurrency)}</h5>
+                        <h5 className='PreviousOrdersCard-text-date'>{currentStoreCurrency}: {currencyConverter(orderObj.delievery_charges_in_paisa/100, currentStoreCurrency)}</h5>
                     </div>
                     <div className='PreviousOrdersCard-amount-inner-div'>
                         {t("total")}
-                        <h5 className='PreviousOrdersCard-text-date'>{currentStoreCurrency}: {currencyConverter(orderObj.total_in_cent/100, currentStoreCurrency)}</h5>
+                        <h5 className='PreviousOrdersCard-text-date'>{currentStoreCurrency}: {currencyConverter(orderObj.total_in_paisa/100, currentStoreCurrency)}</h5>
                     </div>
                 </div>
             </div>

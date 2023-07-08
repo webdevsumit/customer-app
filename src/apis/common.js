@@ -452,6 +452,23 @@ export async function getUsersPreviousOrdersAPI({page=1}) {
     });
 }
 
+export async function getUserOrderDetailsByIdAPI(id) {
+    return await new Promise(async (onResolve, onReject) => {
+        await axios.get(
+            `${baseUrl}customer_app/${localStorage.getItem("storeId")}/getUserOrderDetailsById/${id}/`,
+            {
+                headers: {
+                    'Content-Type': "application/json",
+                    'Accept': "application/json",
+                    'Authorization': `Token ${localStorage.getItem("token")}`
+                }
+            }
+        )
+            .then(res => onResolve(res))
+            .catch(err => onReject(err));
+    });
+}
+
 // Here we are
 
 export async function getNumberOfExploredStoresAPI() {
@@ -1062,23 +1079,6 @@ export async function settUserGeneralSettingsAPI(payloads) {
         await axios.post(
             `${baseUrl}account/setUserGeneralSettings/`,
             payloads,
-            {
-                headers: {
-                    'Content-Type': "application/json",
-                    'Accept': "application/json",
-                    'Authorization': `Token ${localStorage.getItem("token")}`
-                }
-            }
-        )
-            .then(res => onResolve(res))
-            .catch(err => onReject(err));
-    });
-}
-
-export async function getUserOrderDetailsByIdAPI(id) {
-    return await new Promise(async (onResolve, onReject) => {
-        await axios.get(
-            `${baseUrl}account/getUserOrderDetailsById/${id}/`,
             {
                 headers: {
                     'Content-Type': "application/json",

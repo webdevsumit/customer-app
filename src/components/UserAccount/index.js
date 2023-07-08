@@ -141,6 +141,15 @@ function UserAccount() {
 	return (
 		<div className='UserAccount'>
 			<div className='UserAccount-input-div'>
+				<label className='UserAccount-input-label'>
+					{t("input-labels.username")}
+				</label> <br />
+				<p className='UserAccount-input-label UserAccount-username'>
+					{data.username}
+				</p>
+			</div>
+			<hr />
+			<div className='UserAccount-input-div'>
 				<label className='UserAccount-input-label' htmlFor='UserAccount-full-name-input'>
 					{t("input-labels.fullname")}
 				</label> <br />
