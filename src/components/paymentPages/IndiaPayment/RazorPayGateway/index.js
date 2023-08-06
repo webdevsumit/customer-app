@@ -3,7 +3,9 @@ import "./style.css";
 
 function RazorPayGateway() {
   return (
-    <div>RazorPayGateway</div>
+    <div>
+      RazorPayGateway
+    </div>
   )
 }
 
