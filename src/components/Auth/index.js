@@ -33,7 +33,7 @@ export async function loader({ params }) {
     }).catch(err => toast.error(err.message));
 
     if(isAuthenticated) return {storeId: params.storeId};
-    return redirect(`/${params.storeId}/landing`);
+    return redirect(`/${params.storeId}/signup`);
 }
 
 function Auth() {

@@ -57,7 +57,7 @@ function Login() {
 				<div className='Login-container1'>
 
 					<NormalInput 
-						placeholder={t("Login-container-input-placeholder.username")}
+						placeholder={t("Login-container-input-placeholder.email")}
 						type='text'
 						value={username}
 						onChange={handleUsernameChange}
