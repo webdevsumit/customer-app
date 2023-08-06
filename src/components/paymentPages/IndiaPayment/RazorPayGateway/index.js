@@ -5,6 +5,7 @@ function RazorPayGateway() {
   return (
     <div>
       RazorPayGateway
+      
     </div>
   )
 }
