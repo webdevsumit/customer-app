@@ -18,19 +18,17 @@ function Signup() {
 	const language = !!localStorage.getItem("lng") ? localStorage.getItem("lng") : "en";
 	const { storeId } = useLoaderData();
 
-	const [username, setUsername] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [country, ] = useState("India");
 
 	const doSignup = async () => {
-		if(!username || !email || !password){
+		if(!email || !password){
 			toast.error(t("errors.emptyFields"));
 			return;
 		}
 
 		let payloads = {
-			username,
 			email,
 			password,
 			language,
@@ -49,11 +47,6 @@ function Signup() {
 		}).catch(err=>toast.error(err.message));
 	}
 
-	const changeUserName = (event) => {
-		let tempVal = event.target.value.toLowerCase();
-		setUsername(tempVal.replace(/ /g,""))
-	}
-
 	const handleEmailChange = (event) => {
 		let tempVal = event.target.value;
 		setEmail(tempVal.trim())
@@ -64,13 +57,13 @@ function Signup() {
 			<div className='Signup-main'>
 				<div className='Signup-container1'>
 
-					<NormalInput 
+					{/* <NormalInput 
 						placeholder={t("Signup-container-input-placeholder.username")}
 						value={username}
 						onChange={changeUserName}
 						classNames="Signup-input-box-length"
 						type='text'
-					/>
+					/> */}
 					<NormalInput 
 						placeholder={t("Signup-container-input-placeholder.email")}
 						type='email'

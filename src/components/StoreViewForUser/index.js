@@ -29,7 +29,7 @@ function StoreViewForUser({ fromSearch=false }) {
 
     let { searchedText } = useSelector(state=>state.navbar);
     if(!searchedText) searchedText = localStorage.getItem("searchedText");
-    if(!searchedText) navigate(`/${storeId}/search`);
+    if(!searchedText && fromSearch) navigate(`/${storeId}/search`);
 
     const productsAPIToCall = fromSearch ? getProductsForStoreViewByIdAndSearchAPI : getProductsForStoreViewByIdAPI;
 	const fetchProducts = async () => {

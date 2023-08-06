@@ -1,0 +1,46 @@
+.CashFreeGateway{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+.card {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+  padding-bottom: 0px;
+  border-radius: 14px;
+}
+
+.bank {
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid #efefef;
+}
+
+.bank:nth-child(3) {
+  border-right: 1px solid #efefef;
+}
+
+.bank:nth-child(1) {
+  border-right: 1px solid #efefef;
+}
+.bank:nth-child(5) {
+  border-right: 1px solid #efefef;
+}
+.bank:nth-child(4) {
+  border-bottom: 1px solid #efefef;
+}
+
+.icon {
+  width: 34px;
+  margin: 0 auto;
+}
+
+.btext {
+  margin-top: 10px;
+}
+
+.bank {
+  cursor: pointer;
+}

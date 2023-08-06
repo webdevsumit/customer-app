@@ -13,6 +13,7 @@ import { loader as SignupLoader } from "./../pages/Signup";
 import { loader as LoginLoader } from "./../pages/Login";
 import { loader as LandingLoader } from "./../pages/Landing";
 import { loader as OrderDetailsLoader } from "../components/OrderDetails";
+import { loader as CustomerCareLoader } from "./../pages/CustomerCare";
 // import { loader as GlobalSettingsLoader } from "../components/GlobalSettings";
 // import { loader as AllExploredStoresLoader } from "../components/AllExploredStores";
 // import { loader as StoreAuthLoader } from "../components/StoreAuth";
@@ -39,11 +40,13 @@ import StoreViewForUserGridProduct from "../components/StoreViewForUserGridProdu
 import UserNotifications from "../components/UserNotifications";
 import UserBag from "../components/UserBag";
 import SetAddressAndPay from "../components/SetAddressAndPay";
-import IndiaPayment from "../components/paymentPages/IndiaPayment";
+// import PaytmCheckout from "../components/paymentPages/IndiaPayment/PaytmCheckout";
 import UserAccount from "../components/UserAccount";
 import PreviousOrders from "../components/PreviousOrders";
 import OrderDetails from "../components/OrderDetails";
 import Search from "../components/Search";
+import CustomerCare from "./../pages/CustomerCare";
+import RazorPayGateway from "../components/paymentPages/IndiaPayment/RazorPayGateway";
 // import GlobalSettings from "../components/GlobalSettings";
 // import GlobalLoader from './../components/commons/GlobalLoader'
 // import StoreAuth from "../components/StoreAuth";
@@ -152,9 +155,14 @@ export const router = createBrowserRouter([
                                 element: <SetAddressAndPay />,
                                 loader: SetAddressAndPayLoader,
                             },
+                            // {
+                            //     path: "/:storeId/bag/:orderId/IndiaPayment",
+                            //     element: <PaytmCheckout />,
+                            //     // loader: SetAddressAndPayLoader,
+                            // },
                             {
-                                path: "/:storeId/bag/:orderId/IndiaPayment",
-                                element: <IndiaPayment />,
+                                path: "/:storeId/bag/:orderId/RazorPayGateway",
+                                element: <RazorPayGateway />,
                                 // loader: SetAddressAndPayLoader,
                             },
                         ]
@@ -194,7 +202,8 @@ export const router = createBrowserRouter([
                             },
                             {
                                 path: "/:storeId/menu/customer-service",
-                                element: <h6>Customer Care</h6>,
+                                element: <CustomerCare />,
+                                loader: CustomerCareLoader,
                             },
                         ]
                     },

@@ -28,6 +28,7 @@ function UserAccount() {
 	const [email, setEmail] = useState(data.email)
 	// const [contactNumbers, setContactNumbers] = useState(data.whatapp_contacts)
 	const [addresses, setAddresses] = useState(data.addresses);
+	const [isSaving, setIsSaving] = useState(false);
 	// const [userThemeColor, setUserThemeColor] = useState(data.user_theme_color);
 
 	// const onThemeColorChange = (selectedColor) => {
@@ -49,6 +50,9 @@ function UserAccount() {
 	// }, [])
 
 	const onSubmit = async () => {
+		if(isSaving){
+			return;
+		}
 
 		let hasErrors = false;
 		if(!fullName){
@@ -124,6 +128,7 @@ function UserAccount() {
 			formData.append('addresses', JSON.stringify(addresses));
 			// formData.append('contactNumbers', JSON.stringify(contactNumbers));
 
+			setIsSaving(true);
 			await updateUserAccountSettingsApi(formData).then(res=>{
 				if(res.data.status === 'success'){
 					if(language==='pt') toast.error(res.data.message.pt);
@@ -135,6 +140,7 @@ function UserAccount() {
 					else toast.error(res.data.error.en);
 				}
 			}).catch(err=>toast.error(err.message));
+			setIsSaving(false);
 		}
 	}
 
@@ -218,7 +224,7 @@ function UserAccount() {
 				<button
 					className='user-submit-button1 w-100'
 					onClick={onSubmit}
-				>{t("button-text.save")}</button>
+				>{isSaving ? "SAVING..." : t("button-text.save")}</button>
 			</div>
 		</div>
 	)

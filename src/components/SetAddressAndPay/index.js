@@ -31,7 +31,7 @@ export const loader = async ({ params }) => {
             country: "",
         }
 
-    let pathName = 'IndiaPayment';
+    let pathName = 'RazorPayGateway';
     let oldPath = `/${params.storeId}/bag/`;
     if (!hasOrder) return redirect(oldPath);
     let fullPathToRedirect = `/${params.storeId}/bag/${params.orderId}/${pathName}`
