@@ -21,8 +21,10 @@ function Login() {
 
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
+	const [isLoading, setIsLoading] = useState(false);
 
 	const doLogin = async () => {
+		if(isLoading) return;
 		if(!username || !password){
 			toast.error(t("errors.emptyFields"));
 			return;
@@ -32,7 +34,7 @@ function Login() {
 			username,
 			password
 		}
-
+		setIsLoading(true);
 		await loginApi(payloads, storeId).then(res=>{
 			if(res.data.status === "success"){
 				localStorage.setItem('token', res.data.token);
@@ -43,6 +45,7 @@ function Login() {
 				else toast.error(res.data.error.en);
 			}
 		}).catch(err=>toast.error(err.message));
+		setIsLoading(false);
 	}
 
 	const handleUsernameChange = (event) => {
@@ -72,7 +75,7 @@ function Login() {
 					/>
 
 					<NormalButton1
-						label={t("button.login")}
+						label={isLoading ? "...WAIT..." : t("button.login") }
 						classNames='Login-Login-button'
 						onClick={doLogin}
 					/>

@@ -22,7 +22,11 @@ function Signup() {
 	const [password, setPassword] = useState("");
 	const [country, ] = useState("India");
 
+	const [isLoading, setIsLoading] = useState(false);
+
 	const doSignup = async () => {
+		if (isLoading) return;
+
 		if(!email || !password){
 			toast.error(t("errors.emptyFields"));
 			return;
@@ -34,7 +38,7 @@ function Signup() {
 			language,
 			country
 		}
-
+		setIsLoading(true);
 		await signupApi(payloads, storeId).then(res=>{
 			if(res.data.status === "success"){
 				localStorage.setItem('token', res.data.token);
@@ -45,6 +49,7 @@ function Signup() {
 				else toast.error(res.data.error.en);
 			}
 		}).catch(err=>toast.error(err.message));
+		setIsLoading(false);
 	}
 
 	const handleEmailChange = (event) => {
@@ -96,7 +101,7 @@ function Signup() {
 					</div> */}
 
 					<NormalButton1
-						label={t('button.signup')}
+						label={isLoading ? "...WAIT..." : t('button.signup')}
 						classNames='Signup-Signup-button'
 						onClick={doSignup}
 					/>
