@@ -56,7 +56,8 @@ function SetAddressAndPay() {
     const [address, setAddress] = useState(defaultAddress);
     const [deliveryCost, setDeliveryCost] = useState(0);
     const [totalCost, setTotalCost] = useState(totalOfSubtotals);
-    const [calculatingDeliveryCost, ] = useState(false)
+    const [calculatingDeliveryCost, ] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
     // const calcultaeDCost = async (zipOrCep) => {
 	// 	await getDelieveryCostByZipCodeForOrdersAPI({ zipOrCep }).then(res => {
@@ -82,6 +83,8 @@ function SetAddressAndPay() {
 	}
 
     const onSaveAndContinue = async () => {
+        if(isLoading) return; 
+
         if(!address.pincode || address.pincode.length<5){
             toast.error(t("errors.cep_or_pincode"));
             return;
@@ -111,6 +114,7 @@ function SetAddressAndPay() {
             return;
         }
 
+        setIsLoading(true);
         await saveAddressAndContinueOrderAPI(address, orderId).then(res=>{
             if(res.data.status === "success"){
                 navigate(fullPathToRedirect);
@@ -118,6 +122,7 @@ function SetAddressAndPay() {
                 toast.error(res.data.error[language]);
             }
         }).catch(err=>toast.error(err.message));
+        setIsLoading(false);
     }
 
     const onCancel = async () => {
@@ -228,7 +233,7 @@ function SetAddressAndPay() {
             </div>
 
             <div className='SetAddressAndPay-address-div'>
-                <p className='user-submit-button1 SetAddressAndPay-submitBtn' onClick={onSaveAndContinue}>{t("submitBtn")}</p>
+                <p className='user-submit-button1 SetAddressAndPay-submitBtn' onClick={onSaveAndContinue}>{isLoading ?"....WAIT...." : t("submitBtn")}</p>
                 <div className='SetAddressAndPay-cancel-div'>
                     <p className='user-submit-button1 SetAddressAndPay-cancelBtn-left' onClick={onCancel}>{t("cancelBtn")}</p>
                     <p className='user-submit-button1 SetAddressAndPay-cancelBtn-right' onClick={onEdit}>{t("editBtn")}</p>
