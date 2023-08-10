@@ -24,7 +24,7 @@ function RazorPayGateway() {
 
   const handlePayment = useCallback(async () => {
     let order;
-    let address;
+    // let address;
     let rid;
     let storeColor;
     let storeName;
@@ -37,7 +37,7 @@ function RazorPayGateway() {
     await creatingRazOrderPaymentDetailsByIdApi(storeId).then(res=>{
       if(res.data.status==="success"){
         order = res.data.order;
-        address = res.data.address;
+        // address = res.data.address;
         rid = res.data.rid;
         storeColor = res.data.storeColor;
         storeName= res.data.storeName;
@@ -66,6 +66,7 @@ function RazorPayGateway() {
       image: storeLogo,
       order_id: order.id,
       handler: async (res) => {
+        setAmountPaid(true);
         await completeOrderByIdApi(res, storeId, orderidInDb ).then(res=>{
           if(res.data.status==="success"){
             toast.success(res.data.message[language]);
@@ -88,12 +89,14 @@ function RazorPayGateway() {
       const rzpay = new Razorpay(options);
       rzpay.open();
     }
+    // eslint-disable-next-line
   }, [Razorpay]);
 
   useEffect(() => {
     if (isLoaded) {
       handlePayment();
     }
+    // eslint-disable-next-line
   }, [isLoaded, handlePayment]);
 
   useEffect(() => {
@@ -102,7 +105,8 @@ function RazorPayGateway() {
         }
         setTimeout(()=>{
           setShowBtn(true)
-        },4000)
+        },3000);
+        // eslint-disable-next-line
     }, [location.pathname])
 
 
