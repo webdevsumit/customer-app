@@ -156,11 +156,6 @@ export const router = createBrowserRouter([
                                 element: <SetAddressAndPay />,
                                 loader: SetAddressAndPayLoader,
                             },
-                            // {
-                            //     path: "/:storeId/bag/:orderId/IndiaPayment",
-                            //     element: <PaytmCheckout />,
-                            //     // loader: SetAddressAndPayLoader,
-                            // },
                             {
                                 path: "/:storeId/bag/:orderId/RazorPayGateway",
                                 element: <RazorPayGateway />,
@@ -181,11 +176,6 @@ export const router = createBrowserRouter([
                                 element: <UserAccount />,
                                 loader: UserAccountLoader,
                             },
-                            // {
-                            //     path: "/:storeId/menu/general-settings",
-                            //     element: <GlobalSettings />,
-                            //     loader: GlobalSettingsLoader,
-                            // },
                             {
                                 path: "/:storeId/menu/previous-orders",
                                 element: <Outlet />,

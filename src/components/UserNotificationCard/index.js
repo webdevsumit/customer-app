@@ -11,7 +11,6 @@ const language = !!localStorage.getItem("lng") ? localStorage.getItem("lng") : "
 
 function UserNotificationCard({
     notification,
-    onStore=false
 }) {
 
     const [noti, setNoti] = useState(notification);
@@ -32,7 +31,7 @@ function UserNotificationCard({
     }
 
     return (
-        <div className='UserNotificationCard' style={{backgroundColor: `${onStore? 'var(--store-primary)': 'var(--user-primary)'}`}}>
+        <div className='UserNotificationCard' style={{backgroundColor: `${'var(--user-primary)'}`}}>
             <div className='UserNotificationCard-inner'>
                 <div className='UserNotificationCard-text-div' onClick={()=>setExpandBox(true)} >
                     <p className='UserNotificationCard-text-date' >{moment(noti.date).format(`${currentStoreDateFormat} hh:mm a`)}</p>

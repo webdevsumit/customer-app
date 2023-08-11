@@ -2,16 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { bottomScrollGapInPixels } from '../../actions/variables';
-import { getStoreNotificationsAPI, getUserNotificationsAPI } from '../../apis/common';
+import { getUserNotificationsAPI } from '../../apis/common';
 import UserNotificationCard from '../UserNotificationCard';
 import './style.css';
+import PullToRefresh from 'react-simple-pull-to-refresh';
 
 
 var globelCaughtAll = false;
 var globelPendingCall = false;
 var globalPageNum = 1;
 
-function UserNotifications({onStore=false}) {
+function UserNotifications() {
 
     const [t,] = useTranslation('exploreStores');
     const [notifications, setNotifications] = useState([]);
@@ -23,17 +24,6 @@ function UserNotifications({onStore=false}) {
     const fetchNotifications = async () => {
 		setPendingCall(true);
 		await getUserNotificationsAPI(globalPageNum).then(res => {
-			if (res.data.status === 'success') {
-				setNotifications(renderedNotifications => [...renderedNotifications, ...res.data.notifications]);
-				setCaughtAll(res.data.caughtAll);
-				setTotalNotifications(res.data.notifications_count);
-			}
-		}).catch(err => toast.error(err.message));
-		setPendingCall(false);
-	}
-    const fetchStoreNotifications = async () => {
-		setPendingCall(true);
-		await getStoreNotificationsAPI(globalPageNum).then(res => {
 			if (res.data.status === 'success') {
 				setNotifications(renderedNotifications => [...renderedNotifications, ...res.data.notifications]);
 				setCaughtAll(res.data.caughtAll);
@@ -77,16 +67,26 @@ function UserNotifications({onStore=false}) {
 
 	useEffect(() => {
 		globalPageNum = page;
-		if(onStore) fetchStoreNotifications();
-		else fetchNotifications();
+		fetchNotifications();
 		// eslint-disable-next-line
 	}, [page])
 
+	const handleRefresh = async () => {
+        let lastPage = page;
+        setNotifications([]);
+        setPage(1);
+        if(lastPage===1){
+            fetchNotifications();
+        }
+    }
+
     return (
         <div id='allUserNotifications_element' >
-            <h4 className={onStore?'StorePreviousOrders-TotalresultNum':'ExploreStores-TotalresultNum'}>{t("totol-results")} {totalNotifications}</h4>
-			{notifications.map((notification, i) => <UserNotificationCard onStore={onStore} key={i} notification={notification} />)}
-			{!caughtAll && <><div className='ExploreStores-Loading-more'><p>{t("loading")}</p></div></>}
+            <h4 className={'ExploreStores-TotalresultNum'}>{t("totol-results")} {totalNotifications}</h4>
+			<PullToRefresh onRefresh={handleRefresh}>
+				{notifications.map((notification, i) => <UserNotificationCard key={i} notification={notification} />)}
+				{!caughtAll && <><div className='ExploreStores-Loading-more'><p>{t("loading")}</p></div></>}
+			</PullToRefresh>
 		</div>
     )
 }

@@ -5,6 +5,7 @@ import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import { bottomScrollGapInPixels } from '../../actions/variables';
 import { getProductsForStoreViewByIdAPI, getProductsForStoreViewByIdAndSearchAPI } from '../../apis/common';
 import ListImageViewProduct from '../ListImageViewProduct';
+import PullToRefresh from 'react-simple-pull-to-refresh';
 import './style.css';
 import { useSelector } from 'react-redux';
 
@@ -16,33 +17,33 @@ var globelCaughtAll = false;
 var globelPendingCall = false;
 var globalPageNum = 1;
 
-function StoreViewForUser({ fromSearch=false }) {
+function StoreViewForUser({ fromSearch = false }) {
     const { storeId } = useLoaderData();
-    const [t, ] = useTranslation('exploreStores');
+    const [t,] = useTranslation('exploreStores');
     const navigate = useNavigate();
 
-	const [products, setProducts] = useState([]);
-	const [page, setPage] = useState(globalPageNum);
-	const [caughtAll, setCaughtAll] = useState(globelCaughtAll);
-	const [totalProducts, setTotalProducts] = useState(0);
-	const [pendingCall, setPendingCall] = useState(globelPendingCall);
+    const [products, setProducts] = useState([]);
+    const [page, setPage] = useState(globalPageNum);
+    const [caughtAll, setCaughtAll] = useState(globelCaughtAll);
+    const [totalProducts, setTotalProducts] = useState(0);
+    const [pendingCall, setPendingCall] = useState(globelPendingCall);
 
-    let { searchedText } = useSelector(state=>state.navbar);
-    if(!searchedText) searchedText = localStorage.getItem("searchedText");
-    if(!searchedText && fromSearch) navigate(`/${storeId}/search`);
+    let { searchedText } = useSelector(state => state.navbar);
+    if (!searchedText) searchedText = localStorage.getItem("searchedText");
+    if (!searchedText && fromSearch) navigate(`/${storeId}/search`);
 
     const productsAPIToCall = fromSearch ? getProductsForStoreViewByIdAndSearchAPI : getProductsForStoreViewByIdAPI;
-	const fetchProducts = async () => {
-		setPendingCall(true);
-		await productsAPIToCall(storeId, globalPageNum, "LIST", {searchedText}).then(res => {
+    const fetchProducts = async () => {
+        setPendingCall(true);
+        await productsAPIToCall(storeId, globalPageNum, "LIST", { searchedText }).then(res => {
             setProducts(renderedProducts => [...renderedProducts, ...res.data.products]);
             setCaughtAll(res.data.caughtAll);
             setTotalProducts(res.data.products_count);
-		}).catch(err => toast.error(err.message));
-		setPendingCall(false);
-	}
-	
-	const isBottom = (el) => {
+        }).catch(err => toast.error(err.message));
+        setPendingCall(false);
+    }
+
+    const isBottom = (el) => {
         return window.innerHeight - el.getBoundingClientRect().bottom >= -bottomScrollGapInPixels;
     }
 
@@ -53,28 +54,37 @@ function StoreViewForUser({ fromSearch=false }) {
         }
     };
 
-	useEffect(() => {
-		document.addEventListener('scroll', trackScrolling);
-		return(()=>{
-			document.removeEventListener('scroll', trackScrolling);
+    useEffect(() => {
+        document.addEventListener('scroll', trackScrolling);
+        return (() => {
+            document.removeEventListener('scroll', trackScrolling);
             globelCaughtAll = false;
             globelPendingCall = false;
             globalPageNum = 1;
-		})
-		// eslint-disable-next-line
-	}, []);
+        })
+        // eslint-disable-next-line
+    }, []);
 
-	useEffect(() => {
+    useEffect(() => {
         globelCaughtAll = caughtAll;
         globelPendingCall = pendingCall;
         // eslint-disable-next-line
     }, [caughtAll, pendingCall])
 
-	useEffect(() => {
-		globalPageNum = page;
+    useEffect(() => {
+        globalPageNum = page;
         fetchProducts();
         // eslint-disable-next-line
     }, [page])
+
+    const handleRefresh = async () => {
+        let lastPage = page;
+        setProducts([]);
+        setPage(1);
+        if(lastPage===1){
+            fetchProducts();
+        }
+    }
 
     return (
         <div className='StoreViewForUser'>
@@ -83,19 +93,22 @@ function StoreViewForUser({ fromSearch=false }) {
                     {t("totol-results")} {totalProducts}
                     {fromSearch && <p className='StoreViewForUser-searchedTextP'>Q: <i>{searchedText}</i></p>}
                 </h4>
-				<Link to={`/${storeId}${fromSearch ? "/search" : ""}/grid`} className='StoreViewForUser-view-wrapper' >
-					<img src='/assets/icons/svgs/gridWhite.svg' alt='Filter' />
-				</Link>
+                <Link to={`/${storeId}${fromSearch ? "/search" : ""}/grid`} className='StoreViewForUser-view-wrapper' >
+                    <img src='/assets/icons/svgs/gridWhite.svg' alt='Filter' />
+                </Link>
             </div>
-            <div id='allStoresProductsInList_element'>
-				<div className='StoreViewForUser-gridView'>
-					{products.map((product, index)=><ListImageViewProduct 
-                        key={index} 
-                        product={product}
-                    />)}
-				</div>
-            </div>
-            {!caughtAll && <><div className='StoreViewForUser-Loading-more'><p>{t("loading")}</p></div></>}
+
+            <PullToRefresh onRefresh={handleRefresh}>
+                <div id='allStoresProductsInList_element'>
+                    <div className='StoreViewForUser-gridView'>
+                        {products.map((product, index) => <ListImageViewProduct
+                            key={index}
+                            product={product}
+                        />)}
+                    </div>
+                </div>
+                {!caughtAll && <><div className='StoreViewForUser-Loading-more'><p>{t("loading")}</p></div></>}
+            </PullToRefresh>
         </div>
     )
 }

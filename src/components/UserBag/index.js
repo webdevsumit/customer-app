@@ -8,6 +8,7 @@ import { getProductsInUsersBagAPI, removeProductFromBagProductByIdAPI, setQuanti
 // import NormalSelect from '../commons/NormalSelect';
 import UserBagCard from '../UserBagCard';
 import './style.css';
+import PullToRefresh from 'react-simple-pull-to-refresh';
 
 const language = !!localStorage.getItem("lng") ? localStorage.getItem("lng") : "en";
 
@@ -22,7 +23,7 @@ function UserBag() {
 
 	const navigate = useNavigate();
 	const [t,] = useTranslation('userBag');
-	
+
 	const [products, setProducts] = useState([]);
 	const [page, setPage] = useState(globalPageNum);
 	const [caughtAll, setCaughtAll] = useState(globelCaughtAll);
@@ -86,7 +87,7 @@ function UserBag() {
 				setTotalProducts(res.data.products_count);
 				setSubTotalCost(res.data.total);
 				setTotalCost(res.data.total);
-				if(res.data.is_checkedout){
+				if (res.data.is_checkedout) {
 					navigate(`/${res.data.storeId}/bag/${res.data.orderId}/addressAndPay`);
 				}
 			} else toast.error(res.data.error[language]);
@@ -128,7 +129,7 @@ function UserBag() {
 
 	useEffect(() => {
 		globalPageNum = page;
-		if (!globelCaughtAll) 
+		if (!globelCaughtAll)
 			fetchProducts();
 		// eslint-disable-next-line
 	}, [page])
@@ -136,16 +137,16 @@ function UserBag() {
 	const changeQuantity = async (id, quantity) => {
 		await setQuantityByProductsInUsersBagIdAPI(id, quantity).then(res => {
 			if (res.data.status === "success") {
-				onZipOrCepChange({target: {value: ""}});
+				onZipOrCepChange({ target: { value: "" } });
 				toast.success(t("quantityChanged"));
 				let quantityToChange = res.data.quantity;
 				setProducts(renderedProducts => [
-					...renderedProducts.filter(prd=>prd.id!==id), 
+					...renderedProducts.filter(prd => prd.id !== id),
 					{
-						...renderedProducts.filter(prd=>prd.id===id)[0], 
+						...renderedProducts.filter(prd => prd.id === id)[0],
 						quantity: quantityToChange,
 						product: {
-							...renderedProducts.filter(prd=>prd.id===id)[0].product,
+							...renderedProducts.filter(prd => prd.id === id)[0].product,
 							quantity: res.data.maxQuantity
 						}
 					}
@@ -176,7 +177,7 @@ function UserBag() {
 	}
 
 	const onCheckOut = async () => {
-		if(deliveryType==="with-delivery" && !deliveryZipOrCep){
+		if (deliveryType === "with-delivery" && !deliveryZipOrCep) {
 			toast.error(t("emptyZipcode"));
 			return;
 		}
@@ -196,51 +197,62 @@ function UserBag() {
 		setIsCheckoutLoading(false);
 	}
 
+	const handleRefresh = async () => {
+		let lastPage = page;
+		setProducts([]);
+		setPage(1);
+		if (lastPage === 1) {
+			fetchProducts();
+		}
+	}
+
 	return (
 		<div className='UserBag' id='allBagProducts_element'>
 			<h4 className='ExploreStores-TotalresultNum'>{t("totol-results")} {totalProducts}</h4>
-			{products.map((product, i) => <UserBagCard key={i} product={product} changeQuantity={changeQuantity} removeProductFromList={removeProductFromList} />)}
-			{(!caughtAll) && <><div className='ExploreStores-Loading-more'><p>{t("loading")}</p></div></>}
-			{(products.length > 0) ? <>
-				<div className='UserBag-total-div'>
-					<div className='UserBag-total-div-container'>
-						<p>{t("subtotal")}</p>
-						<p>{currentStoreCurrency}: {currencyConverter((subTotalCost) / 100, currentStoreCurrency)}</p>
-					</div>
-					<div className='UserBag-total-div-container'>
-						<p>Delivery Cost</p>
-						{/* <div className='UserBag-distance-options'>
+			<PullToRefresh onRefresh={handleRefresh}>
+				{products.map((product, i) => <UserBagCard key={i} product={product} changeQuantity={changeQuantity} removeProductFromList={removeProductFromList} />)}
+				{(!caughtAll) && <><div className='ExploreStores-Loading-more'><p>{t("loading")}</p></div></>}
+				{(products.length > 0) ? <>
+					<div className='UserBag-total-div'>
+						<div className='UserBag-total-div-container'>
+							<p>{t("subtotal")}</p>
+							<p>{currentStoreCurrency}: {currencyConverter((subTotalCost) / 100, currentStoreCurrency)}</p>
+						</div>
+						<div className='UserBag-total-div-container'>
+							<p>Delivery Cost</p>
+							{/* <div className='UserBag-distance-options'>
 							<NormalSelect options={distanceOptions} value={deliveryType} onChange={onDeliveryTypeChange} placeholder={t("selectPlaceholder")} />
 						</div> */}
-						<div className='UserBag-distance-options'>
-							{deliveryType === "with-delivery" &&
-								<input placeholder={t('placeholder.zipOrCep')} value={deliveryZipOrCep} onChange={onZipOrCepChange} />
+							<div className='UserBag-distance-options'>
+								{deliveryType === "with-delivery" &&
+									<input placeholder={t('placeholder.zipOrCep')} value={deliveryZipOrCep} onChange={onZipOrCepChange} />
+								}
+							</div>
+							{
+								calculatingDeliveryCost ?
+									<p>{currentStoreCurrency}: {t("calculating")}</p>
+									:
+									<p>{currentStoreCurrency}: {currencyConverter((deliveryCost) / 100, currentStoreCurrency)}</p>
 							}
 						</div>
-						{
-							calculatingDeliveryCost ?
-								<p>{currentStoreCurrency}: {t("calculating")}</p>
+						<div className='UserBag-total-div-container'>
+							<p>{t("total")}</p>
+							<p>{currentStoreCurrency}: {currencyConverter((totalCost) / 100, currentStoreCurrency)}</p>
+						</div>
+						<div className='UserBag-btn-div'>
+							{isCheckoutLoading ?
+								<p className='user-submit-button1'>{t("checkingoutBtn")}</p>
 								:
-								<p>{currentStoreCurrency}: {currencyConverter((deliveryCost)  / 100, currentStoreCurrency)}</p>
-						}
+								<p className='user-submit-button1' onClick={onCheckOut}>{t("checkoutBtn")}</p>
+							}
+						</div>
 					</div>
+				</> : <>
 					<div className='UserBag-total-div-container'>
-						<p>{t("total")}</p>
-						<p>{currentStoreCurrency}: {currencyConverter((totalCost) / 100, currentStoreCurrency)}</p>
+						<p>{t("emptyBagMessage")}</p>
 					</div>
-					<div className='UserBag-btn-div'>
-						{isCheckoutLoading ?
-							<p className='user-submit-button1'>{t("checkingoutBtn")}</p>
-							:
-							<p className='user-submit-button1' onClick={onCheckOut}>{t("checkoutBtn")}</p>
-						}
-					</div>
-				</div>
-			</> : <>
-				<div className='UserBag-total-div-container'>
-					<p>{t("emptyBagMessage")}</p>
-				</div>
-			</>}
+				</>}
+			</PullToRefresh>
 		</div>
 	)
 }

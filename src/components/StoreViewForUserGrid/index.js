@@ -7,6 +7,7 @@ import { getProductsForStoreViewByIdAPI, getProductsForStoreViewByIdAndSearchAPI
 import GridImageViewProduct from '../GridImageViewProduct';
 import './style.css';
 import { useSelector } from 'react-redux';
+import PullToRefresh from 'react-simple-pull-to-refresh';
 
 export const loader = async ({ params }) => {
     return { 'storeId': params.storeId };
@@ -82,6 +83,15 @@ function StoreViewForUserGrid({ fromSearch=false }) {
         // eslint-disable-next-line
     }, [page])
 
+    const handleRefresh = async () => {
+        let lastPage = page;
+        setProducts([]);
+        setPage(1);
+        if(lastPage===1){
+            fetchProducts();
+        }
+    }
+
     return (
         <div className='StoreViewForUserGrid'>
             <div>
@@ -93,12 +103,15 @@ function StoreViewForUserGrid({ fromSearch=false }) {
 					<img src='/assets/icons/svgs/listWhite.svg' alt='Filter' />
 				</Link>
             </div>
-            <div id='allMyFavStoresProductsInGrid_element'>
-				<div className='StoreViewForUserGrid-gridView'>
-					{products.map((product, index)=><GridImageViewProduct key={index} product={product} />)}
-				</div>
-            </div>
-            {!caughtAll && <><div className='StoreViewForUserGrid-Loading-more'><p>{t("loading")}</p></div></>}
+
+            <PullToRefresh onRefresh={handleRefresh}>
+                <div id='allMyFavStoresProductsInGrid_element'>
+                    <div className='StoreViewForUserGrid-gridView'>
+                        {products.map((product, index)=><GridImageViewProduct key={index} product={product} />)}
+                    </div>
+                </div>
+                {!caughtAll && <><div className='StoreViewForUserGrid-Loading-more'><p>{t("loading")}</p></div></>}
+            </PullToRefresh>
             <Outlet />
         </div>
     )
