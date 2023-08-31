@@ -19,7 +19,7 @@ export const loader = async ({ params }) => {
         }else toast.error(res.data.error[language]);
     }).catch(err=>toast.error(err.message));
     if(!!data) return {"loadedData": data};
-    return redirect('/');
+    return redirect(`/${params.storeId}/list`);
 }
 
 function OrderDetails() {
