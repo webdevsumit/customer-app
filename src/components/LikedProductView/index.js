@@ -1,23 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { redirect, useLoaderData } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 import { bottomScrollGapInPixels } from '../../actions/variables';
-import { getUserLikedProductsAPI, getUserProfileIdAPI } from '../../apis/common';
-import { getProductsForTictagStoreViewByIdAPI } from '../../apis/tictag';
+import { getLikedProductsAPI } from '../../apis/common';
 import ListImageViewProduct from '../ListImageViewProduct';
 import './style.css';
 
 
-export const loader = async () => {
-    let userProfileId = null;
-    await getUserProfileIdAPI().then(res=>{
-        userProfileId = res.data.userProfileId;
-    }).catch(err => toast.error(err.message));
-    if(!!userProfileId){
-        return { userProfileId };
-    }
-    return redirect("/explore/stores");
+export const loader = async ({ params }) => {
+    return {storeId: params.storeId};
 }
 
 var globelCaughtAll = false;
@@ -25,8 +17,8 @@ var globelPendingCall = false;
 var globalPageNum = 1;
 
 function LikedProductView() {
-    const { userProfileId } = useLoaderData();
     const [t, ] = useTranslation('exploreStores');
+    const {storeId} = useLoaderData();
 
 	const [products, setProducts] = useState([]);
 	const [page, setPage] = useState(globalPageNum);
@@ -36,19 +28,7 @@ function LikedProductView() {
 
 	const fetchProducts = async () => {
 		setPendingCall(true);
-		await getUserLikedProductsAPI(globalPageNum).then(res => {
-			if (res.data.status === 'success') {
-				setProducts(renderedProducts => [...renderedProducts, ...res.data.products]);
-				setCaughtAll(res.data.caughtAll);
-				setTotalProducts(res.data.products_count);
-			}
-		}).catch(err => toast.error(err.message));
-		setPendingCall(false);
-	}
-
-	const fetchProductsFromTictag = async () => {
-		setPendingCall(true);
-		await getProductsForTictagStoreViewByIdAPI(globalPageNum, userProfileId).then(res => {
+		await getLikedProductsAPI(storeId, globalPageNum).then(res => {
 			if (res.data.status === 'success') {
 				setProducts(renderedProducts => [...renderedProducts, ...res.data.products]);
 				setCaughtAll(res.data.caughtAll);
@@ -91,11 +71,7 @@ function LikedProductView() {
 
 	useEffect(() => {
 		globalPageNum = page;
-        if(storeDetails.isIntegratedAndManagedByTictag){
-            fetchProductsFromTictag();
-        }else{
-            fetchProducts();
-        }
+        fetchProducts();
         // eslint-disable-next-line
     }, [page])
 
@@ -108,10 +84,7 @@ function LikedProductView() {
 				<div className='LikedProductView-gridView'>
 					{products.map((product, index)=><ListImageViewProduct 
                         key={index} 
-                        product={product} 
-                        isCurrentStoreManagedByTicTag={storeDetails.isIntegratedAndManagedByTictag}
-                        currentUserProfileId={storeDetails.userProfileId}
-                        currentStoreInfoId={storeDetails.storeInfoIdOnTicTag}
+                        product={product}
                     />)}
 				</div>
             </div>

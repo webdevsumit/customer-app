@@ -211,7 +211,7 @@ export async function getProductDetailsByIdAPI(productId) {
     });
 }
 
-export async function getUserNotificationsAPI({page=1}) {
+export async function getUserNotificationsAPI(page=1) {
     return await new Promise(async (onResolve, onReject) => {
         await axios.get(
             `${baseUrl}customer_app/${localStorage.getItem("storeId")}/getUserNotifications/?page=${page}&recordsPerPage=10`,
@@ -245,7 +245,7 @@ export async function markNotificationsAsReadAPI(notificationId) {
     });
 }
 
-export async function getProductsInUsersBagAPI({page=1}) {
+export async function getProductsInUsersBagAPI(page=1) {
     return await new Promise(async (onResolve, onReject) => {
         await axios.get(
             `${baseUrl}customer_app/${localStorage.getItem("storeId")}/getProductsInUsersBag/?page=${page}&recordsPerPage=10`,
@@ -435,7 +435,7 @@ export async function updateUserAccountSettingsApi(payloads) {
     });
 }
 
-export async function getUsersPreviousOrdersAPI({page=1}) {
+export async function getUsersPreviousOrdersAPI(page=1) {
     return await new Promise(async (onResolve, onReject) => {
         await axios.get(
             `${baseUrl}customer_app/${localStorage.getItem("storeId")}/getUsersPreviousOrders/?page=${page}&recordsPerPage=10`,
@@ -522,6 +522,40 @@ export async function completeOrderByIdApi(payloads, storeId, orderId) {
     });
 }
 
+export async function likeDislikeProductByIdApi(storeId, productId) {
+    return await new Promise(async (onResolve, onReject) => {
+        await axios.get(
+            `${baseUrl}customer_app/${storeId}/likeDislikeProductById/${productId}/`,
+            {
+                headers: {
+                    'Content-Type': "application/json",
+                    'Accept': "application/json",
+                    'Authorization': `Token ${localStorage.getItem("token")}`
+                }
+            }
+        )
+            .then(res => onResolve(res))
+            .catch(err => onReject(err));
+    });
+}
+
+export async function getLikedProductsAPI(storeId, page=1) {
+    return await new Promise(async (onResolve, onReject) => {
+        await axios.get(
+            `${baseUrl}customer_app/${storeId}/getLikedProducts/?page=${page}&recordsPerPage=10`,
+            {
+                headers: {
+                    'Content-Type': "application/json",
+                    'Accept': "application/json",
+                    'Authorization': `Token ${localStorage.getItem("token")}`
+                }
+            }
+        )
+            .then(res => onResolve(res))
+            .catch(err => onReject(err));
+    });
+}
+
 // Here we are
 
 export async function getNumberOfExploredStoresAPI() {
@@ -541,7 +575,7 @@ export async function getNumberOfExploredStoresAPI() {
     });
 }
 
-export async function getFavStoresByUserAPI({page=1}) {
+export async function getFavStoresByUserAPI(page=1) {
     return await new Promise(async (onResolve, onReject) => {
         await axios.get(
             `${baseUrl}account/getFavStoresByUser?page=${page}&recordsPerPage=10`,
@@ -558,7 +592,7 @@ export async function getFavStoresByUserAPI({page=1}) {
     });
 }
 
-export async function getAllStoresByUserAPI({page=1}) {
+export async function getAllStoresByUserAPI(page=1) {
     return await new Promise(async (onResolve, onReject) => {
         await axios.get(
             `${baseUrl}account/getAllStoresByUser?page=${page}&recordsPerPage=10`,
@@ -1058,7 +1092,7 @@ export async function removeStoreFronFavByIdAPI(storeId) {
     });
 }
 
-export async function getStoreNotificationsAPI({page=1}) {
+export async function getStoreNotificationsAPI(page=1) {
     return await new Promise(async (onResolve, onReject) => {
         await axios.get(
             `${baseUrl}account/getStoreNotifications?page=${page}&recordsPerPage=10`,
@@ -1075,7 +1109,7 @@ export async function getStoreNotificationsAPI({page=1}) {
     });
 }
 
-export async function getStoresPreviousOrdersAPI({page=1}) {
+export async function getStoresPreviousOrdersAPI(page=1) {
     return await new Promise(async (onResolve, onReject) => {
         await axios.get(
             `${baseUrl}account/getStoresPreviousOrders?page=${page}&recordsPerPage=10`,

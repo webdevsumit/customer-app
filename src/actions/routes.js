@@ -15,6 +15,7 @@ import { loader as LandingLoader } from "./../pages/Landing";
 import { loader as OrderDetailsLoader } from "../components/OrderDetails";
 import { loader as CustomerCareLoader } from "./../pages/CustomerCare";
 import { loader as RazorPayGatewayLoader } from "../components/paymentPages/IndiaPayment/RazorPayGateway";
+import { loader as LikedProductViewLoader } from "../components/LikedProductView";
 // import { loader as GlobalSettingsLoader } from "../components/GlobalSettings";
 // import { loader as AllExploredStoresLoader } from "../components/AllExploredStores";
 // import { loader as StoreAuthLoader } from "../components/StoreAuth";
@@ -48,6 +49,7 @@ import OrderDetails from "../components/OrderDetails";
 import Search from "../components/Search";
 import CustomerCare from "./../pages/CustomerCare";
 import RazorPayGateway from "../components/paymentPages/IndiaPayment/RazorPayGateway";
+import LikedProductView from "../components/LikedProductView";
 // import GlobalSettings from "../components/GlobalSettings";
 // import GlobalLoader from './../components/commons/GlobalLoader'
 // import StoreAuth from "../components/StoreAuth";
@@ -170,6 +172,11 @@ export const router = createBrowserRouter([
                             {
                                 path: "/:storeId/menu",
                                 element: <UserMenu />,
+                            },
+                            {
+                                path: "/:storeId/menu/liked-products",
+                                element: <LikedProductView />,
+                                loader: LikedProductViewLoader,
                             },
                             {
                                 path: "/:storeId/menu/account-settings",

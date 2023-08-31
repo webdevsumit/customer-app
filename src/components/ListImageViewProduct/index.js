@@ -5,7 +5,7 @@ import { Slide } from 'react-slideshow-image';
 import { currencyConverter } from '../../actions/commons';
 import 'react-slideshow-image/dist/styles.css';
 import {
-    addToBagProductByIdAPI, 
+    addToBagProductByIdAPI, likeDislikeProductByIdApi, 
     // likeProductByIdAPI 
 } from '../../apis/common';
 import './style.css';
@@ -33,14 +33,12 @@ function ListImageViewProduct({
     let showSizeOnApp = localStorage.getItem('showSizeOnApp') === "show";
 
     const likeUnlike =  async () => {
-        toast.error("Under development feature.");
-        return;
-        // setProductObj({...productObj, likedByUser: !productObj.likedByUser })
-        // await likeProductByIdAPI(productObj.id).then(res=>{
-        //     if(res.data.status === "success"){
-        //         setProductObj({...productObj, likedByUser: res.data.liked })
-        //     }
-        // }).catch(err=>toast.error(err.message));
+        setProductObj({...productObj, likedByUser: !productObj.likedByUser })
+        await likeDislikeProductByIdApi(productObj.store_profile_id, productObj.id).then(res=>{
+            if(res.data.status === "success"){
+                setProductObj({...productObj, likedByUser: res.data.liked })
+            }
+        }).catch(err=>toast.error(err.message));
     } 
 
     const addAndRemoveFromBag =  async () => {
